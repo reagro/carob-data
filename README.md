@@ -1,4 +1,4 @@
-# CARIB-data
+# CAROB-data
 
 This is the source for the website at https://carob-data.org 
 
