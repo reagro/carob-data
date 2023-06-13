@@ -3,8 +3,7 @@
 Licenses
 ========
 
+Individual datasets come with their own licenses 
 
-Please check the licenses for individual datasets.
-
-`github <https://github.com/reagro/carob/>`_.
+Please check the licenses for individual datasets in file x .
 
