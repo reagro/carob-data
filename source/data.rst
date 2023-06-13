@@ -1,4 +1,4 @@
 Data
 ====
 
-Download and describe data
+Describe data

@@ -6,7 +6,7 @@ _build
 *.zip
 *.hdf
 *.gpkg
-
+source/txt
 doi_*
 hdl_*
 syncaws.bat
