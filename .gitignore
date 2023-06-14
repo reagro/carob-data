@@ -10,3 +10,5 @@ source/txt
 doi_*
 hdl_*
 syncaws.bat
+source/_R/gadm/
+source/_R/*.html
