@@ -1,4 +1,23 @@
+```{r setup, include=FALSE}
+datadir = "../../../carob/data/compiled"
+#datadir = "C:/github/reagro/carob/data/compiled"
+library(kableExtra)
+```
+
 # Data
 
 Describe data
+
+```{r groups, echo=FALSE}
+ff <- list.files(datadir, pattern="metadata.csv$", full=TRUE)
+groups <- gsub("_metadata.csv$", "", basename(ff))
+groups <- gsub("^carob-", "", groups)
+d <- lapply(ff, read.csv)
+n <- sapply(d, nrow)
+x <- data.frame(Group=groups, datasets=n)
+knitr::kable(x, caption="Datasets by group")
+#kableExtra::kbl(x) |> kable_classic(full_width = FALSE) |> kable_styling(bootstrap_options = c("striped", #"hover"))
+
+
+```
 

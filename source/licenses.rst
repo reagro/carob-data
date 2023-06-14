@@ -3,7 +3,8 @@
 Licenses
 ========
 
-Individual datasets come with their own licenses 
+Individual datasets come with their own licenses. 
 
-Please check the licenses for individual datasets in file x .
+You can check these in the "metadata" file. Please do not use data that has a license that prohibits your use.
+
 

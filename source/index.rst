@@ -11,7 +11,7 @@ You can `download <download.html>`_ the compiled data from this site, or re-gene
 
 
 .. image:: /_static/carob.png
-  :width: 150
+  :width: 125
   :alt: CAROB logo
   :target: https://github.com/reagro/carob
 

@@ -1,7 +1,7 @@
 Download
 ========
 
-Compile and download a *Carob* dataset
+Compile and download a *Carob* dataset. Currently only the "Response to fertilizer" dataset is made available here, but more will follow.
 
 .. raw:: html
     <embed>
@@ -13,7 +13,9 @@ Compile and download a *Carob* dataset
 	</select>
 	</br></br>
 	<input type="checkbox" id="license" name="license-box" value="license">
-	Accept <a href="licenses.html">licenses</a>
+	Accept <a href="licenses.html">licenses</a> </br>
+	<input type="checkbox" id="cclicense" name="cc-license-box" value="cclicense">
+	Creative Commons <a href="licenses.html">licensed</a> data only
 
 	</br></br>	
 	<button onclick = "make_link()">OK</button> 
@@ -36,7 +38,12 @@ Compile and download a *Carob* dataset
 			} else {
 				id.value=0;
 				id.setAttribute("hidden", "hidden");
-				var linktxt = '<a href="down.zip">Download data: '.concat(name);
+				if (document.getElementById('cclicense').checked) {
+					name = name.concat("-CC");
+				}
+				var linktxt = 'Download: <a href="https://geodata.ucdavis.edu/carob/carob-';
+				linktxt = linktxt.concat(name.toLowerCase()).concat('.zip">');
+				linktxt = linktxt.concat(name).concat('</a>');
 				document.getElementById("result").innerHTML = linktxt;
 			}
 		}
@@ -48,7 +55,6 @@ Compile and download a *Carob* dataset
 			var text = e.options[e.selectedIndex].text;
 			document.getElementById("result").innerHTML = "";
 			if (text == "") {
-				//document.getElementById("result").innerHTML = "1";
 				document.getElementById("result").innerHTML = "Not a valid dataset";
 			} else if (document.getElementById('license').checked) {
 				var pid = document.getElementById("progress"); 
@@ -64,7 +70,6 @@ Compile and download a *Carob* dataset
     </embed>
 
 
-
-Alternatively, you can also download the raw data, and process it, on your own computer by cloning the *Carob*
+Alternatively, you can also download the raw data, and process it on your own computer by cloning the *Carob*
 `repo <https://github.com/reagro/carob/>`_ 
 
