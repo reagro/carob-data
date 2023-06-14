@@ -53,16 +53,15 @@ geo <- do.call(rbind, lapply(1:length(dd), \(i) data.frame(Group=groups[i], dd[[
 geo <- na.omit(geo)
 geo <- geo[geo$longitude > -180, ]
 geo <- geo[geo$latitude < 60, ]
-
+v <- vect(geo, c("longitude", "latitude"), crs="+proj=longlat")
 
 plot(w, col=gray(.95), background="azure", ylim=c(-60,80), lwd=1.25)
-points(geo, col="red", cex=.4)
+points(v, col="red", cex=.4, pch=1)
 lines(w, col="light gray", lwd=.5)
 ``` 
 
 Interactive 
 
 ```{r plet, echo=FALSE, fig.height=4}
-v <- vect(geo, c("longitude", "latitude"), crs="+proj=longlat")
 plet(v, "Group", split=TRUE, alpha=.2, clusterOptions = markerClusterOptions())
 ```
