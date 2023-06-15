@@ -49,19 +49,23 @@ Here is a map with all locations for which we have at least one observation.
 
 ```{r map, echo=FALSE, fig.height=3.5}
 w <- world(path=".")
-geo <- do.call(rbind, lapply(1:length(dd), \(i) data.frame(Group=groups[i], dd[[i]][, c("longitude", "latitude")]))) |> unique()
+geo <- do.call(rbind, lapply(1:length(dd), \(i) data.frame(Group=groups[i], dd[[i]][, c("country", "longitude", "latitude")]))) |> unique()
 geo <- na.omit(geo)
 geo <- geo[geo$longitude > -180, ]
 geo <- geo[geo$latitude < 60, ]
 v <- vect(geo, c("longitude", "latitude"), crs="+proj=longlat")
+e <- extract(w, v)
+v$NAME_0 <- e$NAME_0
+v <- v[!is.na(v$NAME_0), ]
+v <- v[v$NAME_0 == v$country, ]
 
 plot(w, col=gray(.95), background="azure", ylim=c(-60,80), lwd=1.25)
-points(v, col="red", cex=.4, pch=1)
+plot(v, "Group", col=colorRampPalette(c("red", "orange", "blue"))(6), cex=.4, pch=1, add=TRUE, legend=TRUE, plg=list(x="bottomleft"))
 lines(w, col="light gray", lwd=.5)
 ``` 
 
 Interactive 
 
 ```{r plet, echo=FALSE, fig.height=4}
-plet(v, "Group", split=TRUE, alpha=.2, clusterOptions = markerClusterOptions())
+plet(v, "Group", split=TRUE, alpha=.2, clusterOptions=markerClusterOptions())
 ```
