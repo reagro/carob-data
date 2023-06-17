@@ -18,6 +18,13 @@ Compile and download a *Carob* dataset. Currently only the "Response to fertiliz
 	Creative Commons <a href="licenses.html">licensed</a> data only
 
 	</br></br>	
+   
+	<div><input type="radio" id="format_csv" name="format" value="csv" checked>.csv (Comma Separated Values)</div>
+	<div><input type="radio" id="format_xls" name="format" value="xls">.xlsx (Excel)</div>
+
+	</br>
+
+	
 	<button onclick = "make_link()">OK</button> 
 	<p> 
 	  <div id = "prog">
@@ -25,8 +32,7 @@ Compile and download a *Carob* dataset. Currently only the "Response to fertiliz
 	  </div>
       <div id = "result">&nbsp;</div> 
 	</p> 
-	
-	</br></br>
+	</br>
 
 	<script> 
 		function move(i, name) {
@@ -42,7 +48,11 @@ Compile and download a *Carob* dataset. Currently only the "Response to fertiliz
 					name = name.concat("-CC");
 				}
 				var linktxt = 'Download: <a href="https://geodata.ucdavis.edu/carob/carob-';
-				linktxt = linktxt.concat(name.toLowerCase()).concat('.zip">');
+				if (document.getElementById("format_csv").checked) {
+					linktxt = linktxt.concat(name.toLowerCase()).concat('.zip">');
+				} else {
+					linktxt = linktxt.concat(name.toLowerCase()).concat('.xlsx">');				
+				}
 				linktxt = linktxt.concat(name).concat('</a>');
 				document.getElementById("result").innerHTML = linktxt;
 			}
@@ -68,7 +78,6 @@ Compile and download a *Carob* dataset. Currently only the "Response to fertiliz
 	</script>
 	
     </embed>
-
 
 Alternatively, you can also download the raw data, and process it on your own computer by cloning the *Carob*
 `repo <https://github.com/reagro/carob/>`_ 

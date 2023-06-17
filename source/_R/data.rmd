@@ -2,37 +2,45 @@
 title: "&#32;"
 output: html_document
 editor_options: 
-  chunk_output_type: console
+  chunk_output_type: inline
 ---
 
 ```{r setup, include=FALSE}
-datadir = "../../../carob/data/compiled"
+carob_path = "../../../carob/"
+data_path = file.path(carob_path, "data/compiled")
+data_path2 = file.path(carob_path, "data")
+  
 library(kableExtra)
 library(terra)
 library(geodata)
 library(leaflet)
 ```
 
-The *Carob* data is aggregated into groups of similar data types. Below is a table with the current groups and the number of datasets and records in each group. We also show these numbers for the datasets that have a Creative Commons (CC) license.
+*Carob* aggregates data sets into groups. Below is a table with the current groups and the number of datasets and records in each group. We also show these numbers for the datasets that have a Creative Commons (CC) license.
 
 ```{r groups, echo=FALSE}
-ff <- list.files(datadir, pattern="metadata.csv$", full=TRUE)
-groups <- gsub("_metadata.csv$", "", basename(ff))
+ff <- list.files(data_path, pattern=".csv$", full=TRUE)
+ff <- ff[!grepl("carob_terms", ff)]
+f <- grep(ff, pattern="_metadata.csv$", value=TRUE)
+
+groups <- gsub("_metadata.csv$", "", basename(f))
 groups <- gsub("^carob-", "", groups)
-d <- lapply(ff, read.csv)
+
+d <- lapply(f, read.csv)
 n1 <- sapply(d, nrow)
 n2 <- sapply(d, \(i) sum(grepl("CC", i$license)))
 
-ff <- list.files(datadir, pattern=".csv$", full=TRUE)
-ff <- grep(ff, pattern="_metadata", invert=TRUE, value=TRUE)
-fall <- grep(ff, pattern="-CC", invert=TRUE, value=TRUE)
+f <- grep(ff, pattern="_metadata", invert=TRUE, value=TRUE)
+fall <- grep(f, pattern="-CC", invert=TRUE, value=TRUE)
+fcc <- grep(f, pattern="-CC", value=TRUE)
+
 dd <- lapply(fall, read.csv)
 nr1 <- sapply(dd, nrow)
-fcc <- grep(ff, pattern="-CC", value=TRUE)
 ddcc <- lapply(fcc, read.csv)
 nr2 <- sapply(ddcc, nrow)
 grp2 <- gsub("-CC.csv$", "", basename(fcc))
 grp2 <- gsub("^carob-", "", grp2)
+
 d <- data.frame(Group=grp2, `CC-Records`=nr2, check.names=FALSE)
 
 x <- data.frame(Group=groups, Datasets=n1, Records=nr1, `CC-Datasets`=n2, check.names=FALSE)
@@ -48,7 +56,7 @@ kableExtra::kbl(x) |> kable_classic(full_width = FALSE) |>
 Here is a map with all locations for which we have at least one observation.
 
 ```{r map, echo=FALSE, fig.height=3.5}
-w <- world(path=".")
+w <- world(path=data_path2)
 geo <- do.call(rbind, lapply(1:length(dd), \(i) data.frame(Group=groups[i], dd[[i]][, c("country", "longitude", "latitude")]))) |> unique()
 geo <- na.omit(geo)
 geo <- geo[geo$longitude > -180, ]
