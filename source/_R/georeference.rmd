@@ -1,0 +1,9 @@
+---
+title: "&#32;"
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+Georeferencing guidelines
+

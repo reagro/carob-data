@@ -1,0 +1,29 @@
+---
+title: "&#32;"
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+
+```{r setup, include=FALSE}
+carob_path = "../../../carob/"
+library(kableExtra)
+```
+
+
+To-do list
+
+```{r todo, echo=FALSE}
+#x <- read.csv(file.path(carob_path, "todo_datasets.csv"))
+x = read.csv(file.path(carob_path, "todo.tab"), sep="\t")
+
+x <- x[x$in_carob != "TRUE", ]
+x <- x[, c("uri", "title", "crop", "country", "provider")]
+uri <- gsub("https://doi.org/", "", x$uri)
+x$uri <- paste0('<a href="', x$uri, '">', uri,'</a>')
+DT::datatable(x, escape=F)
+#kableExtra::kbl(x) |> kable_classic(full_width = FALSE) |>
+#   kable_styling(bootstrap_options = c("striped", "hover"))
+```
+

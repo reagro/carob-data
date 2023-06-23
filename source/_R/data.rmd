@@ -5,8 +5,10 @@ editor_options:
   chunk_output_type: inline
 ---
 
+
 ```{r setup, include=FALSE}
 carob_path = "../../../carob/"
+
 data_path = file.path(carob_path, "data/compiled")
 data_path2 = file.path(carob_path, "data")
   
@@ -16,37 +18,40 @@ library(geodata)
 library(leaflet)
 ```
 
-*Carob* aggregates data sets into groups. Below is a table with the current groups and the number of datasets and records in each group. We also show these numbers for the datasets that have a Creative Commons (CC) license.
-
 ```{r groups, echo=FALSE}
 ff <- list.files(data_path, pattern=".csv$", full=TRUE)
-ff <- ff[!grepl("carob_terms", ff)]
+ff <- ff[!grepl("_terms", ff)]
 f <- grep(ff, pattern="_metadata.csv$", value=TRUE)
 
 groups <- gsub("_metadata.csv$", "", basename(f))
-groups <- gsub("^carob-", "", groups)
+groups <- gsub("^carob_", "", groups)
 
 d <- lapply(f, read.csv)
 n1 <- sapply(d, nrow)
 n2 <- sapply(d, \(i) sum(grepl("CC", i$license)))
 
 f <- grep(ff, pattern="_metadata", invert=TRUE, value=TRUE)
-fall <- grep(f, pattern="-CC", invert=TRUE, value=TRUE)
-fcc <- grep(f, pattern="-CC", value=TRUE)
+fall <- grep(f, pattern="-cc", invert=TRUE, value=TRUE)
+fcc <- grep(f, pattern="-cc", value=TRUE)
 
 dd <- lapply(fall, read.csv)
 nr1 <- sapply(dd, nrow)
 ddcc <- lapply(fcc, read.csv)
 nr2 <- sapply(ddcc, nrow)
-grp2 <- gsub("-CC.csv$", "", basename(fcc))
-grp2 <- gsub("^carob-", "", grp2)
+grp2 <- gsub("-cc.csv$", "", basename(fcc))
+grp2 <- gsub("^carob_", "", grp2)
 
 d <- data.frame(Group=grp2, `CC-Records`=nr2, check.names=FALSE)
 
 x <- data.frame(Group=groups, Datasets=n1, Records=nr1, `CC-Datasets`=n2, check.names=FALSE)
 x <- merge(x, d, by="Group", all.x=TRUE)
 x[is.na(x)] <- 0
+```
 
+*Carob* aggregates data sets into groups. Below is a table with the current groups and the number of datasets and records in each group. We also show these numbers for the datasets that have a Creative Commons (CC) [license](licenses.html). We have processed `r sum(x$Datasets)` data sets containing a total of `r sum(x$Records)` records.
+
+
+```{r grouptable, echo=FALSE}
 kableExtra::kbl(x) |> kable_classic(full_width = FALSE) |>
    kable_styling(bootstrap_options = c("striped", "hover"))
 ```
