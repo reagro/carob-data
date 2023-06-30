@@ -12,12 +12,13 @@ Also see our `to-do list <todo.html>`_ for ideas (and check our `done list <done
 The best way to contribute is to
 
 1. **fork** the *Carob* `repo <https://github.com/reagro/carob/>`_ to your github account. 
-2. **clone** the forked repo to your computer
-3. Add a new script, or make the changes to an existing script.
-3. **push** these changes to the forked repo on your github account.
-4. **sync** the forked repo with main repo in reagro/carob such that your fork is not behind.
-5. create a **pull request** to integrate your changes into the main repo.
+2. **clone** the forked repo to your computer.
+3. **install** `R` package "carobiner" with ``remotes::install_github("reagro/carobiner")``
+4. add a new `R` **script**, or make the changes to an existing script (follow the `guidelines <https://github.com/reagro/carob/wiki/Guidelines>`_).
+5. **check** your work by running ``carobiner::run_carob()`` for the new or changed `R` script.
+6. **push** these changes to the forked repo on your github account.
+7. **sync** the forked repo with main repo in reagro/carob such that your fork is not behind.
+8. create a **pull request** to integrate your changes into the main repo. Keep pull requests simple. Ideally, they should consist of only one file at at time. 
 
-Try to keep pull requests simple. Ideally, they should consist of only one file at at time.
+If this procedure is too complicated we can also interact with you in other ways. You can always drop us an email at carob.data@gmail.com, or raise an `issue <https://github.com/reagro/carob/issues>`_
 
-If this procedure is too complicated we can also interact with you in other ways. You can always drop us an email at  carob.data@gmail.com. 

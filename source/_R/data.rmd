@@ -48,8 +48,11 @@ x <- merge(x, d, by="Group", all.x=TRUE)
 x[is.na(x)] <- 0
 ```
 
-*Carob* aggregates data sets into groups. Below is a table with the current groups and the number of datasets and records in each group. We also show these numbers for the datasets that have a Creative Commons (CC) [license](licenses.html). We have processed `r sum(x$Datasets)` data sets containing a total of `r sum(x$Records)` records. You can also browse the [datasets](done.html) that we processed.
+*Carob* standardizes and aggregates published research data. The data are aggregated by groups that have similar variables. Below is a table with the current groups and the number of datasets and records in each group. the groups that end on "_trial" have multi-location variety trial data. We also show these numbers for the datasets that have a Creative Commons (CC) [license](licenses.html). 
 
+We have processed `r sum(x$Datasets)` data sets containing a total of `r format(sum(x$Records), big.mark=",")` records. You can also browse the [datasets](done.html) that we processed.
+
+<br>
 
 ```{r grouptable, echo=FALSE}
 kableExtra::kbl(x) |> kable_classic(full_width = FALSE) |>
@@ -77,7 +80,7 @@ plot(v, "Group", col=colorRampPalette(c("red", "orange", "blue"))(6), cex=.4, pc
 lines(w, col="light gray", lwd=.5)
 ``` 
 
-Interactive 
+And an interactive map.
 
 ```{r plet, echo=FALSE, fig.height=4}
 plet(v, "Group", split=TRUE, alpha=.2, clusterOptions=markerClusterOptions())
