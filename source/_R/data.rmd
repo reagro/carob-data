@@ -5,7 +5,6 @@ editor_options:
   chunk_output_type: inline
 ---
 
-
 ```{r setup, include=FALSE}
 carob_path = "../../../carob/"
 
@@ -48,7 +47,7 @@ x <- merge(x, d, by="Group", all.x=TRUE)
 x[is.na(x)] <- 0
 ```
 
-*Carob* aggregates data sets into groups. Below is a table with the current groups and the number of datasets and records in each group. We also show these numbers for the datasets that have a Creative Commons (CC) [license](licenses.html). We have processed `r sum(x$Datasets)` data sets containing a total of `r sum(x$Records)` records.
+*Carob* aggregates data sets into groups. Below is a table with the current groups and the number of datasets and records in each group. We also show these numbers for the datasets that have a Creative Commons (CC) [license](licenses.html). We have processed `r sum(x$Datasets)` data sets containing a total of `r sum(x$Records)` records. You can also browse the [datasets](done.html) that we processed.
 
 
 ```{r grouptable, echo=FALSE}

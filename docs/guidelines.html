@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guidelines &mdash; Carob</title>
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+<body class="wy-body-for-nav">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Carob
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div>
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a></li>
+</ul>
+        </div>
+      </div>
+    </nav>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" aria-label="top navigation">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Carob</a>
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content">
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Guidelines</li>
+      <li class="wy-breadcrumbs-aside">
+<!--             <a href="_sources/guidelines.R.txt" rel="nofollow"> View page source</a> -->
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="guidelines">
+<h1>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h1>
+<p>Here are some preliminary guidelines for contributors:</p>
+<ul class="simple">
+<li><p>To contribute to Carob you need to install the carobiner R package. You can do that with <cite>remotes::install_github(“reagro/carobiner”)</cite></p></li>
+<li><p>Anyone is welcome to contribute via a pull request. Before creating a pull request, make sure that your forked is synced, and that there are no conflicts.</p></li>
+<li><p>All original data should be downloaded from a URI. Data that does not have a URI should be hosted somewhere. We can host it on the <a class="reference external" href="https://dataverse.harvard.edu/dataverse/carob/">carob dataverse</a>. We can make exceptions for especially valuable datasets that cannot be (easily) downloaded directly.</p></li>
+<li><p>Each original dataset gets its own script. The script file should be <cite>&lt;uri&gt;.R</cite>  where &lt;<cite>uri</cite>&gt; is a normalized URI.</p></li>
+<li><p>Scripts and data are grouped by domain. Current groups include “fertilizer”, “crop_cuts”, “maize_trials”, “variety_trials” and “wheat_trials”.</p></li>
+<li><p>Carob scripts download and re-organize the data and save the cleaned data. See <a class="reference external" href="https://github.com/reagro/carob/blob/master/template.R">template.R</a> for the minimal structure.</p></li>
+<li><p>Test your script with <cite>carobiner::run_carob</cite>. This function checks the variable names and controlled vocabulary used, among other things. Fix any errors or warnings to the extent possible (without guessing things you do not know or suppressing warnings).</p></li>
+<li><p>You should use standard variable names if available, and express all data in standard units. See the <cite>.csv</cite> files in the <cite>terms</cite> folder.</p></li>
+<li><dl class="simple">
+<dt>R coding style:</dt><dd><ul>
+<li><p>We rely as much as we can on base R to keep code simple and dependencies low.</p></li>
+<li><p>While we may use some functions from e.g. <cite>dplyr</cite> and <cite>stringr</cite>, we otherwise avoid the tidyverse dialect.</p></li>
+<li><p>To make it easy to debug code, avoid or sparingly use <cite>|&gt;</cite>. Never use more than 2 in one statement.</p></li>
+<li><p>Avoid nesting function calls. Never nest more than 2 function calls.</p></li>
+<li><p>For example, instead of deeply nested <cite>ifelse</cite> calls, use <cite>match</cite> or <cite>merge</cite></p></li>
+<li><p>Comment your code. Comments start on the line above the code that is commented on (not on the same line)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>check character variables for spelling variations (use <cite>unique</cite> and <cite>table</cite>) and standardize. You can use <cite>carobiner::fix_name</cite> in some cases.</p></li>
+<li><p>make sure that variables that should be numeric are not stored as text</p></li>
+<li><p>some variables such as <cite>crop</cite> and <cite>fertilizer_type</cite> have controlled vocabularies that you need to use (or suggest adding additional terms). If there are multiple values (e.g. two crops or fertilizer types), separate these with a semi-colon and a space (; ).</p></li>
+<li><p>store dates as text after first creating dates (<cite>as.character(as.Date(x))</cite>) so that they are in a standard format</p></li>
+<li><dl class="simple">
+<dt>It is expected that there is variation between data sets; they do not all have the same variables. But all records should have</dt><dd><ul>
+<li><p>crop name</p></li>
+<li><p>crop yield</p></li>
+<li><p>location coordinates</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Do not simply guess values to make things work (e.g. because a value is required, or because it needs to match a vocabulary).</p></li>
+<li><p>If you get values from e.g. a related publication, or because of your reasoning, document that by commenting in the script.</p></li>
+<li><p>Carob is under active development. To stay current, you should frequently pull this repo and update the <cite>carobiner</cite> package.</p></li>
+<li><p>See our <a class="reference external" href="georeference.html">georeferencing</a> guide for suggestions on to check, correct, and add longitude/latitude coordinates.</p></li>
+</ul>
+</div>
+           </div>
+          </div>
+<footer>
+  <hr/>
+  <div role="contentinfo">
+    <p>
+    </p>
+  </div> 
+<p style="text-align:right;">
+<small>
+© 2023, the authors &nbsp;&nbsp;&mdash;&nbsp;&nbsp; <a href="https://github.com/reagro/carob-data">source</a>
+</small>
+</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+</body>
+</html>
