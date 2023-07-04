@@ -1,15 +1,14 @@
 Contribute
 ==========
 
-*Carob* is compiled by writing an R script for each individual dataset of interest. They are all available on the `github <https://github.com/reagro/carob/>`_ site.
-
-Anyone is invited to contribute new scripts or improve existing ones. See these preliminary
-`guidelines <https://github.com/reagro/carob/wiki/Guidelines>`_.
+*Carob* is an open-source community project that standardizes and aggregates agricultural research data.
+ 
+Anyone is invited to contribute to *Carob* by writing an `R` script for a dataset of interest, or by improving an existing script. All scripts are available on the `github <https://github.com/reagro/carob/>`_ site (in the ``scripts`` folder).
 
 A great place to discover new data sets is the `Gardian <https://gardian.bigdata.cgiar.org>`_ website.
-Also see our `to-do list <todo.html>`_ for ideas (and check our `done list <done.html>`_ to make sure you do not replicate what has already been done.
+Also see our `to-do list <todo.html>`_ for ideas (and check our `done list <done.html>`_ to make sure you do not replicate what has already been done).
 
-The best way to contribute is to
+The best approach to contributing is to follow these steps
 
 1. **fork** the *Carob* `repo <https://github.com/reagro/carob/>`_ to your github account. 
 2. **clone** the forked repo to your computer.
@@ -20,5 +19,5 @@ The best way to contribute is to
 7. **sync** the forked repo with main repo in reagro/carob such that your fork is not behind.
 8. create a **pull request** to integrate your changes into the main repo. Keep pull requests simple. Ideally, they should consist of only one file at at time. 
 
-If this procedure is too complicated we can also interact with you in other ways. You can always drop us an email at carob.data@gmail.com, or raise an `issue <https://github.com/reagro/carob/issues>`_
+If this procedure is too complicated we can also work with you in other ways. You can always drop us an email at carob.data@gmail.com, or raise an `issue <https://github.com/reagro/carob/issues>`_
 
