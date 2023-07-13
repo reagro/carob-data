@@ -1,8 +1,9 @@
 Download
 ========
 
-Compile and download a *Carob* dataset. Currently only the "Response to fertilizer" group is made available here, but more will follow. Note that here you can only download data that has a CC `license <licenses.html>`_. To compile all available data, you can download and process the sources yourself. See the *Carob* github `repo <https://github.com/reagro/carob/>`_ for instructions.
+Compile and download a *Carob* dataset. Currently only the "Response to fertilizer" group is made available here, but more will follow. Note that here you can only download data that has a CC `license <licenses.html>`_. To compile all available data, and get the lastest updates, you can download and process the sources yourself. See the *Carob* github `repo <https://github.com/reagro/carob/>`_ for instructions.
 
+Note that the data here are a rough first attempt. It will likely have some errors. We are aiming to have a set of much cleaner and better documented datasets available by the end of 2023.
 
 .. raw:: html
 
