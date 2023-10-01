@@ -17,7 +17,7 @@ This is our to-do list. Feel free to browse the list and pick a dataset you want
 
 ```{r todo, echo=FALSE}
 carobiner:::update_todo(carob_path)
-ftodo <- file.path(carob_path, "data", "to-do.csv")
+ftodo <- file.path(carob_path, "todo", "to-do.csv")
 x <- read.csv(ftodo)
 x <- x[, c("uri", "title", "crop", "country", "provider")]
 uri <- gsub("https://doi.org/", "doi:", x$uri)

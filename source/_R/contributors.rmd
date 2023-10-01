@@ -1,0 +1,52 @@
+---
+title: "&#32;"
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+
+```{r setup, include=FALSE}
+carob_path = "../../../carob/"
+
+data_path = file.path(carob_path, "data/compiled")
+data_path2 = file.path(carob_path, "data")
+  
+library(kableExtra)
+```
+
+```{r groups, echo=FALSE}
+ff <- list.files(data_path, pattern=".csv$", full=TRUE)
+ff <- ff[!grepl("_terms", ff)]
+f <- grep(ff, pattern="_metadata.csv$", value=TRUE)
+
+groups <- gsub("_metadata.csv$", "", basename(f))
+groups <- gsub("^carob_", "", groups)
+
+d <- lapply(f, read.csv)
+
+p <- lapply(1:length(d), \(i) {
+			n <- d[[i]]$carob_contributor
+			n <- unlist(strsplit(n, " and "))
+			n <- unlist(strsplit(n, " & "))
+			data.frame(id=i, p=n)
+		}
+	)
+p <- do.call(rbind, p)
+groups <- gsub("conservation_agriculture", "cons_ag", groups)
+groups <- gsub("_trials", "", groups)
+groups <- gsub("_samples", "", groups)
+
+p[,1] <- groups[p[,1]]
+tab <- table(p[,2], p[,1])
+```
+
+
+<br>
+
+```{r grouptable, echo=FALSE}
+kableExtra::kbl(tab) |> kable_classic(full_width = FALSE) |>
+   kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+<br>
