@@ -28,6 +28,7 @@ d <- lapply(f, read.csv)
 p <- lapply(1:length(d), \(i) {
 			n <- d[[i]]$carob_contributor
 			n <- unlist(strsplit(n, " and "))
+			n <- unlist(strsplit(n, ", "))
 			n <- unlist(strsplit(n, " & "))
 			data.frame(id=i, p=n)
 		}
