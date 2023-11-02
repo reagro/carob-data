@@ -19,7 +19,7 @@ This is the list of the datasets that have been standardized and aggregated with
 
 ```{r todo, echo=FALSE}
 fdone <- list.files(file.path(carob_path, "data", "compiled"), pattern="_metadata.csv$", full=TRUE)
-x <- do.call(rbind, lapply(fdone, read.csv))
+x <- do.call(carobiner::bindr, lapply(fdone, read.csv))
 url <- gsub("doi:", "https://doi.org/", x$uri)
 url <- gsub("hdl:", "https://doi.org/", url)
 x$uri <- paste0('<a href="', url, '">', x$uri,'</a>')

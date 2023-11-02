@@ -85,3 +85,4 @@ And an interactive map.
 ```{r plet, echo=FALSE, fig.height=4}
 plet(v, "Group", split=TRUE, alpha=.2, clusterOptions=markerClusterOptions())
 ```
+
