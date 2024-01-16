@@ -23,6 +23,6 @@ x <- x[, c("uri", "title", "crop", "country", "provider")]
 uri <- gsub("https://doi.org/", "doi:", x$uri)
 uri <- gsub("https://hdl.handle.net/", "hdl:", uri)
 x$uri <- paste0('<a href="', x$uri, '">', uri,'</a>')
-DT::datatable(x, escape=F, rownames=FALSE)
+DT::datatable(x, escape=FALSE, rownames=FALSE)
 ```
 
