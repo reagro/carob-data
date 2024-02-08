@@ -8,22 +8,28 @@ editor_options:
 
 ```{r setup, include=FALSE}
 carob_path = "../../../carob/"
-library(kableExtra)
+
+fdone <- list.files(file.path(carob_path, "data", "compiled"), pattern="_metadata.csv$", full=TRUE)
+x <- do.call(carobiner::bindr, lapply(fdone, read.csv))
+url <- gsub("doi:", "https://doi.org/", x$uri)
+url <- gsub("hdl:", "https://hdl.handle.net/", url)
+rep <- paste0("http://carob-data.org/reports/", x$group, "/", x$dataset_id, ".html")
+frep <- basename(list.files(file.path(carob_path, "data", "clean"), pattern="html$", recursive = TRUE))
+i <- x$dataset_id %in% gsub(".html", "", frep)
+
+x$links <- paste0(x$group, 
+                ifelse(i, paste0('</br><a href="', rep, '">report</a>'), ""), 
+                   '</br><a href="', url, '">source</a>')
 ```
 
 
 This is the list of the datasets that have been standardized and aggregated with Carob.
 
-|
-|
+</br></br>
 
 ```{r todo, echo=FALSE}
-fdone <- list.files(file.path(carob_path, "data", "compiled"), pattern="_metadata.csv$", full=TRUE)
-x <- do.call(carobiner::bindr, lapply(fdone, read.csv))
-url <- gsub("doi:", "https://doi.org/", x$uri)
-url <- gsub("hdl:", "https://doi.org/", url)
-x$uri <- paste0('<a href="', url, '">', x$uri,'</a>')
-x <- x[, c("group", "uri", "data_citation", "carob_contributor")]
-DT::datatable(x, escape=F, rownames=FALSE)
+x <- x[, c("links", "data_citation")]
+colnames(x)[2] <- "source"
+DT::datatable(x, list(pageLength=50), escape=F, rownames=FALSE)
 ```
 

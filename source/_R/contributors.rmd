@@ -34,12 +34,13 @@ p <- lapply(1:length(d), \(i) {
 		}
 	)
 p <- do.call(rbind, p)
-groups <- gsub("conservation_agriculture", "cons_ag", groups)
-groups <- gsub("_trials", "", groups)
-groups <- gsub("_samples", "", groups)
-
-p[,1] <- groups[p[,1]]
-tab <- table(p[,2], p[,1])
+#groups <- gsub("conservation_agriculture", "cons_ag", groups)
+#groups <- gsub("_trials", "", groups)
+#groups <- gsub("_samples", "", groups)
+#p[,1] <- groups[p[,1]]
+#tab <- table(p[,2], p[,1])
+tab <- as.data.frame(table(p$p))
+colnames(tab) <- c("name", "datasets")
 ```
 
 
