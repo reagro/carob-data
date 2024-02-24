@@ -10,19 +10,23 @@ carob_path = "../../../carob/"
 library(kableExtra)
 ```
 
-This is our to-do list. Feel free to browse the list and pick a dataset you want to Carobize.
+Below is our to-do list. Feel free to browse the list and pick a dataset you want to Carobize.
+Or use `Gardian <https://gardian.bigdata.cgiar.org>`_ to discover new datasets.
+
 
 |
 |
 
 ```{r todo, echo=FALSE}
-carobiner:::update_todo(carob_path)
+#carobiner:::update_todo(carob_path)
 ftodo <- file.path(carob_path, "todo", "to-do.csv")
 x <- read.csv(ftodo)
 x <- x[, c("uri", "title", "crop", "country", "provider")]
 uri <- gsub("https://doi.org/", "doi:", x$uri)
 uri <- gsub("https://hdl.handle.net/", "hdl:", uri)
 x$uri <- paste0('<a href="', x$uri, '">', uri,'</a>')
+x$title <- paste0(x$title, ". ", x$provider, ". ", x$uri)
+x$provider <- x$uri <- NULL
 DT::datatable(x, escape=FALSE, rownames=FALSE)
 ```
 
