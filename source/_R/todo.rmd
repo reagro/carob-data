@@ -11,7 +11,7 @@ library(kableExtra)
 ```
 
 Below is our to-do list. Feel free to browse the list and pick a dataset you want to Carobize.
-Or use `Gardian <https://gardian.bigdata.cgiar.org>`_ to discover new datasets.
+Or use the [Gardian](https://gardian.bigdata.cgiar.org) search engine to discover new datasets.
 
 
 |
