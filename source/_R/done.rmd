@@ -2,7 +2,7 @@
 title: "&#32;"
 output: html_document
 editor_options: 
-  chunk_output_type: inline
+  chunk_output_type: console
 ---
 
 
@@ -16,10 +16,18 @@ url <- gsub("hdl:", "https://hdl.handle.net/", url)
 rep <- paste0("http://carob-data.org/reports/", x$group, "/", x$dataset_id, ".html")
 frep <- basename(list.files(file.path(carob_path, "data", "clean"), pattern="html$", recursive = TRUE))
 i <- x$dataset_id %in% gsub(".html", "", frep)
-
 x$links <- paste0(x$group, 
-                ifelse(i, paste0('</br><a href="', rep, '">report</a>'), ""), 
-                   '</br><a href="', url, '">source</a>')
+                ifelse(i, paste0('</br><a href="', rep, '">report</a>'), ""), "")
+#                   '</br><a href="', url, '">source</a>')
+
+#i <- unlist(gregexpr("doi:|hdl:", x$data_citation))
+cit <- do.call(rbind, strsplit(x$data_citation, "doi:|hdl:"))
+cit <- data.frame(cit, url, x$uri)
+x$citation <- apply(cit, 1, \(i) paste0(i[1], '<a href="', i[3], '">', i[4], '</a>'))
+
+x$dataset <- paste0(x$citation, " [", x$group, "] ")
+x$dataset <- ifelse(i, paste0(x$dataset, '<a href="', rep, '">Report</a>'), x$dataset)
+
 ```
 
 
@@ -28,8 +36,10 @@ This is the list of the datasets that have been standardized and aggregated with
 </br></br>
 
 ```{r todo, echo=FALSE}
-x <- x[, c("links", "data_citation")]
-colnames(x)[2] <- "source"
+#x <- x[, c("links", "citation")]
+x <- x[, "dataset", drop=FALSE]
+#colnames(x)[2] <- "source"
+#x <- x[order(x$dataset), , drop=FALSE]
 DT::datatable(x, list(pageLength=50), escape=F, rownames=FALSE)
 ```
 
