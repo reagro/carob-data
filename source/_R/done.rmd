@@ -13,20 +13,25 @@ fdone <- list.files(file.path(carob_path, "data", "compiled"), pattern="_metadat
 x <- do.call(carobiner::bindr, lapply(fdone, read.csv))
 url <- gsub("doi:", "https://doi.org/", x$uri)
 url <- gsub("hdl:", "https://hdl.handle.net/", url)
+
+suri <- sapply(x$uri, carobiner::simple_uri)
+github <- paste0("https://github.com/reagro/carob/blob/master/scripts/", x$group, "/", suri, ".R")
+script <- paste0('<a href="', github, '">R script</a>')
+
 rep <- paste0("http://carob-data.org/reports/", x$group, "/", x$dataset_id, ".html")
 frep <- basename(list.files(file.path(carob_path, "data", "clean"), pattern="html$", recursive = TRUE))
 i <- x$dataset_id %in% gsub(".html", "", frep)
-x$links <- paste0(x$group, 
-                ifelse(i, paste0('</br><a href="', rep, '">report</a>'), ""), "")
-#                   '</br><a href="', url, '">source</a>')
+#x$links <- paste0(x$group, 
+#                ifelse(i, paste0('</br><a href="', rep, '">report</a>'), ""), "")
+##                   '</br><a href="', url, '">source</a>')
 
 #i <- unlist(gregexpr("doi:|hdl:", x$data_citation))
 cit <- do.call(rbind, strsplit(x$data_citation, "doi:|hdl:"))
 cit <- data.frame(cit, url, x$uri)
 x$citation <- apply(cit, 1, \(i) paste0(i[1], '<a href="', i[3], '">', i[4], '</a>'))
 
-x$dataset <- paste0(x$citation, " [", x$group, "] ")
-x$dataset <- ifelse(i, paste0(x$dataset, '<a href="', rep, '">Report</a>'), x$dataset)
+x$dataset <- paste0(x$citation, " [", x$group, "] ", script)
+x$dataset <- ifelse(i, paste0(x$dataset, ', <a href="', rep, '">Report</a>'), x$dataset)
 
 ```
 
