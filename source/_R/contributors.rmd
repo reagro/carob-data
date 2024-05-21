@@ -25,30 +25,58 @@ groups <- gsub("^carob_", "", groups)
 
 d <- lapply(f, read.csv)
 
-p <- lapply(1:length(d), \(i) {
-			n <- d[[i]]$carob_contributor
-			n <- unlist(strsplit(n, " and "))
-			n <- unlist(strsplit(n, ", "))
-			n <- unlist(strsplit(n, " & "))
-			data.frame(id=i, p=n)
-		}
-	)
-p <- do.call(rbind, p)
-#groups <- gsub("conservation_agriculture", "cons_ag", groups)
-#groups <- gsub("_trials", "", groups)
-#groups <- gsub("_samples", "", groups)
-#p[,1] <- groups[p[,1]]
-#tab <- table(p[,2], p[,1])
-tab <- as.data.frame(table(p$p))
-colnames(tab) <- c("name", "datasets")
-```
+get_tab <- function(d, var) {
+	p <- lapply(1:length(d), \(i) {
+				n <- d[[i]][[var]]
+				n <- unlist(strsplit(n, ";"))
+				data.frame(id=i, p=trimws(n))
+			}
+		)
+	p <- do.call(rbind, p)
+	p$p <- gsub(",", ", ", p$p)
+	p$p <- gsub(",  ", ", ", p$p)
+	p$p <- gsub("-, ", "", p$p) # "-, RHoMIS"
+	tab <- as.data.frame(table(p$p))
+	colnames(tab) <- c("name", "datasets")
+	tab 
+}
 
+cartab <- get_tab(d, "carob_contributor")
+autab <- get_tab(d, "authors")
+intab <- get_tab(d, "data_institute")
+i <- tolower(autab$name) %in% c("", "not applicable")
+autab <- autab[!i, ]
+
+```
+<br>
 
 <br>
 
-```{r grouptable, echo=FALSE}
-kableExtra::kbl(tab) |> kable_classic(full_width = FALSE) |>
-   kable_styling(bootstrap_options = c("striped", "hover"))
+### Script authors
+
+```{r catable, echo=FALSE}
+out = paste0(paste0(cartab[,1], " (", cartab[,2], ")"), collapse="; ")
+#kableExtra::kbl(cartab) |> kable_classic(full_width = FALSE) |>
+#   kable_styling(bootstrap_options = c("striped", "hover"))
 ```
+`r out`
+
+### Dataset institutes
+
+```{r instable, echo=FALSE}
+out = paste0(paste0(intab[,1], " (", intab[,2], ")"), collapse="; ")
+#kableExtra::kbl(intab) |> kable_classic(full_width = FALSE) |>
+#   kable_styling(bootstrap_options = c("striped", "hover"))
+```
+`r out`
+
+### Dataset authors
+
+```{r autable, echo=FALSE}
+out <- paste0(paste0(autab[,1], " (", autab[,2], ")"), collapse="; ")
+#DT::datatable(autab, escape=FALSE, rownames=FALSE)
+```
+`r out`
+
 
 <br>
