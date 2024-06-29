@@ -7,20 +7,16 @@ editor_options:
 
 ```{r setup, include=FALSE}
 carob_path = "../../../carob/"
-library(kableExtra)
 ```
 
-Below is our to-do list. Feel free to browse the list and pick a dataset you want to Carobize.
-Or use the [Gardian](https://gardian.bigdata.cgiar.org) search engine to discover new datasets.
-
-
+Below is our to-do list. Feel free to browse the list and pick a dataset you want to Carobize. You can also use the [Gardian](https://gardian.bigdata.cgiar.org) search engine to discover new datasets. Since there can be a delay in updating what is shown here, before you start working on a dataset, you should check with `carobiner::on_github` if it has already been done (and has been added to the github repo). 
 |
 |
 
 ```{r todo, echo=FALSE}
-#carobiner:::update_todo(carob_path)
-ftodo <- file.path(carob_path, "todo", "to-do.csv")
-x <- read.csv(ftodo)
+#carobiner:::update_todo(todo_path)
+ftodo <- file.path(carob_path, "misc", "todo", "to-do.csv")
+x <- data.table::fread(ftodo, sep=",")
 x <- x[, c("uri", "title", "crop", "country", "provider")]
 uri <- gsub("https://doi.org/", "doi:", x$uri)
 uri <- gsub("https://hdl.handle.net/", "hdl:", uri)

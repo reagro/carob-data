@@ -35,10 +35,9 @@ x$dataset <- ifelse(i, paste0(x$dataset, ', <a href="', rep, '">Report</a>'), x$
 
 ```
 
+These are the datasets that have been standardized by the Carob project.
 
-This is the list of the datasets that have been standardized and aggregated with Carob.
-
-</br></br>
+</br>
 
 ```{r todo, echo=FALSE}
 #x <- x[, c("links", "citation")]

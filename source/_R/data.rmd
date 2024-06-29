@@ -2,7 +2,7 @@
 title: "&#32;"
 output: html_document
 editor_options: 
-  chunk_output_type: inline
+  chunk_output_type: console
 ---
 
 
@@ -25,8 +25,9 @@ f <- grep(ff, pattern="_metadata.csv$", value=TRUE)
 
 groups <- gsub("_metadata.csv$", "", basename(f))
 groups <- gsub("^carob_", "", groups)
+readcsv <- \(f) data.table::fread(f, sep=",", showProgress=FALSE)
 
-d <- lapply(f, read.csv)
+d <- lapply(f, readcsv)
 n1 <- sapply(d, nrow)
 n2 <- sapply(d, \(i) sum(grepl("CC", i$license)))
 
@@ -34,9 +35,9 @@ f <- grep(ff, pattern="_metadata", invert=TRUE, value=TRUE)
 fall <- grep(f, pattern="-cc", invert=TRUE, value=TRUE)
 fcc <- grep(f, pattern="-cc", value=TRUE)
 
-dd <- lapply(fall, read.csv)
+dd <- lapply(fall, readcsv)
 nr1 <- sapply(dd, nrow)
-ddcc <- lapply(fcc, read.csv)
+ddcc <- lapply(fcc, readcsv)
 nr2 <- sapply(ddcc, nrow)
 grp2 <- gsub("-cc.csv$", "", basename(fcc))
 grp2 <- gsub("^carob_", "", grp2)
@@ -46,17 +47,24 @@ d <- data.frame(Group=grp2, `CC-Records`=nr2, check.names=FALSE)
 x <- data.frame(Group=groups, Datasets=n1, Records=nr1, `CC-Datasets`=n2, check.names=FALSE)
 x <- merge(x, d, by="Group", all.x=TRUE)
 x[is.na(x)] <- 0
+xurl <- paste0("https://carob-data.org/reports/carob_",  x$Group, ".html")
+x$Group <- kableExtra::cell_spec(x$Group, "html", link=xurl)
+
+cdate <- format(Sys.time(), "%e %B %Y")
 ```
 
-*Carob* standardizes and aggregates published agricultural research data. The data are aggregated by groups that have similar variables. Below is a table with the current groups and the number of datasets and records in each group. the groups that end on "_trials" have multi-location variety trial data. We also show these numbers for the datasets that have a Creative Commons (CC) [license](licenses.html). 
+We aggregate [standardized]("/done.html") agricultural research data by groups that have similar variables. Below is a table with the current groups and the number of original datasets and records in each group. The groups that end on "_trials" have multi-location variety trial data. We also show these numbers for the datasets that have a Creative Commons (CC) [license](licenses.html). 
 
-We have processed `r sum(x$Datasets)` [data sets](done.html) containing a total of `r format(sum(x$Records), big.mark=",")` records. 
+As of `r  cdate`, we have processed `r sum(x$Datasets)` original [data sets](done.html) containing a total of `r format(sum(x$Records), big.mark=",")` records. 
 
 <br>
 
 ```{r grouptable, echo=FALSE}
-kableExtra::kbl(x) |> kable_classic(full_width = FALSE) |>
-   kable_styling(bootstrap_options = c("striped", "hover"))
+#kableExtra::kbl(x, "html") |> kable_classic(full_width = FALSE) |>
+#   kable_styling(bootstrap_options = c("striped", "hover"))
+
+kable(x, "html", escape = FALSE) |> kable_classic(full_width = FALSE) |>
+  kable_styling(bootstrap_options = c("striped", "hover")) 
 ```
 
 <br>
@@ -67,22 +75,29 @@ Here is a map with all locations for which we have at least one observation.
 w <- world(path=data_path2)
 geo <- do.call(rbind, lapply(1:length(dd), \(i) data.frame(Group=groups[i], dd[[i]][, c("country", "longitude", "latitude")]))) |> unique()
 geo <- na.omit(geo)
-geo <- geo[geo$longitude > -180, ]
-geo <- geo[geo$latitude < 60, ]
 v <- vect(geo, c("longitude", "latitude"), crs="+proj=longlat")
-e <- extract(w, v)
-v$NAME_0 <- e$NAME_0
-v <- v[!is.na(v$NAME_0), ]
-v <- v[v$NAME_0 == v$country, ]
 
-plot(w, col=gray(.95), background="azure", ylim=c(-60,80), lwd=1.25)
-plot(v, "Group", col=colorRampPalette(c("red", "orange", "blue"))(9), cex=.4, pch=1, add=TRUE, legend=TRUE, plg=list(x="bottomleft"))
-lines(w, col="light gray", lwd=.5)
+w <- project(w, "+proj=hatano")
+g <- graticule(60, 30, "+proj=hatano")
+v <- project(v, "+proj=hatano")
+
+plot(g, col=gray(.95), background="azure", lwd=1.5, mar=c(.4, .2, 0, 0))
+plot(w, add=TRUE, col="light gray", border="white", lwd=1.5)
+points(v, col="pink", cex=.5)
+points(v, col="red", cex=.25)
+lines(w, col="dark gray", lwd=1)
+text(-14000000, -9500000, paste("Carob locations  (", cdate, ")"), xpd=TRUE, cex=.5)
 ``` 
+</br>
+</br>
 
-And an interactive map.
 
-```{r plet, echo=FALSE, fig.height=4}
-plet(v, "Group", split=TRUE, alpha=.2, clusterOptions=markerClusterOptions())
+```{r reports, echo=FALSE}
+p <- paste0("<a href=https://carob-data.org/reports/carob_", groups, ".html", ">", groups, "</a>")
+p <- paste(p, collapse=", ")
+
+#</br>Reports by group: `r p`</br>
+
 ```
+
 

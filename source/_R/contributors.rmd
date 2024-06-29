@@ -48,9 +48,6 @@ i <- tolower(autab$name) %in% c("", "not applicable")
 autab <- autab[!i, ]
 
 ```
-<br>
-
-<br>
 
 ### Script authors
 
