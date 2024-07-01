@@ -7,4 +7,5 @@ The *terminag* standard can be used "stand-alone" for your own data, and as part
 
 The standard is defined in a number of tables that are available on the `termiag <https://github.com/reagro/terminag>`__ github site and via the R package `carobiner <https://github.com/reagro/carobiner>`__. The terminag standard is not an ontology in the sense that, with very few exceptions, it does not semantically relate variables to each other.
 
-
+.. raw:: html
+   :file: _R/standard.html

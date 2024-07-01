@@ -1,11 +1,11 @@
 Download
 ========
 
-From this page you can download aggregated data. Currently only the "Response to fertilizer" group is made available here, but more will follow. Note that here you can only download data that has a Creative Commons `license <licenses.html>`_. 
+From this page you can download aggregated data. Currently only the "fertilizer" and "maize_trials" groups are available here, but more will follow. Note that here you can only download data that has a Creative Commons `license <licenses.html>`_. 
 
 To get the other aggregated datasets, you can download and process the sources yourself. See `this page <compile.html>`_ for instructions.
 
-Note that the data available here are new. They represent our first attempt to standardize widely variable data. There will likely be some errors from the orginial data that remain, or errors that we have introduced. We are aiming to provide cleaner and better documented datasets durig the course of 2024.
+Note that the data available here are new. They represent our first attempt to standardize widely variable data. There will likely be some errors from the original data that remain, or errors that we have introduced. We are aiming to provide cleaner and better documented datasets during the course of 2024.
 
 .. raw:: html
 
@@ -14,6 +14,7 @@ Note that the data available here are new. They represent our first attempt to s
 	<select name="data-select" id="data-select">
 		<option value=""></option>
 		<option value="fertilizer">Fertilizer</option>
+		<option value="maize_trials">Maize trials</option>
 	</select>
 
 	</br></br>	
@@ -46,7 +47,6 @@ Note that the data available here are new. They represent our first attempt to s
 				//if (document.getElementById('cclicense').checked) {
 					name = name.concat("-CC");
 				//}
-				
 				var linktxt = 'Download: <a href="https://geodata.ucdavis.edu/carob/carob_';
 				if (document.getElementById("format_csv").checked) {
 					linktxt = linktxt.concat(name.toLowerCase()).concat('.zip">');
@@ -61,7 +61,7 @@ Note that the data available here are new. They represent our first attempt to s
 		function make_link() { 
 			var e = document.getElementById("data-select");
 			var value = e.value;
-			var text = e.options[e.selectedIndex].text;
+			var text = e.options[e.selectedIndex].value;
 			if (text == "") {
 				document.getElementById("result").innerHTML = "Not a valid dataset";
 			} else { // if (document.getElementById('license').checked) {

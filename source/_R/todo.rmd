@@ -10,8 +10,8 @@ carob_path = "../../../carob/"
 ```
 
 Below is our to-do list. Feel free to browse the list and pick a dataset you want to Carobize. You can also use the [Gardian](https://gardian.bigdata.cgiar.org) search engine to discover new datasets. Since there can be a delay in updating what is shown here, before you start working on a dataset, you should check with `carobiner::on_github` if it has already been done (and has been added to the github repo). 
-|
-|
+
+</br>
 
 ```{r todo, echo=FALSE}
 #carobiner:::update_todo(todo_path)
@@ -26,3 +26,4 @@ x$provider <- x$uri <- NULL
 DT::datatable(x, escape=FALSE, rownames=FALSE)
 ```
 
+</br>

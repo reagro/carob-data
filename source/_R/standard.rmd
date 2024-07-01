@@ -1,0 +1,37 @@
+---
+title: "&#32;"
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+req <- httr::GET("https://api.github.com/repos/reagro/terminag/git/trees/main?recursive=1")
+httr::stop_for_status(req)
+ff <- sapply(httr::content(req)$tree, \(i) i$path)
+ff <- grep("\\.csv$", ff, value = TRUE)
+ff <- file.path("https://raw.githubusercontent.com/reagro/terminag/main", ff)
+vars <- grep("variables_", ff, value=TRUE)
+vals <- grep("values_", ff, value=TRUE)
+
+burl <- "https://github.com/reagro/terminag/blob/main/"
+vars <- paste0(burl, "variables/", basename(vars))
+vals <- paste0(burl, "values/", basename(vals))
+
+nvars <- gsub("variables_|.csv", "", basename(vars))
+nvals <- gsub("values_|.csv", "", basename(vals))
+
+make_url <- \(url, label) paste0("<a href='", url, "'>", label, "</a>")
+uvars <- make_url(vars, nvars)
+uvals <- make_url(vals, nvals)
+
+```
+</br>
+terminag has these tables that list accepted variable names, accepted ranges for numerical variables, and indicate if a variable is required:
+</br> `r uvars`
+</br></br>
+These tables list accepted values for character type variables
+</br> `r uvals`
+
+</br>
+

@@ -72,7 +72,7 @@ kable(x, "html", escape = FALSE) |> kable_classic(full_width = FALSE) |>
 Here is a map with all locations for which we have at least one observation.
 
 ```{r map, echo=FALSE, fig.height=3.5}
-w <- world(path=data_path2)
+w <- world(path=file.path(package="carobiner"))
 geo <- do.call(rbind, lapply(1:length(dd), \(i) data.frame(Group=groups[i], dd[[i]][, c("country", "longitude", "latitude")]))) |> unique()
 geo <- na.omit(geo)
 v <- vect(geo, c("longitude", "latitude"), crs="+proj=longlat")
