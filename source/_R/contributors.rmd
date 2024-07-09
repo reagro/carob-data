@@ -61,7 +61,6 @@ get_authors <- function(d) {
 	p$p <- gsub("Wortmann, Charles$", "Wortmann, Charles S.", p$p) 
 	p$p <- gsub("Wiredu Alexanda Nimo", "Wiredu, Alexanda Nimo", p$p) 
 	p$p <- gsub("Bolo, Peter$", "Bolo, Peter Omondi", p$p) 
-	p$p <- gsub("Balemi, T", "Balemi, Tesfaye", p$p)
 	  
 
 	nms1 <- c("Sherpa Sonam", "Poonia Shishpal", "Kumar Sunil", "Sharma Sachin", "Ajay Anurag", "Wu William", "Singh Balwinder", "McDonald Andrew", "Hood-Nowotny Rebbeca", "Majaliwa Jackson", "Tumuhairwe John-Baptist", "Quispe Katherine", "Okoth John",  "Kyei-Boahen Stephen")
@@ -78,6 +77,7 @@ get_authors <- function(d) {
 	p$p <- gsub("Talabi, O.A.", "Talabi, A.O.", p$p) 
 	p$p <- gsub("Tor Gunnar", "Tor-Gunnar", p$p) 
 	p$p <- gsub("Winowiecki, Leigh$", "Winowiecki, Leigh Ann", p$p) 
+	p$p <- gsub("Balemi, T$", "Balemi, Tesfaye", p$p)
 	
 	tab <- as.data.frame(table(p$p))
 	colnames(tab) <- c("name", "datasets")
