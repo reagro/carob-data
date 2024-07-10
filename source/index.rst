@@ -4,18 +4,28 @@ Carob
 =====
 
 
-*Carob* is the open-source, collaborative and community based *Extract, Transform, and Load* `(ETL) framework supported by CGIAR <https://www.cgiar.org/initiative/excellence-in-agronomy/>`_ to support agricultural research. All data transformations are done with *R* scripts, making it easy to enhance the standardization process as needs arise, and to correct mistakes. Please consider `contributing <contribute.html>`_! 
-
-
 .. image:: /_static/carob.png
-  :width: 125
+  :width: 150
   :alt: CAROB logo
   :target: https://github.com/reagro/carob
+  :align: left
+
+*Carob* is the open-source, collaborative and community based *Extract, Transform, and Load* `(ETL) framework supported by CGIAR <https://www.cgiar.org/initiative/excellence-in-agronomy/>`_ to facilitate agricultural research. All data transformations are done with *R* scripts, making it easy to enhance the standardization process as needs arise, and to correct mistakes. Please consider `contributing <contribute.html>`_! 
+
+|
+
+Contact: carob.data@gmail.com
 
 .. image:: /_static/eia-logo.png
-  :width: 150
+  :width: 75	
   :alt: EiA logo
   :target: https://www.cgiar.org/initiative/11-excellence-in-agronomy-eia-solutions-for-agricultural-transformation/
+
+.. image:: /_static/ucdavis-logo.png
+  :width: 150
+  :alt: UC Davis logo
+  :target: https://ucdavis.edu
+
 
 .. toctree::
 	:hidden:

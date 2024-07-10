@@ -3,9 +3,9 @@ Contribute
 
 *Carob* is an open-source community project to standardize and aggregate agricultural research data.
  
-Anyone is invited to contribute to *Carob* by contributing `R` scripts for datasets of interest, or by improving existing scripts. All scripts are available on the `github <https://github.com/reagro/carob/>`_ site (in the ``scripts`` folder).
+Anyone is invited to contribute to *Carob* by contributing `R` scripts for datasets of interest, or by improving existing scripts. All scripts are available on `github <https://github.com/reagro/carob/>`_ (in the ``scripts`` folder).
 
-A great place to discover new data sets is the `Gardian <https://gardian.bigdata.cgiar.org>`_ search engine. You can also look at our `to-do list <todo.html>`_ for ideas (and do check our `done list <done.html>`_ to make sure you do not work on a dataset that has already been processed).
+You can discover new data sets with the `Gardian <https://gardian.bigdata.cgiar.org>`_ search engine. You can also look at our `to-do list <todo.html>`_ for ideas (and do check our `done list <done.html>`_ to make sure you do not work on a dataset that has already been processed).
 
 To contribute you can follow these steps
 

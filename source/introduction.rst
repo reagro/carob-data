@@ -1,11 +1,11 @@
 Introduction
 ============
 
-*Carob* is an open-source, collaborative and community project that standardized agricultural research data from experiments and surveys. We produce (1) scripts to standardize open research data and (2) aggregated data sets that can be used in research and development.
+*Carob* is a community project that uses a collaborative and open-source approach to standardize agricultural research data from experiments and surveys. We produce (1) scripts that standardize open research data and (2) aggregated data sets that can be used in research and development.
 
-We use the `terminag <https://github.com/reagro/terminag>`__ standard and the `carobiner <https://github.com/reagro/carobiner>`__ *R* package to check for compliance with this standard and compile the data.
+We follow the `terminag <https://github.com/reagro/terminag>`__ standard and use the `carobiner <https://github.com/reagro/carobiner>`__ *R* package to check for compliance, and to compile the data.
 
-The data that we have compiled so far is described `here <aggregated.html>`_. You can `download <download.html>`_ compiled data from this site, or generate them yourself using the *Carob* `scripts <https://github.com/reagro/carob>`_.
+The data that we have compiled so far is described `here <aggregated.html>`_. You can `download <download.html>`_ some of the compiled data from this site; and you can generate all the data yourself using the *Carob* `scripts <https://github.com/reagro/carob>`__ (see these `guidelines <compile.html>`__).
 
 There now is a substantial amount of raw primary research data available, especially from the `CGIAR  <https://gardian.bigdata.cgiar.org>`_ international agricultural research centers. This provides ample opportunity to combines these data to address important additional research questions (here is `an example <https://www.nature.com/articles/s43016-021-00370-1>`_). Unfortunately, it is very time consuming to re-use research data. This is because, with a few exceptions, each dataset is organized differently. Datasets have their own set of variable names, accepted values, units, and file structures. Even two files *within* a dataset may have discrepancies. Moreover, the published data is often incomplete and needs to be augmented with information gleaned from publications. Most datasets also have mistakes, especially in the location data and spelling. These mistakes can often be corrected (or removed), but doing that can be very time consuming. 
 
