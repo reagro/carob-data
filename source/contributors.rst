@@ -1,7 +1,7 @@
 Contributors
 ============
 
-Here are lists the contributors of Carob scripts and of the datasets processed. Names are followed by the number of scripts/datasets. Note that dataset author names are not standardized.
+Here we lists the contributors of Carob scripts and of the contributors of the data that we have processed. Names are followed by the number of scripts/datasets.
 
 .. raw:: html
    :file: _R/contributors.html

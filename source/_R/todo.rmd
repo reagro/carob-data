@@ -13,11 +13,12 @@ Below is our to-do list. Feel free to browse the list and pick a dataset you wan
 
 </br>
 
+
 ```{r todo, echo=FALSE}
 #carobiner:::update_todo(todo_path)
 ftodo <- file.path(carob_path, "misc", "todo", "to-do.csv")
 x <- data.table::fread(ftodo, sep=",")
-x <- x[, c("uri", "title", "crop", "country", "provider")]
+x <- x[, c("uri", "title", "crop", "region", "provider", "group")]
 uri <- gsub("https://doi.org/", "doi:", x$uri)
 uri <- gsub("https://hdl.handle.net/", "hdl:", uri)
 x$uri <- paste0('<a href="', x$uri, '">', uri,'</a>')

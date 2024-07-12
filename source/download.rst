@@ -3,7 +3,7 @@ Download
 
 From this page you can download aggregated data. Currently only the "fertilizer" and "maize_trials" groups are available here, but more will follow. Note that here you can only download data that has a Creative Commons `license <licenses.html>`_. 
 
-To get the other aggregated datasets, you can download and process the sources yourself. See `this page <compile.html>`_ for instructions.
+To get the other aggregated datasets, you can download and process the sources yourself. See below for instructions.
 
 Note that the data available here are new. They represent our first attempt to standardize widely variable data. There will likely be some errors from the original data that remain, or errors that we have introduced. We are aiming to provide cleaner and better documented datasets during the course of 2024.
 

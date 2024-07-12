@@ -17,7 +17,7 @@ do_knit <- function(option, quiet=TRUE) {
 	html <- gsub("/_R", "", html)
 
 	if (option=="clean"){
-		file.remove(html)
+		file.remove(html[file.exists(html)])
 	} else { 
 		if (length(ff) > 0 ) {
 			stime <- file.info(ff)
