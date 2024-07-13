@@ -1,5 +1,16 @@
+.. raw:: html
+
+   <div style="visibility: hidden;">
+
+
 Contribute
 ==========
+
+.. raw:: html
+
+   </div>
+   <div style="visibility: visible;">
+
 
 *Carob* is an open-source community project to standardize and aggregate agricultural research data.
  
@@ -20,3 +31,7 @@ To contribute you can follow these steps
 
 If this procedure is too complicated we can also work with you in other ways. You can always drop us an email at carob.data@gmail.com, or raise an `issue <https://github.com/reagro/carob/issues>`_
 
+
+.. raw:: html
+
+   </div>

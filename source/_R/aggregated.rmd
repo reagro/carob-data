@@ -5,7 +5,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-
 ```{r setup, include=FALSE}
 carob_path = "../../../carob/"
 
@@ -53,7 +52,9 @@ x$Group <- kableExtra::cell_spec(x$Group, "html", link=xurl)
 cdate <- format(Sys.time(), "%e %B %Y")
 ```
 
-We aggregate [standardized](done.html) agricultural research data by groups that have similar variables. Below is a table with the current groups and the number of original datasets and records in each group. The groups that end on "_trials" have multi-location variety trial data. We also show these numbers for the datasets that have a Creative Commons (CC) [license](licenses.html). 
+We aggregate [standardized](done.html) agricultural research data by groups of data collected for similar goals and with similar variables. These groups make it easier for us to organize our work but it is important to note that they are not mutually exclusive. For example the "fertilizer" group aggregates experiments and surveys with crop yield and fertilizer application data. While the emphasis of the "agronomy", "survey", and "varieties" data is different, they may also contain fertilizer application data. Likewise, the "varieties" data are about comparing crop varieties, but variety names are also reported in the "fertilizer" group. This means that you may want to consider using data from multiple groups. The maize and wheat varieties have their own groups because of the large amount of data in these groups, and because they have some unique terms.
+
+The table below shows the current groups and the number of original datasets and records in each group. The groups that end on "_trials" have multi-location variety trial data. We also show these numbers for the datasets that have a Creative Commons (CC) [license](licenses.html). 
 
 As of `r  cdate`, we have processed `r sum(x$Datasets)` original [data sets](done.html) containing a total of `r format(sum(x$Records), big.mark=",")` records. 
 
@@ -66,6 +67,7 @@ As of `r  cdate`, we have processed `r sum(x$Datasets)` original [data sets](don
 kable(x, "html", escape = FALSE) |> kable_classic(full_width = FALSE) |>
   kable_styling(bootstrap_options = c("striped", "hover")) 
 ```
+
 
 <br>
 

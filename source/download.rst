@@ -1,5 +1,15 @@
+.. raw:: html
+
+   <div style="visibility: hidden;">
+
 Download
 ========
+
+.. raw:: html
+
+   </div>
+   <div style="visibility: visible;">
+
 
 From this page you can download aggregated data. Currently only the "fertilizer" and "maize_trials" groups are available here, but more will follow. Note that here you can only download data that has a Creative Commons `license <licenses.html>`_. 
 
@@ -80,3 +90,7 @@ Note that the data available here are new. They represent our first attempt to s
     </embed>
 
 
+
+.. raw:: html
+
+   </div>

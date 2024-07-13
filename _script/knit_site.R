@@ -54,4 +54,5 @@ setwd(path)
 do_knit(option, quiet=TRUE)
 setwd(oldpath)
 warnings()
+Sys.sleep(1)
 

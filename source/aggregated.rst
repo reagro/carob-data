@@ -1,7 +1,21 @@
+.. raw:: html
+
+   <div style="visibility: hidden;">
+
 Aggregated data
 ===============
 
 .. raw:: html
-   :file: _R/data.html
 
+   </div>
+   <div style="visibility: visible;">
+
+
+.. raw:: html
+   :file: _R/aggregated.html
+
+
+.. raw:: html
+
+   </div>
 

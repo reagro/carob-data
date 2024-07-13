@@ -1,5 +1,16 @@
+.. raw:: html
+
+   <div style="visibility: hidden;">
+
 Compile
 =======
+
+.. raw:: html
+
+   </div>
+   <div style="visibility: visible;">
+
+
 
 You can compile Carob data yourself if you have basic familiarity with the *git* and *R* software. 
 
@@ -27,3 +38,7 @@ You can compile Carob data yourself if you have basic familiarity with the *git*
 
   Once in a while, to **update** to the latest version, you can do ``git pull`` and then run the commands described under #3 again. It is also good to regularly install the latest version of "carobiner" with ``remotes::install_github("reagro/carobiner")``. 
 
+
+.. raw:: html
+
+   </div>

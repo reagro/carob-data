@@ -24,52 +24,53 @@ groups <- gsub("_metadata.csv$", "", basename(f))
 groups <- gsub("^carob_", "", groups)
 
 d <- lapply(f, read.csv)
+d <- do.call(carobiner::bindr, d)
+
 
 get_tab <- function(d, var) {
-	p <- lapply(1:length(d), \(i) {
-				n <- d[[i]][[var]]
-				n <- unlist(strsplit(n, ";"))
-				data.frame(id=i, p=trimws(n))
-			}
-		)
-	p <- do.call(rbind, p)
+	n <- d[[var]]
+	n <- strsplit(n, ";")
+	n <- lapply(1:length(n), \(i) {
+		if (length(n[[i]])== 0) return(NULL)
+		data.frame(id=i, p=trimws(unlist(n[[i]])))
+	})
+	p <- do.call(rbind, n)
 	tab <- as.data.frame(table(p$p))
 	colnames(tab) <- c("name", "datasets")
 	tab 
 }
 
-	pp <- sapply(1:length(d), \(i) {
-				d[[i]][["authors"]]
-			}
-		) |> unlist()
+#pp <- sapply(1:length(d), \(i) {
+#			d[[i]][["authors"]]
+#			}
+#		) |> unlist()
 
 
 get_authors <- function(d) {
-	p <- lapply(1:length(d), \(i) {
-				n <- d[[i]][["authors"]]
-				n <- unlist(strsplit(n, ";"))
-				data.frame(id=i, p=trimws(n))
-			}
-		)
-	p <- do.call(rbind, p)
+	n <- d[["authors"]]
+	n <- strsplit(n, ";")
+	n <- lapply(1:length(n), \(i) {
+		if (length(n[[i]])== 0) return(NULL)
+		data.frame(id=i, p=unlist(n[[i]]))
+	})
+	p <- do.call(rbind, n)
 	p$p <- gsub(",", ", ", p$p)
 	p$p <- gsub(",  ", ", ", p$p)
 	p$p[grep("applicable", p$p, TRUE)] <- ""
 	p$p <- gsub("Andrew J. McDonald", "McDonald, Andrew", p$p) 
 	p$p <- gsub("Sherpa R. Sonam", "Sherpa, Sonam", p$p) 
 	p$p <- gsub("Abubakar H.Inuwa", "Abubakar H. Inuwa", p$p) 
-	p$p <- gsub("Wortmann, Charles$", "Wortmann, Charles S.", p$p) 
+	p$p[grepl("Wortmann", p$p)] <- "Wortmann, Charles S."
 	p$p <- gsub("Wiredu Alexanda Nimo", "Wiredu, Alexanda Nimo", p$p) 
 	p$p <- gsub("Bolo, Peter$", "Bolo, Peter Omondi", p$p) 
-	  
 
 	nms1 <- c("Sherpa Sonam", "Poonia Shishpal", "Kumar Sunil", "Sharma Sachin", "Ajay Anurag", "Wu William", "Singh Balwinder", "McDonald Andrew", "Hood-Nowotny Rebbeca", "Majaliwa Jackson", "Tumuhairwe John-Baptist", "Quispe Katherine", "Okoth John",  "Kyei-Boahen Stephen")
 	nms2 <- gsub(" ", ", ", nms1)
 	for (i in 1:length(nms1)) p$p <- gsub(nms1[i], nms2[i], p$p)
 
 	i <- grepl(",|ICRAF|ABC|ICRISAT|SARI|IITA|ISRIC|CIMMYT|TLC|University|IWIN|ARI|Program|ILRI|Davis", p$p)
-  n <- strsplit(p$p[!i], " \\s*(?=[^ ]+$)", perl=TRUE)
-  p$p[!i] <- sapply(n, \(i) paste0(rev(i), collapse=", "))
+	n <- strsplit(p$p[!i], " \\s*(?=[^ ]+$)", perl=TRUE)
+	p$p[!i] <- sapply(n, \(i) paste0(rev(i), collapse=", "))
 	p$p <- gsub("-, ", "", p$p) # "-, RHoMIS"
 	p$p <- gsub("Anurag, Ajay", "Ajay, Anurag", p$p)
 	p$p <- gsub("Sila, Andrew Musili", "Sila, Andrew", p$p) 
@@ -78,10 +79,14 @@ get_authors <- function(d) {
 	p$p <- gsub("Tor Gunnar", "Tor-Gunnar", p$p) 
 	p$p <- gsub("Winowiecki, Leigh$", "Winowiecki, Leigh Ann", p$p) 
 	p$p <- gsub("Balemi, T$", "Balemi, Tesfaye", p$p)
+	p$p <- gsub("))", ")", p$p)
+	p$p[p$p == "World Agroforestry (ICRAF)"] <- "World Agroforestry Center (ICRAF)"
+	
+	p <- p[!grepl("ABC|ILRI|CIMMYT|ICRISAT|IITA|ICRAF|University of California", p$p), ]
 	
 	tab <- as.data.frame(table(p$p))
 	colnames(tab) <- c("name", "datasets")
-  tab[tab$name != "", ]
+	tab[tab$name != "", ]
 }
 
 
@@ -89,6 +94,9 @@ cartab <- get_tab(d, "carob_contributor")
 autab <- get_authors(d)
 
 intab <- get_tab(d, "data_institute")
+inst <- carobiner::accepted_values("institute")
+intab <- merge(intab, inst, by="name", all.x=TRUE)
+intab$name <- paste0('<a href="https://', intab$URL, '">', intab$name, "</a>")
 
 ```
 
