@@ -2,29 +2,36 @@
 
    <div style="visibility: hidden;">
 
-Download
-========
+Data
+====
 
 .. raw:: html
 
    </div>
    <div style="visibility: visible;">
 
+.. raw:: html
+   :file: _R/aggregated.html
 
-From this page you can download aggregated data. Currently only the "fertilizer" and "maize_trials" groups are available here, but more will follow. Note that here you can only download data that has a Creative Commons `license <licenses.html>`_. 
 
-To get the other aggregated datasets, you can download and process the sources yourself. See below for instructions.
+From this page you can download the aggregated data with a Creative Commons `license <licenses.html>`_. You can create the full datasets yourself by following these `instructions <compile.html>`__. Please note that the data available here are new. They represent our first attempt to standardize widely variable data with lost of data quality issues. There will likely be some errors from the original data that remain, or errors that we have introduced. Our aim is to provide cleaner and better documented datasets toward the end of 2024.
 
-Note that the data available here are new. They represent our first attempt to standardize widely variable data. There will likely be some errors from the original data that remain, or errors that we have introduced. We are aiming to provide cleaner and better documented datasets during the course of 2024.
 
 .. raw:: html
 
+	</br>
     <embed>
-	<label for="data-select">Choose a dataset:</label>
+	<label for="data-select">group:</label>
 	<select name="data-select" id="data-select">
 		<option value=""></option>
-		<option value="fertilizer">Fertilizer</option>
-		<option value="maize_trials">Maize trials</option>
+		<option value="agronomy">agronomy</option>
+		<option value="fertilizer">fertilizer</option>
+		<option value="pest_diseases">pest_diseases</option>
+		<option value="soil_samples">soil_samples</option>
+		<option value="survey">survey</option>
+		<option value="varieties">varieties_maize</option>
+		<option value="varieties_maize">varieties_maize</option>
+		<option value="varieties_wheat">varieties_wheat</option>
 	</select>
 
 	</br></br>	
@@ -41,10 +48,8 @@ Note that the data available here are new. They represent our first attempt to s
 	  </div>
       <div id = "result">&nbsp;</div> 
 	</p> 
-	</br>
 
 	<script> 
-	
 		function move(i, name) {
 			var id = document.getElementById("progress"); 
 			if (i < 100) {
@@ -73,7 +78,7 @@ Note that the data available here are new. They represent our first attempt to s
 			var value = e.value;
 			var text = e.options[e.selectedIndex].value;
 			if (text == "") {
-				document.getElementById("result").innerHTML = "Not a valid dataset";
+				document.getElementById("result").innerHTML = "Choose a group";
 			} else { // if (document.getElementById('license').checked) {
 				document.getElementById("result").innerHTML = "processing";
 				var pid = document.getElementById("progress"); 
@@ -89,6 +94,9 @@ Note that the data available here are new. They represent our first attempt to s
 	</script>
     </embed>
 
+
+
+The **groups** make it easier for us to organize our work but it is important to note that they are not mutually exclusive. For example the "fertilizer" group aggregates experiments and surveys with crop yield and fertilizer application data. While the emphasis of the "agronomy", "survey", and "varieties" data is different, they may also contain fertilizer application data. Likewise, the "varieties" data are about comparing crop varieties, but variety names are also reported in the "fertilizer" group. This means that you may want to consider using data from multiple groups. The maize and wheat varieties have their own groups because of the large amount of data in these groups, and because they have some unique terms.
 
 
 .. raw:: html

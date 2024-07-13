@@ -44,9 +44,7 @@ Contact: carob.data@gmail.com
 
 	introduction
 	standard
-	done
-	aggregated
-	download
+	data
 	compile
 	contribute
 	contributors

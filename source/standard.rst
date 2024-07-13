@@ -2,8 +2,8 @@
 
    <div style="visibility: hidden;">
 
-The standard
-============
+Standard
+========
 
 .. raw:: html
 
