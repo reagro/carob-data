@@ -56,7 +56,7 @@ x$Group <- kableExtra::cell_spec(x$Group, "html", link=xurl)
 cdate <- format(Sys.time(), "%e %B %Y")
 ```
 
-We aggregate agricultural research data by groups of data collected for similar goals and with similar variables. The table below shows the current groups and the number of original datasets and records in each group. We also show these numbers for the datasets that have a Creative Commons (CC) [license](licenses.html). As of `r  cdate`, we have processed `r sum(x$Datasets)` original [data sets](done.html) containing a total of `r format(sum(x$Records), big.mark=",")` records. 
+We aggregate agricultural research **data by groups** of data collected for similar goals and with similar variables. The table below shows the current groups and the number of original datasets and records in each group. We also show these numbers for the datasets that have a Creative Commons (CC) [license](licenses.html). As of `r  cdate`, we have processed `r sum(x$Datasets)` original [data sets](done.html) containing a total of `r format(sum(x$Records), big.mark=",")` records. 
 
 <br>
 
@@ -82,12 +82,12 @@ w <- project(w, "+proj=hatano")
 g <- graticule(60, 30, "+proj=hatano")
 v <- project(v, "+proj=hatano")
 
-plot(g, col=gray(.95), background="azure", lwd=1.5, mar=c(.4, .2, 0, 0))
+plot(g, col=gray(.95), background="azure", lwd=1.5, mar=c(.4, .2, 0, 0), lab.cex=.4)
 plot(w, add=TRUE, col="light gray", border="white", lwd=1.5)
 points(v, col="pink", cex=.5)
 points(v, col="red", cex=.25)
 lines(w, col="dark gray", lwd=1)
-text(-14000000, -9500000, paste("Carob locations  (", cdate, ")"), xpd=TRUE, cex=.5)
+halo(-12000000, -6500000, paste("Carob locations\n  ", cdate), xpd=TRUE, cex=.6)
 ``` 
 </br>
 </br>

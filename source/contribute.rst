@@ -12,7 +12,7 @@ Contribute
    <div style="visibility: visible;">
 
 
-*Carob* is an open-source community project to standardize and aggregate agricultural research data. You are invited to contribute to *Carob* by contributing `R` scripts for datasets of interest, or by improving existing scripts. All scripts are available on `github <https://github.com/reagro/carob/>`_ (in the ``scripts`` folder).
+*Carob* is an open-source community project to standardize and aggregate agricultural research data. You are invited to **contribute** to *Carob* by contributing `R` scripts for datasets of interest, or by improving existing scripts. All scripts are available on `github <https://github.com/reagro/carob/>`_ (in the ``scripts`` folder).
 
 To contribute you can follow these steps
 
