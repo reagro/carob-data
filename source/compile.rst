@@ -12,13 +12,13 @@ Compile
 
 
 
-You can **compile** Carob data yourself if you have basic familiarity with the *git* and *R* software. 
+You can **compile** *Carob* data yourself if you have basic familiarity with the *git* and *R* software. 
 
 1. Install software
 
   If you do not have these programs, first **install** the current version of *R* (`download it here <https://cran.r-project.org/>`__), and *git*. If you are not familiar with command line tools, you can install `github desktop <https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop>`__
 
-2. Clone the carob repo
+2. Clone the *Carob* repo
 
   **clone** the *Carob* `repo <https://github.com/reagro/carob/>`_ (repository) from github to your computer. You can use github desktop or another git program. On the command line you can use::
 
