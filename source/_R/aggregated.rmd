@@ -20,6 +20,10 @@ library(leaflet)
 ```{r groups, echo=FALSE}
 ff <- list.files(data_path, pattern=".csv$", full=TRUE)
 ff <- ff[!grepl("_terms", ff)]
+## _metadata comes after _maize
+sff <- gsub("_metadata", "_aaa", ff)
+ff <- ff[order(sff)]
+
 f <- grep(ff, pattern="_metadata.csv$", value=TRUE)
 
 groups <- gsub("_metadata.csv$", "", basename(f))

@@ -17,10 +17,16 @@ Carob
   :alt: CAROB logo
   :align: left
 
-*Carob* produces large standardized data sets to facilitate agricultural research. It is an open-source, collaborative and community based *Extract, Transform, and Load* `(ETL) project supported by CGIAR <https://www.cgiar.org/initiative/excellence-in-agronomy/>`_. All data transformations are done with *R* scripts, making it easy to enhance the standardization process as needs arise, and to correct mistakes. Please consider `contributing <contribute.html>`_! 
+*Carob* produces large standardized data sets to facilitate agricultural research. It is an open-source, collaborative, and community based project supported by `CGIAR <https://www.cgiar.org/initiative/excellence-in-agronomy/>`_. All data transformations are done with *R* scripts, making it easy to enhance the standardization process as needs arise, and to correct mistakes. Please consider `contributing <contribute.html>`_! 
 
 
 Contact: carob.data@gmail.com
+
+.. image:: /_static/cgiar-logo-static.png
+  :width: 40
+  :alt: CGIAR logo
+  :target: https://www.cgiar.org/
+
 
 .. image:: /_static/eia-logo.png
   :width: 75	
@@ -43,10 +49,9 @@ Contact: carob.data@gmail.com
 	:maxdepth: 3
 
 	introduction
-	standard
 	data
-	compile
-	contribute
 	contributors
-	todo
+	compile
+	standard
+	contribute
 

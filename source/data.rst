@@ -25,11 +25,10 @@ From this page you can download the aggregated data with a Creative Commons `lic
 	<select name="data-select" id="data-select">
 		<option value=""></option>
 		<option value="agronomy">agronomy</option>
-		<option value="fertilizer">fertilizer</option>
 		<option value="pest_diseases">pest_diseases</option>
 		<option value="soil_samples">soil_samples</option>
 		<option value="survey">survey</option>
-		<option value="varieties">varieties_maize</option>
+		<option value="varieties">varieties</option>
 		<option value="varieties_maize">varieties_maize</option>
 		<option value="varieties_wheat">varieties_wheat</option>
 	</select>
@@ -96,7 +95,7 @@ From this page you can download the aggregated data with a Creative Commons `lic
 
 
 
-The **groups** make it easier for us to organize our work but it is important to note that they are not mutually exclusive. For example the "fertilizer" group aggregates experiments and surveys with crop yield and fertilizer application data. While the emphasis of the "agronomy", "survey", and "varieties" data is different, they may also contain fertilizer application data. Likewise, the "varieties" data are about comparing crop varieties, but variety names are also reported in the "fertilizer" group. This means that you may want to consider using data from multiple groups. The maize and wheat varieties have their own groups because of the large amount of data in these groups, and because they have some unique terms.
+The **groups** make it easier for us to organize our work but it is important to note that they are not mutually exclusive. For example, the first place to look for crop response to fertilizer data would be in the "agronomy" group. However, the "survey", and "varieties" groups may also contain fertilizer application data. Likewise, the "varieties" data are about comparing crop varieties, but variety names are also reported in the "agronomy" group. This means that you may want to consider using data from multiple groups. The maize and wheat varieties have their own groups because of the large amount of data in these groups, and because they have some unique terms.
 
 
 .. raw:: html
