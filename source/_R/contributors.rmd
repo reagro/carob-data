@@ -81,7 +81,8 @@ get_authors <- function(d) {
 	p$p <- gsub("Balemi, T$", "Balemi, Tesfaye", p$p)
 	p$p <- gsub("))", ")", p$p)
 	p$p[p$p == "World Agroforestry (ICRAF)"] <- "World Agroforestry Center (ICRAF)"
-	
+	p$p <- gsub("Zambian Agriculture Research Institute", "Zambia Agricultural Research Institute", p$p)
+		
 	p <- p[!grepl("ABC|CIAT|ILRI|IRRI|CIMMYT|ICRISAT|IITA|ICRAF|TARI|University of California", p$p), ]
 	p$p <- gsub("  ", " ", p$p)
 	p$p <- trimws(p$p)
