@@ -16,9 +16,9 @@ library(terra)
 library(geodata)
 library(leaflet)
 
-
 ff <- list.files(data_path, pattern=".csv$", full=TRUE)
-ff <- ff[!grepl("_terms", ff)]
+ff <- ff[!grepl("_terms|_long", ff)]
+
 ## _metadata comes after _maize
 sff <- gsub("_metadata", "_aaa", ff)
 ff <- ff[order(sff)]

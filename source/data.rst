@@ -14,7 +14,11 @@ Data
    :file: _R/aggregated.html
 
 
-From this page you can download the aggregated data with a Creative Commons `license <licenses.html>`_. You can create the full datasets yourself by following these `instructions <compile.html>`__. Please note that the data available here are new. They represent our first attempt to standardize widely variable data with lost of data quality issues. There will likely be some errors from the original data that remain, or errors that we have introduced. Our aim is to provide cleaner and better documented datasets toward the end of 2024.
+From this page you can download the aggregated data with a Creative Commons `license <licenses.html>`_. You can create the full datasets yourself by following these `instructions <compile.html>`__. 
+
+Please note that the data available here are new. They represent our first attempt to standardize widely variable data with lots of data quality issues. The data still contains errors from the original data that remain, and likely also errors that we have introduced. 
+
+Our aim is to provide cleaner and better documented datasets toward the end of 2024.
 
 
 .. raw:: html
