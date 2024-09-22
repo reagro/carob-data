@@ -79,6 +79,7 @@ get_authors <- function(d) {
 	p$p <- gsub("Tor Gunnar", "Tor-Gunnar", p$p) 
 	p$p <- gsub("Winowiecki, Leigh$", "Winowiecki, Leigh Ann", p$p) 
 	p$p <- gsub("Balemi, T$", "Balemi, Tesfaye", p$p)
+	p$p <- gsub("Cyamweshi, A. R.", "Cyamweshi, Athanase R.", p$p)
 	p$p <- gsub("))", ")", p$p)
 	p$p[p$p == "World Agroforestry (ICRAF)"] <- "World Agroforestry Center (ICRAF)"
 	p$p <- gsub("Zambian Agriculture Research Institute", "Zambia Agricultural Research Institute", p$p)
@@ -108,6 +109,7 @@ intab$name <- paste0('<a href="https://', intab$URL, '">', intab$name, "</a>")
 ### Script authors
 
 ```{r catable, echo=FALSE}
+cartab[,2][cartab[,2] > 100] <- "100+"
 out = paste0(paste0(cartab[,1], " (", cartab[,2], ")"), collapse="; ")
 #kableExtra::kbl(cartab) |> kable_classic(full_width = FALSE) |>
 #   kable_styling(bootstrap_options = c("striped", "hover"))

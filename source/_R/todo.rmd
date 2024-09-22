@@ -14,13 +14,12 @@ carob_path = "../../../carob/"
 
 
 ```{r todo, echo=FALSE}
-#carobiner:::update_todo(todo_path)
 ftodo <- file.path(carob_path, "misc", "todo", "to-do.csv")
 x <- data.table::fread(ftodo, sep=",")
 x <- x[, c("uri", "title", "crop", "region", "provider", "group")]
-uri <- gsub("https://doi.org/", "doi:", x$uri)
-uri <- gsub("https://hdl.handle.net/", "hdl:", uri)
-x$uri <- paste0('<a href="', x$uri, '">', uri,'</a>')
+hlink <- gsub("doi:", "https://doi.org/", x$uri)
+hlink <- gsub("hdl:", "https://hdl.handle.net/", hlink)
+x$uri <- paste0('<a href="', hlink, '">', x$uri,'</a>')
 x$title <- paste0(x$title, ". ", x$provider, ". ", x$uri)
 x$provider <- x$uri <- NULL
 DT::datatable(x, escape=FALSE, rownames=FALSE)

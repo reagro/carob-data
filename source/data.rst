@@ -33,6 +33,8 @@ Our aim is to provide cleaner and better documented datasets toward the end of 2
 		<option value="soil_samples">soil_samples</option>
 		<option value="survey">survey</option>
 		<option value="varieties">varieties</option>
+		<option value="varieties_cassava">varieties_cassava</option>
+		<option value="varieties_cowpea">varieties_cowpea</option>
 		<option value="varieties_maize">varieties_maize</option>
 		<option value="varieties_wheat">varieties_wheat</option>
 	</select>
