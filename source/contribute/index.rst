@@ -16,14 +16,19 @@ Contribute
 
 To contribute you can follow these steps
 
-1. **fork** the *Carob* `repo <https://github.com/reagro/carob/>`_ to your github account. 
-2. **clone** the forked repo to your computer.
-3. **install** `R` package "carobiner" with ``remotes::install_github("reagro/carobiner")``
-4. add a new `R` **script**, or make the changes to an existing script (follow the `guidelines <https://github.com/reagro/carob/wiki/Guidelines>`_).
-5. **check** your work by running ``carobiner::run_carob()`` for the new or changed `R` script.
-6. **push** these changes to the forked repo on your github account.
+
+1. Install the current version of *R*, and *git*. You can also install *R-Studio*.
+2. **install** `R` package "carobiner" with ``remotes::install_github("reagro/carobiner")``
+3. **fork** the *Carob* `repo <https://github.com/reagro/carob/>`_ to your github account. 
+4. **clone** the forked repo to your computer.
+5. create a new `R` **script**, or make the changes to an existing script. See this `example <./example.html>`__ and the `guidelines <https://github.com/reagro/carob/wiki/Guidelines>`_).
+6. **check** your work by running ``carobiner::run_carob()`` for the new or changed `R` script.
 7. **sync** the forked repo with main repo in reagro/carob such that your fork is not behind.
-8. create a **pull request** to integrate your changes into the main repo. Keep pull requests simple. They should normally consist of only one file at a time. 
+8. **add** and/or **commit** these changes to the forked repo on your github account.
+9. **push** your changes to the forked repo on your github account.
+10. create a **pull request** to integrate your changes into the main repo. Keep pull requests simple. They should normally consist of only one file at a time. 
+
+If you are not familiar with these procedures you can try to follow `these <./github.html>`__ instructions
 
 If you find this procedure too daunting we can also try to work with you in other ways. You can drop us an email at carob.data@gmail.com, or raise an `issue <https://github.com/reagro/carob/issues>`_ on github.
 
@@ -36,3 +41,11 @@ You can discover new data sets with the `Gardian <https://gardian.bigdata.cgiar.
 .. raw:: html
 
    </div>
+
+
+.. toctree::
+	:hidden:
+	:maxdepth: 3
+	
+	git
+	example

@@ -53,5 +53,4 @@ Contact: carob.data@gmail.com
 	contributors
 	compile
 	standard
-	contribute
-
+	contribute/index.rst
