@@ -11,11 +11,11 @@ git
    <div style="visibility: visible;">
 
 
-The *Carob* project is developed using the "git" versioning software. This greatly facilitates collaborative work and making incremental improvements because all changes made are tracked. A git project is called a "repo" (repository) and the "master" (main) Carob repo is `hosted on github <https::/github.com/reagro/carob>__ . 
+The *Carob* project is developed using the "git" versioning software. This greatly facilitates collaborative work and making incremental improvements because all changes made are tracked. A git project is called a "repo" (repository) and the "master" (main) Carob repo is `hosted on github <https::/github.com/reagro/carob>`__ . 
 
 To contribute to the *Carob* repo (and to other github based projects) you need to understand a few concepts and commands that we introduce here. 
 
-The first thing you need to do is create an account on github (other projects using git may use another platform such as bitbucket). Once you have an account, you can **fork** the *Carob* repo to your account. A fork is a copy of a git repo that you can make changes to while also getting any updates that are made to the main repo. 
+The first thing you need to do is create an account on `github <https::/github.com/reagro/carob>`__ if you do not have one (other projects using git may use another platform such as bitbucket for their git projects ). Once you have an account, you can **fork** the *Carob* repo to your account. A fork is a copy of a git repo that you can make changes to, while also getting any updates that are made to the main repo. 
 
 fork
 ----
