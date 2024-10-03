@@ -22,7 +22,7 @@ Unfortunately, it can be very difficult and time consuming to re-use existing re
 
 We also hope that by using the `terminag <https://github.com/reagro/terminag>`__ standard; and the tools to check datasets for being compliant (implemented in the *R* package "carobiner" available on `github <https://github.com/reagro/carobiner>`_), researchers will be able to improve the quality of the new datasets that they create. First and foremost, because this would make their own research more efficient and effective. Their work would also have more visibility and impact, as more people would work with the data once they are published. 
 
-*Carob* is the *Extract, Transform, and Load* `(ETL) framework supported by CGIAR <https://www.cgiar.org/initiative/excellence-in-agronomy/>`_ to support predictive agronomy analytics (machine learning). All data transformations are done with *R* scripts, making it easy to enhance the standardization process as needs arise, and to correct mistakes. Please consider `contributing <contribute.html>`_! 
+*Carob* is the *Extract, Transform, and Load* `(ETL) framework supported by CGIAR <https://www.cgiar.org/initiative/excellence-in-agronomy/>`_ to support predictive agronomy analytics (machine learning). All data transformations are done with *R* scripts, making it easy to enhance the standardization process as needs arise, and to correct mistakes. Please consider `contributing <contribute/index.html>`_! 
 
 .. raw:: html
 
