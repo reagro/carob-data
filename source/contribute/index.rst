@@ -21,7 +21,7 @@ To contribute you can follow these steps
 2. In *R*, **install** the "carobiner" package with ``remotes::install_github("reagro/carobiner")`` (you may need to first run ``install.packages("remotes")``).
 3. **fork** the *Carob* `repo <https://github.com/reagro/carob/>`_ to your github account. 
 4. **clone** the forked repo to your computer.
-5. create a new `R` **script**, or make the changes to an existing script. See this `example <./example.html>`__ and the `guidelines <https://github.com/reagro/carob/wiki/Guidelines>`_.
+5. create a new `R` **script**, or make the changes to an existing script. See this `example <./example.html>`__ and the `guidelines  <./guidelines.html>`_.
 6. **check** your work by running ``carobiner::run_carob()`` for the new or changed `R` script.
 7. **sync** the forked repo with main repo in reagro/carob such that your fork is not behind.
 8. **add** and/or **commit** these changes to the forked repo on your github account.
@@ -32,10 +32,7 @@ If you are not familiar with these procedures you can try to follow `these instr
 
 If you find this procedure too daunting we can also try to work with you in other ways. You can drop us an email at carob.data@gmail.com, or raise an `issue <https://github.com/reagro/carob/issues>`_ on github.
 
-You can discover new data sets with the `Gardian <https://gardian.bigdata.cgiar.org>`_ search engine. You can also look at our to-do list below for ideas. You can check our `done list <done.html>`_ to make sure you do not work on a dataset that has already been processed). But since there can be a delay in updating what is shown here, before you start working on a dataset, you should check with ``carobiner::on_github`` if it has already been done (and has been added to the github repo). 
-
-.. raw:: html
-   :file: ../_R/todo.html
+You can discover new data sets with the `Gardian <https://gardian.bigdata.cgiar.org>`_ search engine. You can also look at our `to-do list <./todo.html>`__ for ideas. You can check our `done list <done.html>`_ to make sure you do not work on a dataset that has already been processed). But since there can be a delay in updating what is shown here, before you start working on a dataset, you should check with ``carobiner::on_github`` if it has already been done (and has been added to the github repo). 
 
 
 .. raw:: html
@@ -49,3 +46,5 @@ You can discover new data sets with the `Gardian <https://gardian.bigdata.cgiar.
 	
 	git
 	example
+	guidelines
+	todo

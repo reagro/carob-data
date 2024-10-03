@@ -2,7 +2,7 @@
 
    <div style="visibility: hidden;">
 
-git
+Git
 ===
 
 .. raw:: html
@@ -57,3 +57,7 @@ Write a message in the box describing your contribution, and click on *create a 
 
 See `this document <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo>`__ for a more fundamental description of making pull-requests, including the command line approach.  
 
+
+.. raw:: html
+
+   </div>

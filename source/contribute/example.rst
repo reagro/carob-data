@@ -1,5 +1,14 @@
-example script
+.. raw:: html
+
+   <div style="visibility: hidden;">
+
+Example script
 ==============
+
+.. raw:: html
+
+   </div>
+   <div style="visibility: visible;">
 
 In *Carob*, we standardize datasets that can be automatically downloaded. Each original dataset gets its own *R* script. In this page we discuss an example script that standardizes this `dataset doi:10.21421/D2/STACVA <https://dataverse.icrisat.org/dataset.xhtml?persistentId=doi:10.21421/D2/STACVA>`__  by Hakeem Ayinde Ajeigbe and colleagues. This particular dataset is published on the `ICRISAT dataverse <https://dataverse.icrisat.org/>`__, which is based on the `Harvard Dataverse <https://dataverse.harvard.edu/>`__. This is the most common platform used for sharing open agricultural research data.  
 
@@ -231,3 +240,8 @@ Once you have finished the script, you should test it by running the entire func
 	
 If this returns ``TRUE`` then congratulations, your script works!
 
+
+
+.. raw:: html
+
+   </div>
