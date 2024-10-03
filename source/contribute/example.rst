@@ -10,7 +10,7 @@ Example script
    </div>
    <div style="visibility: visible;">
 
-In *Carob*, we standardize datasets that can be automatically downloaded. Each original dataset gets its own *R* script. In this page we discuss an example script that standardizes this `dataset doi:10.21421/D2/STACVA <https://dataverse.icrisat.org/dataset.xhtml?persistentId=doi:10.21421/D2/STACVA>`__  by Hakeem Ayinde Ajeigbe and colleagues. This particular dataset is published on the `ICRISAT dataverse <https://dataverse.icrisat.org/>`__, which is based on the `Harvard Dataverse <https://dataverse.harvard.edu/>`__. This is the most common platform used for sharing open agricultural research data.  
+In *Carob*, we standardize datasets that can be automatically downloaded. Each original dataset gets its own *R* script. In this page we discuss an example script that standardizes the dataset `doi:10.21421/D2/STACVA <https://dataverse.icrisat.org/dataset.xhtml?persistentId=doi:10.21421/D2/STACVA>`__  by Hakeem Ayinde Ajeigbe and colleagues. This particular dataset is published on the `ICRISAT dataverse <https://dataverse.icrisat.org/>`__, which is based on the `Harvard Dataverse <https://dataverse.harvard.edu/>`__. This is the most common platform used for sharing open agricultural research data.  
 
 In this tutorial we use this dataset because its processing is not very complex. The full script is `available here  <https://raw.githubusercontent.com/reagro/carob/refs/heads/master/scripts/agronomy/doi_10.21421_D2_STACVA.R>`__, please have a look at it now, before we explain it in detail.
 
@@ -88,7 +88,7 @@ Now use the ``carobiner::get_data()`` function. It will download the  to retriev
    ff <- carobiner::get_data(uri, path, group)
 
 
-metadata
+Metadata
 --------
 
 The metadata section contains the descriptions of the dataset enriching it with some additional information useful for carob. Most of the metadata (authors, dataset title) is extracted with `carobiner::read_metadata` function. Other metadata needs to be added manually. Of particular importance for experimental data is `treatment_vars`, which need to list the variable(s) that capture the experimental treatment. It is also important to include the publication associated with the dataset if there is any. Here is the metadata section for this dataset.
@@ -112,7 +112,7 @@ The metadata section contains the descriptions of the dataset enriching it with 
 In this particular example, there is no publication linked to the dataset (`publication="NA"`), but it it is important to check if there is one. An associated publication often provides additional data that can be extracted.
 
 
-data
+Data
 ----
 
 Now that we have downloaded the data, and created the metadata, we start with the processing of the actual data. The goal is to create single data.frame where rows are experimental units (or similar in a survey), columns represent variables and cell values are measurements. The data.frame should have standard variable names and values (for character variables) or units (for numeric variables), as prescribed by the `terminag <https://github.com/reagro/terminag>`__ controlled vocabulary. There are data sets that do easily not fit in a single data.frame, for example because there are multiple observations over time for an experimental unit and we will describe these elsewhere. 
