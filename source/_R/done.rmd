@@ -35,7 +35,7 @@ x$dataset <- ifelse(i, paste0(x$dataset, ', <a href="', rep, '">Report</a>'), x$
 
 ```
 
-These are the datasets that have been standardized by the Carob project.
+These are the datasets that have been standardized by the *Carob* project.
 
 </br>
 

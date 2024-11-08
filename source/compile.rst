@@ -1,15 +1,5 @@
-.. raw:: html
-
-   <div style="visibility: hidden;">
-
 Compile
 =======
-
-.. raw:: html
-
-   </div>
-   <div style="visibility: visible;">
-
 
 
 You can **compile** *Carob* data yourself if you have basic familiarity with the *git* and *R* software. 
@@ -52,7 +42,3 @@ You can **compile** *Carob* data yourself if you have basic familiarity with the
 
     remotes::install_github("reagro/carobiner") 
 
-
-.. raw:: html
-
-   </div>

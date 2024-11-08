@@ -1,18 +1,9 @@
-.. raw:: html
-
-   <div style="visibility: hidden;">
-
 
 Contribute
 ==========
 
-.. raw:: html
 
-   </div>
-   <div style="visibility: visible;">
-
-
-*Carob* is an open-source community project to standardize and aggregate agricultural research data. You are invited to **contribute** to *Carob* by contributing `R` scripts for datasets of interest, or by improving existing scripts. All scripts are available on `github <https://github.com/reagro/carob/>`_ (in the ``scripts`` folder).
+*Carob* is an open-source community project to standardize and compile agricultural research data. You are invited to **contribute** to *Carob* by contributing `R` scripts for datasets of interest, or by improving existing scripts. All scripts are available on `github <https://github.com/reagro/carob/>`_ (in the ``scripts`` folder).
 
 To contribute you can follow these steps
 
@@ -28,16 +19,12 @@ To contribute you can follow these steps
 9. **push** your changes to the forked repo on your github account.
 10. create a **pull request** to integrate your changes into the main repo. Keep pull requests simple. They should normally consist of only one file at a time. 
 
-If you are not familiar with these procedures you can try to follow `these instructions <./github.html>`__. 
+If you are not familiar with these procedures you can try to follow `these instructions <./git.html>`__. 
 
 If you find this procedure too daunting we can also try to work with you in other ways. You can drop us an email at carob.data@gmail.com, or raise an `issue <https://github.com/reagro/carob/issues>`_ on github.
 
-You can discover new data sets with the `Gardian <https://gardian.bigdata.cgiar.org>`_ search engine. You can also look at our `to-do list <./todo.html>`__ for ideas. You can check our `done list <done.html>`_ to make sure you do not work on a dataset that has already been processed). But since there can be a delay in updating what is shown here, before you start working on a dataset, you should check with ``carobiner::on_github`` if it has already been done (and has been added to the github repo). 
+You can discover new data sets with the `Gardian <https://gardian.bigdata.cgiar.org>`_ search engine. You can also look at our `to-do list <./todo.html>`__ for ideas. You can check our `done list <../done.html>`_ to make sure you do not work on a dataset that has already been processed). But since there can be a delay in updating what is shown here, before you start working on a dataset, you should check with ``carobiner::on_github`` if it has already been done (and has been added to the github repo). You can also help fix some of the remaining `issues <./issues.html>`__.
 
-
-.. raw:: html
-
-   </div>
 
 
 .. toctree::
@@ -48,3 +35,4 @@ You can discover new data sets with the `Gardian <https://gardian.bigdata.cgiar.
 	example
 	guidelines
 	todo
+	issues

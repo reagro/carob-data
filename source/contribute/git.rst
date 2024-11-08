@@ -20,7 +20,7 @@ The first thing you need to do is create an account on `github <https::/github.c
 fork
 ----
 
-To fork the *Carob* repo, navigate to the `Carob github page <https::/github.com/reagro/carob>`__, click on the **Fork** button and choose your personal account as the target.
+To fork the *Carob* repo, navigate to its `github site <https::/github.com/reagro/carob>`__, click on the **Fork** button and choose your personal account as the target.
 
 .. figure:: ./git/fork_1.png
    :alt: fork1

@@ -109,7 +109,7 @@ intab$name <- paste0('<a href="https://', intab$URL, '">', intab$name, "</a>")
 ### Script authors
 
 ```{r catable, echo=FALSE}
-cartab[,2][cartab[,2] > 100] <- "100+"
+cartab[,2][cartab[,2] > 250] <- "250+"
 out = paste0(paste0(cartab[,1], " (", cartab[,2], ")"), collapse="; ")
 #kableExtra::kbl(cartab) |> kable_classic(full_width = FALSE) |>
 #   kable_styling(bootstrap_options = c("striped", "hover"))

@@ -1,16 +1,8 @@
-.. raw:: html
-
-   <div style="visibility: hidden;">
-
 Introduction
 ============
 
-.. raw:: html
 
-   </div>
-   <div style="visibility: visible;">
-
-*Carob* is a community project that uses a collaborative and open-source approach to **standardize and aggregate** open agricultural research data from experiments and surveys. The goal is to facilitate the further use of these data in research and development.
+*Carob* is a community project that uses a collaborative and open-source approach to **standardize and compile** open agricultural research data from experiments and surveys. The goal is to facilitate the further use of these data in research and development.
 
 The project used *R* scripts to standardize individual data sets. We follow the `terminag <https://github.com/reagro/terminag>`__ standard and use *R* package `carobiner <https://github.com/reagro/carobiner>`__ to check for compliance, and to compile the data. The data that we have compiled so far are described `here <data.html>`_. You can download some of the standardized data from this site; and you can also use the scripts to generate all the data `yourself <compile.html>`__.
 
@@ -24,6 +16,3 @@ We also hope that by using the `terminag <https://github.com/reagro/terminag>`__
 
 *Carob* is the *Extract, Transform, and Load* `(ETL) framework supported by CGIAR <https://www.cgiar.org/initiative/excellence-in-agronomy/>`_ to support predictive agronomy analytics (machine learning). All data transformations are done with *R* scripts, making it easy to enhance the standardization process as needs arise, and to correct mistakes. Please consider `contributing <contribute/index.html>`_! 
 
-.. raw:: html
-
-   </div>

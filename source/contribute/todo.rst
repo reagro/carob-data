@@ -1,10 +1,5 @@
-.. raw:: html
-
-   <div style="visibility: hidden;">
-
-
-To-do
-=====
+To-do list
+==========
 
 .. raw:: html
 
@@ -17,8 +12,4 @@ You can check our `done list <done.html>`_ to make sure you do not work on a dat
 .. raw:: html
    :file: ../_R/todo.html
 
-
-.. raw:: html
-
-   </div>
 

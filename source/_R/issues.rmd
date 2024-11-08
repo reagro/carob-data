@@ -1,0 +1,29 @@
+---
+title: "&#32;"
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+carob_path = "../../../carob/"
+```
+
+The table below shows the non-compliance messages emitted by *Carob* scripts.
+
+</br>
+
+```{r issues, echo=FALSE}
+fiss <- file.path(carob_path, "data/messages.csv")
+x <- data.table::fread(fiss, sep=",")
+x <- aggregate(x[, "msg", drop=FALSE], x[, c("contributor", "dataset_id", "group")], \(i) paste0(i, collapse="<br>")) 
+names(x)[4] <- "message"
+link <- paste0("https://carob-data.org/reports/agronomy/", x$dataset_id, ".html")
+x$dataset_id <- paste0('<a href="', link, '">', x$dataset_id,'</a>')
+x$dataset_id <- paste0(x$dataset_id, "<br>", x$group, "; ", x$contributor)
+x$check <- x$group <- x$contributor <- NULL
+
+DT::datatable(x, escape=FALSE, rownames=FALSE)
+```
+
+</br>
