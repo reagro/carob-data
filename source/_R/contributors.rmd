@@ -63,7 +63,17 @@ get_authors <- function(d) {
 	p$p[grepl("Wortmann", p$p)] <- "Wortmann, Charles S."
 	p$p <- gsub("Wiredu Alexanda Nimo", "Wiredu, Alexanda Nimo", p$p) 
 	p$p <- gsub("Bolo, Peter$", "Bolo, Peter Omondi", p$p) 
-
+	p$p <- gsub("Dorado, Hugo A.", "Dorado Betancourt, Hugo A.", p$p) 
+	p$p <- gsub("Eyzaguire, Raul", "Eyzaguirre, Raul", p$p) 
+	p$p <- gsub("Dicko, M. K.|Dicko, Mohamed", "Dicko, Mohammed K.", p$p) 
+	p$p <- gsub("Joon, Rajeev", "Joon, K Rajeev", p$p) 
+	p$p <- gsub("Pundir, Ajay", "Pundir, K Ajay", p$p) 
+	p$p <- gsub("Lilongwe University of Agriculture & Natural Resources (LUANAR)", "Lilongwe University of Agriculture & Natural Resources", p$p) 
+	p$p <- gsub("Nabahungu, L$|Nabahungu, Leon N.", "Nabahungu, Léon N.", p$p) 
+	p$p <- gsub("Nkonde, D.$", "Nkonde, Davy", p$p) 
+	p$p <- gsub("Rojas-Cruz, Juan Manuel", "Rojas Cruz, Juan Manuel", p$p) 
+	p$p <- gsub("Saldivia-Tejeda, Abel", "Saldivia Tejeda, Abel", p$p) 
+	
 	nms1 <- c("Sherpa Sonam", "Poonia Shishpal", "Kumar Sunil", "Sharma Sachin", "Ajay Anurag", "Wu William", "Singh Balwinder", "McDonald Andrew", "Hood-Nowotny Rebbeca", "Majaliwa Jackson", "Tumuhairwe John-Baptist", "Quispe Katherine", "Okoth John",  "Kyei-Boahen Stephen")
 	nms2 <- gsub(" ", ", ", nms1)
 	for (i in 1:length(nms1)) p$p <- gsub(nms1[i], nms2[i], p$p)
@@ -75,19 +85,24 @@ get_authors <- function(d) {
 	p$p <- gsub("Anurag, Ajay", "Ajay, Anurag", p$p)
 	p$p <- gsub("Sila, Andrew Musili", "Sila, Andrew", p$p) 
 	p$p <- gsub("Sileshi, Gudeta W$", "Sileshi, Gudeta W.", p$p) 
-	p$p <- gsub("Talabi, O.A.", "Talabi, A.O.", p$p) 
+	p$p <- gsub("Talabi, A. O.|Talabi, O.A.", "Talabi, A.O.", p$p) 
 	p$p <- gsub("Tor Gunnar", "Tor-Gunnar", p$p) 
 	p$p <- gsub("Winowiecki, Leigh$", "Winowiecki, Leigh Ann", p$p) 
 	p$p <- gsub("Balemi, T$", "Balemi, Tesfaye", p$p)
 	p$p <- gsub("Cyamweshi, A. R.", "Cyamweshi, Athanase R.", p$p)
+	p$p <- gsub("H, Sudini", "Sudini, H", p$p) 
 	p$p <- gsub("))", ")", p$p)
 	p$p[p$p == "World Agroforestry (ICRAF)"] <- "World Agroforestry Center (ICRAF)"
 	p$p <- gsub("Zambian Agriculture Research Institute", "Zambia Agricultural Research Institute", p$p)
 		
-	p <- p[!grepl("ABC|CIAT|ILRI|IRRI|CIMMYT|ICRISAT|IITA|ICRAF|TARI|University of California", p$p), ]
+	p <- p[!grepl("ABC|CIAT|ILRI|IFPRI|IRRI|IWMI|CIMMYT|ICRISAT|IITA|ICRAF|TARI|University of California", p$p), ]
 	p$p <- gsub("  ", " ", p$p)
 	p$p <- trimws(p$p)
 	p <- p[p$p !="", ]
+	p$p <- gsub("H, Nadaf", "Nadaf, H", p$p) 
+	p$p <- gsub("P, Latha", "Latha, P", p$p) 
+	p$p <- gsub("Rurinda, J$", "Rurinda, Jairos", p$p) 
+	p$p <- gsub("Trust, Grassroots", "Grassroots Trust", p$p) 
 	
 	tab <- as.data.frame(table(p$p))
 	colnames(tab) <- c("name", "datasets")
