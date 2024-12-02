@@ -95,7 +95,7 @@ get_authors <- function(d) {
 	p$p[p$p == "World Agroforestry (ICRAF)"] <- "World Agroforestry Center (ICRAF)"
 	p$p <- gsub("Zambian Agriculture Research Institute", "Zambia Agricultural Research Institute", p$p)
 		
-	p <- p[!grepl("ABC|CIAT|ILRI|IFPRI|IRRI|IWMI|CIMMYT|ICRISAT|IITA|ICRAF|TARI|University of California", p$p), ]
+	p <- p[!grepl("ABC|CIAT|ILRI|IFPRI|IRRI|IWMI|CIMMYT|ICRISAT|IITA|ICRAF|TARI|University of California|MSU|Ministry of Food and Agriculture (MOFA), Republic of Ghana|SARI|ZARI|CRS|TLC", p$p), ]
 	p$p <- gsub("  ", " ", p$p)
 	p$p <- trimws(p$p)
 	p <- p[p$p !="", ]
@@ -113,8 +113,10 @@ get_authors <- function(d) {
 
 cartab <- get_tab(d, "carob_contributor")
 autab <- get_authors(d)
-
 intab <- get_tab(d, "data_institute")
+
+
+
 inst <- carobiner::accepted_values("institute")
 intab <- merge(intab, inst, by="name", all.x=TRUE)
 intab$name <- paste0('<a href="https://', intab$URL, '">', intab$name, "</a>")
