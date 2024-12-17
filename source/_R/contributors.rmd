@@ -95,7 +95,7 @@ get_authors <- function(d) {
 	p$p[p$p == "World Agroforestry (ICRAF)"] <- "World Agroforestry Center (ICRAF)"
 	p$p <- gsub("Zambian Agriculture Research Institute", "Zambia Agricultural Research Institute", p$p)
 		
-	p <- p[!grepl("ABC|CIAT|ILRI|IFPRI|IRRI|IWMI|CIMMYT|ICRISAT|IITA|ICRAF|TARI|University of California|MSU|Ministry of Food and Agriculture (MOFA), Republic of Ghana|SARI|ZARI|CRS|TLC", p$p), ]
+	p <- p[!grepl("ABC|CIAT|ILRI|IFPRI|IRRI|IWMI|CIMMYT|ICRISAT|IITA|ICRAF|ISRIC|LUANAR|TARI|University of California|MSU|Ministry of Food and Agriculture (MOFA), Republic of Ghana|SARI|ZARI|CRS|TLC", p$p), ]
 	p$p <- gsub("  ", " ", p$p)
 	p$p <- trimws(p$p)
 	p <- p[p$p !="", ]
