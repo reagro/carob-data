@@ -14,7 +14,7 @@ x <- do.call(carobiner::bindr, lapply(fdone, read.csv))
 url <- gsub("doi:", "https://doi.org/", x$uri)
 url <- gsub("hdl:", "https://hdl.handle.net/", url)
 
-suri <- sapply(x$uri, carobiner::simple_uri)
+suri <- sapply(x$uri, yuri::simpleURI)
 github <- paste0("https://github.com/reagro/carob/blob/master/scripts/", x$group, "/", suri, ".R")
 script <- paste0('<a href="', github, '">R script</a>')
 
