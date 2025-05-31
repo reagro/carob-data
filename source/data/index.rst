@@ -1,18 +1,14 @@
 Data
 ====
 
+
 .. raw:: html
-   :file: _R/compiled.html
+   :file: ../_R/compiled.html
 
-From this page you can download the compiled data with a Creative Commons `license <licenses.html>`_. You can create the full datasets yourself by following these `instructions <compile.html>`__. 
-
-Please note that the data available here are new. They represent our first attempt to standardize widely variable data with lots of data quality issues. The data still contains errors from the original data that remain, and likely also errors that we have introduced. 
-
-Our aim is to provide cleaner and better documented datasets sometime in 2025.
 
 .. raw:: html
 
-	</br>
+	<h3>Download</h3>
     <embed>
 	<label for="data-select">group:</label>
 	<select name="data-select" id="data-select">
@@ -122,6 +118,9 @@ Our aim is to provide cleaner and better documented datasets sometime in 2025.
     </embed>
 
 
-The **groups** make it easier for us to organize our work but it is important to note that they are not mutually exclusive. For example, the first place to look for crop response to fertilizer data would be in the "agronomy" group. However, the "survey", and "varieties" groups may also contain fertilizer application data. Likewise, the "varieties" data are about comparing crop varieties, but variety names are also reported in the "agronomy" group. This means that you may want to consider using data from multiple groups. The maize and wheat varieties have their own groups because of the large amount of data in these groups, and because they have some unique terms.
 
-
+.. toctree::
+	:hidden:
+	:maxdepth: 2
+	
+	done

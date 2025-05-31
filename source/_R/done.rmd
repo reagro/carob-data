@@ -5,12 +5,16 @@ editor_options:
   chunk_output_type: console
 ---
 
-
 ```{r setup, include=FALSE}
 carob_path = "../../../carob/"
 
 fdone <- list.files(file.path(carob_path, "data", "compiled"), pattern="_metadata.csv$", full=TRUE)
+fdone <- grep("carob_all", fdone, value=TRUE, invert=TRUE)
 x <- do.call(carobiner::bindr, lapply(fdone, read.csv))
+x <- x[-grep("_nodata$", x$dataset_id), ]
+
+#fdone <- file.path(carob_path, "data", "compiled", "carob_all_metadata.csv")
+#x <- read.csv(fdone)
 url <- gsub("doi:", "https://doi.org/", x$uri)
 url <- gsub("hdl:", "https://hdl.handle.net/", url)
 
@@ -30,9 +34,22 @@ cit <- do.call(rbind, strsplit(x$data_citation, "doi:|hdl:"))
 cit <- data.frame(cit, url, x$uri)
 x$citation <- apply(cit, 1, \(i) paste0(i[1], '<a href="', i[3], '">', i[4], '</a>'))
 
-x$dataset <- paste0(x$citation, " [", x$group, "] ", script)
-x$dataset <- ifelse(i, paste0(x$dataset, ', <a href="', rep, '">Report</a>'), x$dataset)
+#x$dataset <- paste0(x$citation, " [", x$group, "] ", script)
 
+x$dataset <- paste0(x$citation, " [", x$group, "] ")
+x$dataset <- ifelse(i, paste0(x$dataset, ' <a href="', rep, '">Report</a>'), x$dataset)
+
+#zipf <- paste0("https://geodata.ucdavis.edu/carob/zip/", x$dataset_id, ".zip")
+#dwnl <- paste0(', <a href="', zipf, '">Data</a>')
+#cci <- grepl("CC", x$license)
+#dwnl[!cci] <- ""
+#x$dataset <- paste0(x$dataset, dwnl)
+
+
+z <- x[, c("data_institute", "dataset", "crops", "countries")]
+z$crops[is.na(z$crops)] <- ""
+js <- jsonlite::toJSON(list(data=z))
+writeLines(js, "../_static/providers.json")
 ```
 
 These are the datasets that have been standardized by the *Carob* project.
@@ -41,7 +58,7 @@ These are the datasets that have been standardized by the *Carob* project.
 
 ```{r todo, echo=FALSE}
 #x <- x[, c("links", "citation")]
-x <- x[, "dataset", drop=FALSE]
+x <- x[1:5, "dataset", drop=FALSE]
 #colnames(x)[2] <- "source"
 #x <- x[order(x$dataset), , drop=FALSE]
 DT::datatable(x, list(pageLength=50), escape=F, rownames=FALSE)

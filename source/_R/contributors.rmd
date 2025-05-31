@@ -18,6 +18,7 @@ library(kableExtra)
 ```{r groups, echo=FALSE}
 ff <- list.files(data_path, pattern=".csv$", full=TRUE)
 ff <- ff[!grepl("_terms", ff)]
+ff <- ff[!grepl("carob_all", ff)]
 f <- grep(ff, pattern="_metadata.csv$", value=TRUE)
 
 groups <- gsub("_metadata.csv$", "", basename(f))
@@ -25,6 +26,7 @@ groups <- gsub("^carob_", "", groups)
 
 d <- lapply(f, read.csv)
 d <- do.call(carobiner::bindr, d)
+d <- d[-grep("_nodata$", d$dataset_id), ]
 
 
 get_tab <- function(d, var) {
@@ -67,7 +69,6 @@ get_authors <- function(d) {
 	p$p <- gsub("Eyzaguire, Raul", "Eyzaguirre, Raul", p$p) 
 	p$p <- gsub("Dicko, M. K.|Dicko, Mohamed", "Dicko, Mohammed K.", p$p) 
 	p$p <- gsub("Joon, Rajeev", "Joon, K Rajeev", p$p) 
-	p$p <- gsub("Pundir, Ajay", "Pundir, K Ajay", p$p) 
 	p$p <- gsub("Lilongwe University of Agriculture & Natural Resources (LUANAR)", "Lilongwe University of Agriculture & Natural Resources", p$p) 
 	p$p <- gsub("Nabahungu, L$|Nabahungu, Leon N.", "Nabahungu, Léon N.", p$p) 
 	p$p <- gsub("Nkonde, D.$", "Nkonde, Davy", p$p) 
@@ -89,8 +90,8 @@ get_authors <- function(d) {
 	p$p <- gsub("Tor Gunnar", "Tor-Gunnar", p$p) 
 	p$p <- gsub("Winowiecki, Leigh$", "Winowiecki, Leigh Ann", p$p) 
 	p$p <- gsub("Balemi, T$", "Balemi, Tesfaye", p$p)
+ 		
 	p$p <- gsub("Cyamweshi, A. R.", "Cyamweshi, Athanase R.", p$p)
-	p$p <- gsub("H, Sudini", "Sudini, H", p$p) 
 	p$p <- gsub("))", ")", p$p)
 	p$p[p$p == "World Agroforestry (ICRAF)"] <- "World Agroforestry Center (ICRAF)"
 	p$p <- gsub("Zambian Agriculture Research Institute", "Zambia Agricultural Research Institute", p$p)
@@ -99,10 +100,25 @@ get_authors <- function(d) {
 	p$p <- gsub("  ", " ", p$p)
 	p$p <- trimws(p$p)
 	p <- p[p$p !="", ]
-	p$p <- gsub("H, Nadaf", "Nadaf, H", p$p) 
-	p$p <- gsub("P, Latha", "Latha, P", p$p) 
+	p$p <- gsub("H, Nadaf", "Nadaf, H.", p$p) 
+	p$p <- gsub("P, Latha", "Latha, P.", p$p) 
 	p$p <- gsub("Rurinda, J$", "Rurinda, Jairos", p$p) 
 	p$p <- gsub("Trust, Grassroots", "Grassroots Trust", p$p) 
+	p$p <- gsub("Bonierbale, Meredith", "Bonierbale, Meredeth", p$p)
+	p$p <- gsub("M, Blummel", "Blummel, M.", p$p)
+	p$p <- gsub("K.S, Vinutha", "Vinutha, K.S.", p$p)
+	p$p <- gsub("K, Vijay Krishna Kumar", "Vijay Krishna Kumar, K.", p$p)
+	p$p <- gsub("H, Sudini", "Sudini, H.", p$p) 
+	p$p <- gsub("U, Naga Mangala", "Naga Mangala, U.", p$p) 
+	p$p <- gsub("Abhishek, Rathore", "Rathore, Abhishek", p$p) 
+	p$p <- gsub("G.S, Anil Kumar", "Anil Kumar, G.S.", p$p) 
+	p$p <- gsub("P, Srinivasa Rao", "Srinivasa Rao, P.", p$p) 
+	p$p <- gsub("S.Manohar, Surendra", "Surendra, S. Manohar", p$p) 
+	p$p <- gsub("V, Murali T", "Murali, T.V.", p$p) 
+	p$p <- gsub("V, Reddy S", "Reddy, S.V.", p$p) 
+
+
+	p$p <- gsub("Pundir, Ajay$", "Pundir, Ajay Kumar", p$p) 
 	
 	tab <- as.data.frame(table(p$p))
 	colnames(tab) <- c("name", "datasets")

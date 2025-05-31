@@ -49,7 +49,7 @@ Contact: carob.data@gmail.com
 	:maxdepth: 3
 
 	introduction
-	data
+	data/index.rst
 	contributors
 	compile
 	standard
