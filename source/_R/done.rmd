@@ -50,6 +50,10 @@ z <- x[, c("data_institute", "dataset", "crops", "countries")]
 z$crops[is.na(z$crops)] <- ""
 js <- jsonlite::toJSON(list(data=z))
 writeLines(js, "../_static/providers.json")
+
+v <- carobiner:::accepted_values("institute")
+js <- jsonlite::toJSON(v, dataframe="columns")
+writeLines(js, "../_static/institutes.json")
 ```
 
 These are the datasets that have been standardized by the *Carob* project.
