@@ -28,11 +28,6 @@ Contact: carob.data@gmail.com
   :target: https://www.cgiar.org/
 
 
-.. image:: /_static/eia-logo.png
-  :width: 75	
-  :alt: EiA logo
-  :target: https://www.cgiar.org/initiative/11-excellence-in-agronomy-eia-solutions-for-agricultural-transformation/
-
 .. image:: /_static/ucdavis-logo.png
   :width: 150
   :alt: UC Davis logo

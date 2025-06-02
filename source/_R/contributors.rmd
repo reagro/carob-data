@@ -132,7 +132,7 @@ cartab <- get_tab(d, "carob_contributor")
 autab <- get_authors(d)
 intab <- get_tab(d, "data_institute")
 
-inst <- carobiner::accepted_values("institute")
+inst <- vocal::accepted_values("institute", "reagro/terminag")
 intab <- merge(intab, inst, by="name", all.x=TRUE)
 #intab$name <- paste0('<a href="https://', intab$URL, '">', intab$name, "</a>")
 intab$name <- paste0('<a href="data/done.html?inst=', intab$name, '">', intab$name, "</a>")

@@ -51,7 +51,7 @@ z$crops[is.na(z$crops)] <- ""
 js <- jsonlite::toJSON(list(data=z))
 writeLines(js, "../_static/providers.json")
 
-v <- carobiner:::accepted_values("institute")
+v <- vocal::accepted_values("institute", "reagro/terminag")
 js <- jsonlite::toJSON(v, dataframe="columns")
 writeLines(js, "../_static/institutes.json")
 ```
