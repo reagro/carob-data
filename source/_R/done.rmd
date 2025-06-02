@@ -19,7 +19,7 @@ url <- gsub("doi:", "https://doi.org/", x$uri)
 url <- gsub("hdl:", "https://hdl.handle.net/", url)
 
 suri <- sapply(x$uri, yuri::simpleURI)
-github <- paste0("https://github.com/reagro/carob/blob/master/scripts/", x$group, "/", suri, ".R")
+github <- paste0("https://github.com/carob-data/carob/blob/master/scripts/", x$group, "/", suri, ".R")
 script <- paste0('<a href="', github, '">R script</a>')
 
 rep <- paste0("http://carob-data.org/reports/", x$group, "/", x$dataset_id, ".html")
@@ -51,7 +51,7 @@ z$crops[is.na(z$crops)] <- ""
 js <- jsonlite::toJSON(list(data=z))
 writeLines(js, "../_static/providers.json")
 
-v <- vocal::accepted_values("institute", "reagro/terminag")
+v <- vocal::accepted_values("institute", "carob-data/terminag")
 js <- jsonlite::toJSON(v, dataframe="columns")
 writeLines(js, "../_static/institutes.json")
 ```

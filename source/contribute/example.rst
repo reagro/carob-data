@@ -6,7 +6,7 @@ In *Carob*, we standardize datasets that can be automatically downloaded. Each o
 
 In this tutorial we use this dataset because its processing is not very complex. The full script is `available here  <https://raw.githubusercontent.com/reagro/carob/refs/heads/master/scripts/agronomy/doi_10.21421_D2_STACVA.R>`__, please have a look at it now, before we explain it in detail.
 
-When you write your own script, you can start from the script `template <https://github.com/reagro/carob/blob/master/scripts/_template.R>`__
+When you write your own script, you can start from the script `template <https://github.com/carob-data/carob/blob/master/scripts/_template.R>`__
 that is included in the ``scripts`` folder of the Carob repo.
 
 If these are not your own data, it is of fundamental importance to first familiarize yourself with the goals of the research that created the dataset. Carefully read the "Description" section, and the metadata (Dataverse repositories include a convenient `Metadata
@@ -73,7 +73,7 @@ Assign the dataset to one of the *groups* used by *Carob* to organize the script
    group <- "agronomy"
 
 
-Now use the ``carobiner::get_data()`` function. It will download the  to retrieve the data. This will download the data `data/raw` folder in your carob repo. It also returns the file names  
+Now use the ``carobiner::get_data()`` function. It uses functions in *R* package [yuri](https://github.com/carob-data/yuri) to download the data that the URI points to. The files are written to the data folder in your carob repo (`[repo]/data/raw/<group>/<uri/>`). It returns the file names as object `ff`. 
 
 .. code:: r
 
@@ -83,12 +83,12 @@ Now use the ``carobiner::get_data()`` function. It will download the  to retriev
 Metadata
 --------
 
-The metadata section contains the descriptions of the dataset enriching it with some additional information useful for carob. Most of the metadata (authors, dataset title) is extracted with `carobiner::read_metadata` function. Other metadata needs to be added manually. Of particular importance for experimental data is `treatment_vars`, which need to list the variable(s) that capture the experimental treatment. It is also important to include the publication associated with the dataset if there is any. Here is the metadata section for this dataset.
+The metadata section contains the descriptions of the dataset enriching it with some additional information useful for carob. Most of the metadata (authors, dataset title) is extracted with `carobiner::get_metadata` function. Other metadata needs to be added manually. Of particular importance for experimental data is `treatment_vars`, which need to list the variable(s) that capture the experimental treatment. It is also important to include the publication associated with the dataset if there is any. Here is the metadata section for this dataset.
 
 .. code:: r
 
    meta <- data.frame(
-       carobiner::read_metadata(uri, path, major=1, minor=1, group),
+       carobiner::get_metadata(uri, path, group, major=1, minor=1),
        publication=NA,
        carob_contributor="Siyabusa Mkuhlani",
        carob_date="2022-09-12",
@@ -98,16 +98,17 @@ The metadata section contains the descriptions of the dataset enriching it with 
        treatment_vars = "plant_density;P_fertilizer",
        response_vars = "yield",
 	   notes = NA,
-	   design = NA
+	   design = NA,
+	   completeness=100
    )
 
-In this particular example, there is no publication linked to the dataset (`publication="NA"`), but it it is important to check if there is one. An associated publication often provides additional data that can be extracted.
+In this particular example, there is no publication linked to the dataset (`publication="NA"`), but it it is important to check if there is one. An associated publication often provides additional data that can be extracted. The metadata variable `completeness=100` indicates that all the relevant variables in the original dataset have been processed.
 
 
 Data
 ----
 
-Now that we have downloaded the data, and created the metadata, we start with the processing of the actual data. The goal is to create single data.frame where rows are experimental units (or similar in a survey), columns represent variables and cell values are measurements. The data.frame should have standard variable names and values (for character variables) or units (for numeric variables), as prescribed by the `terminag <https://github.com/reagro/terminag>`__ controlled vocabulary. There are data sets that do easily not fit in a single data.frame, for example because there are multiple observations over time for an experimental unit and we will describe these elsewhere. 
+Now that we have downloaded the data, and created the metadata, we start with the processing of the actual data. The goal is to create single data.frame where rows are experimental units (or similar in a survey), columns represent variables and cell values are measurements. The data.frame should have standard variable names and values (for character variables) or units (for numeric variables), as prescribed by the `terminag <https://github.com/carob-data/terminag>`__ controlled vocabulary. There are data sets that do easily not fit in a single data.frame, for example because there are multiple observations over time for an experimental unit and we will describe these elsewhere. 
 
 We first determine the file(s) we need to read. `carobiner::get_data`, as used above, returned these file names:
 
@@ -152,7 +153,7 @@ We use data.frame `r` to create a new standardized data.frame `d`:
 
 In the data.frame created above, we standardized variable names and, for some variables, their data type to conform to the standard. For example, "rep" (repetition) must be an integer and "planting_date" must be a character variable. planting_date should be a date, but in this case all we get is a year, so we use that because it is better than nothing. 
 
-We also created a new (and not required) variable "treatment" with a character code that combines the variety, fertilizer and plant spacing variables. We did not need to changes the unit of the biomass variables (yield, fwy_residue) because they are already reported in `kg/ha`. See the `crop variables <https://github.com/reagro/terminag/blob/main/variables/variables_crop.csv>`__ in terminag these and related variables to see what the expected units are. For categorical variables you can look at the `accepted values <https://github.com/reagro/terminag/tree/main/values>`__. For example, excepted values for the `crop` variable are listed `here  <https://github.com/reagro/terminag/blob/main/values/values_crop.csv>`__.
+We also created a new (and not required) variable "treatment" with a character code that combines the variety, fertilizer and plant spacing variables. We did not need to changes the unit of the biomass variables (yield, fwy_residue) because they are already reported in `kg/ha`. See the `crop variables <https://github.com/carob-data/terminag/blob/main/variables/variables_crop.csv>`__ in terminag these and related variables to see what the expected units are. For categorical variables you can look at the `accepted values <https://github.com/carob-data/terminag/tree/main/values>`__. For example, excepted values for the `crop` variable are listed `here  <https://github.com/carob-data/terminag/blob/main/values/values_crop.csv>`__.
 
 We can add more variables to the standardized dataset as we do below. 
 

@@ -28,7 +28,7 @@ Scripts
 
 	<ul>
 	</li></br>
-	<li>Carob scripts download and re-organize the data, to make them compliant with the standard, and save the standardized data and relevant metadata on disk. See <a href="https://github.com/reagro/carob/blob/master/scripts/_template.R">template.R</a> in the *scripts* folder for the general structure of such a script.</li></br>
+	<li>Carob scripts download and re-organize the data, to make them compliant with the standard, and save the standardized data and relevant metadata on disk. See <a href="https://github.com/carob-data/carob/blob/master/scripts/_template.R">template.R</a> in the *scripts* folder for the general structure of such a script.</li></br>
 
 	<li>All original data should be downloaded from a URI (uniform resource identifier) such as a DOI or HDL. For example <code>"doi:10.7910/DVN/UNLRGC"</code> is a valid URI. It is important to use this specific notation, do *not* use a http address such as </code>https://doi.org/10.7910/DVN/UNLRGC</code>. Data that does not have a URI but does have a URL (Internet address) can also be used. Data that can not be downloaded from the Internet should be hosted somewhere. We can host it on the `carob dataverse <https://dataverse.harvard.edu/dataverse/carob/>`__. We can make exceptions for especially valuable datasets that cannot be (easily) downloaded directly.</li></br>
 
@@ -51,13 +51,13 @@ Standardization
 	</li></br>
 	<li>The aim is to standardize all relevant variables in the original data. We generally omit variables that are measured in the field to compute a variable of interest, but are not of much interest themselves. For example, we include yield (kg/ha), but not the mass of a sample that was taken to estimate it.</li></br>
 
-	<li>We use the `terminag <https://github.com/reagro/terminag>`__ standard. If you think that there are terms (concepts) that are missing in this standard, just add the new terms that you propose to your script and ignore the warning messages. An editor will look at your pull-request (PR) and decide whether the standard needs to be expanded or changed.</li></br>
+	<li>We use the `terminag <https://github.com/carob-data/terminag>`__ standard. If you think that there are terms (concepts) that are missing in this standard, just add the new terms that you propose to your script and ignore the warning messages. An editor will look at your pull-request (PR) and decide whether the standard needs to be expanded or changed.</li></br>
 
 	<li>It is expected that there is variation between data sets; they do not all have the same variables. But all records should have common variables such as country, crop, yield, longitude and latitude (even if some of their values are missing (<code>NA</code>))</li></br>
 
 	<li>Some variables such as <code>country</code>, <code>crop</code>, and <code>fertilizer_type</code> have controlled vocabularies that you need to use (or suggest adding additional terms). If there are multiple values (for example, two crops or fertilizer types), separate these with a semi-colon (<code>;</code>).</li></br>
 
-	<li>Apart from the standard variable names you also need to express all data in standard units. See the `terminag variables <https://github.com/reagro/terminag/tree/master/variables>`__.</li></br>
+	<li>Apart from the standard variable names you also need to express all data in standard units. See the `terminag variables <https://github.com/carob-data/terminag/tree/master/variables>`__.</li></br>
 
 	<li>Check character variables for spelling variations (use <code>unique</code> and <code>table</code>) and standardize. You can use <code>carobiner::fix_name</code> in some cases.</li></br>
 

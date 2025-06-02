@@ -11,16 +11,16 @@ Git
    <div style="visibility: visible;">
 
 
-The *Carob* project is developed using the "git" versioning software. This greatly facilitates collaborative work and making incremental improvements because all changes made are tracked. A git project is called a "repo" (repository) and the "master" (main) Carob repo is `hosted on github <https::/github.com/reagro/carob>`__ . 
+The *Carob* project is developed using the "git" versioning software. This greatly facilitates collaborative work and making incremental improvements because all changes made are tracked. A git project is called a "repo" (repository) and the "master" (main) Carob repo is `hosted on github <https::/github.com/carob-data/carob>`__ . 
 
 To contribute to the *Carob* repo (and to other github based projects) you need to understand a few concepts and commands that we introduce here. 
 
-The first thing you need to do is create an account on `github <https::/github.com/reagro/carob>`__ if you do not have one (other projects using git may use another platform such as bitbucket for their git projects ). Once you have an account, you can **fork** the *Carob* repo to your account. A fork is a copy of a git repo that you can make changes to, while also getting any updates that are made to the main repo. 
+The first thing you need to do is create an account on `github <https::/github.com/carob-data/carob>`__ if you do not have one (other projects using git may use another platform such as bitbucket for their git projects ). Once you have an account, you can **fork** the *Carob* repo to your account. A fork is a copy of a git repo that you can make changes to, while also getting any updates that are made to the main repo. 
 
 fork
 ----
 
-To fork the *Carob* repo, navigate to its `github site <https::/github.com/reagro/carob>`__, click on the **Fork** button and choose your personal account as the target.
+To fork the *Carob* repo, navigate to its `github site <https::/github.com/carob-data/carob>`__, click on the **Fork** button and choose your personal account as the target.
 
 .. figure:: ./git/fork_1.png
    :alt: fork1
@@ -40,7 +40,7 @@ After you make changes you need to `add` and/or `commit` your work and then `pus
 pull-request
 ------------
 
-If you have made changes to your fork of the *Carob* repo that you would like to contribute to the project, you can open a "pull request" (often abbreviated to "PR"). Before you do that, make sure that your fork is in sync with `the master repo reagro/carob <https://github.com/reagro/carob>`__. This is important because the master will likely also have changed in the meantime. 
+If you have made changes to your fork of the *Carob* repo that you would like to contribute to the project, you can open a "pull request" (often abbreviated to "PR"). Before you do that, make sure that your fork is in sync with `the master repo reagro/carob <https://github.com/carob-data/carob>`__. This is important because the master will likely also have changed in the meantime. 
 
 It is imperative to assure that any  differences between your fork and the master are only the changes (e.g. a new file) that you want to make. To do so, you should  sync regularly to avoid "conflicts" in which you made changes to a file that was also changed by someone else. The chances of conflicts happening are small, and conflicts can be resolved, but it is best to avoid them.
 

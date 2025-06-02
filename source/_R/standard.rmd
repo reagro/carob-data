@@ -6,15 +6,15 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
-req <- httr::GET("https://api.github.com/repos/reagro/terminag/git/trees/main?recursive=1")
+req <- httr::GET("https://api.github.com/repos/carob-data/terminag/git/trees/main?recursive=1")
 httr::stop_for_status(req)
 ff <- sapply(httr::content(req)$tree, \(i) i$path)
 ff <- grep("\\.csv$", ff, value = TRUE)
-ff <- file.path("https://raw.githubusercontent.com/reagro/terminag/main", ff)
+ff <- file.path("https://raw.githubusercontent.com/carob-data/terminag/main", ff)
 vars <- grep("variables_", ff, value=TRUE)
 vals <- grep("values_", ff, value=TRUE)
 
-burl <- "https://github.com/reagro/terminag/blob/main/"
+burl <- "https://github.com/carob-data/terminag/blob/main/"
 vars <- paste0(burl, "variables/", basename(vars))
 vals <- paste0(burl, "values/", basename(vals))
 

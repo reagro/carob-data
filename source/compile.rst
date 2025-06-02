@@ -10,9 +10,9 @@ You can **compile** *Carob* data yourself if you have basic familiarity with the
 
 2. Clone the *Carob* repo
 
-  **clone** the *Carob* `repo <https://github.com/reagro/carob/>`_ (repository) from github to your computer. You can use github desktop or another git program. On the command line you can use::
+  **clone** the *Carob* `repo <https://github.com/carob-data/carob/>`_ (repository) from github to your computer. You can use github desktop or another git program. On the command line you can use::
 
-     git clone https://github.com/reagro/carob.git
+     git clone https://github.com/carob-data/carob.git
 
 3. Install the carobiner package
 
