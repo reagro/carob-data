@@ -49,4 +49,3 @@ Contact: carob.data@gmail.com
 	compile
 	standard
 	contribute/index.rst
-
