@@ -51,39 +51,6 @@ Done
 
 
 	  <script>
-		function getUniqueValues(arr, variableName) {
-		  if (!Array.isArray(arr) || arr.length === 0) {
-			return [];
-		  }
-
-		  const seenValues = new Set();
-		  const uniqueValues = [];
-
-		  for (const obj of arr) {
-			if (obj && obj.hasOwnProperty(variableName)) {
-			  const value = obj[variableName];
-			  if (!seenValues.has(value)) {
-				seenValues.add(value);
-				uniqueValues.push(value);
-			  }
-			}
-		  }
-		  return uniqueValues;
-		}
-
-		async function readJsonFile(filePath) {
-			 try {
-			   const response = await fetch(filePath);
-			   if (!response.ok) {
-					throw new Error(`HTTP error: ${response.status}`);
-			   }
-				const jsonData = await response.json();
-				return jsonData;
-			 } catch (error) {
-				console.error('Error reading JSON file:', error);
-				return null;
-			}
-		}
 
 		var institutes = {"name":["ABC","AfricaRice","ARC","ARARI","CIAT","CIMMYT","CIP","CIRAD","CRS","EIAR","ETHZ","GT","GMOFA","GAUG","ICARDA","ICRAF","ICRISAT","ISRIC","IFPRI","IITA","ILRI","IRRI","LUANAR","MSU","OAF","SARC","SARI","SUA","TARI","TLC","UCD","UNL","UMD","USDA-ARS","UZIM","WUR","ZARI"],"longname":["Alliance of CIAT and Bioversity","Africa Rice Center","Agricultural Research Council of South Africa","Amhara Regional Agricultural Research Institute","Centro Internacional de Agricultura Tropical","International Maize and Wheat Improvement Center","International Potato Center","Centre de Coopération Internationale en Recherche Agronomique pour le Développement","Catholic Relief Services","Ethiopian Institute of Agricultural Research","ETH Zürich","Grassroots Trust","Ministry of Food and Agriculture, Ghana","Georg-August-Universität Göttingen","International Center for Agricultural Research in the Dry Areas","World Agroforestry Center","International Crops Research Institute for the Semi-Arid Tropics","International Soil Reference and Information Centre","International Food Policy Research Institute","International Institute of Tropical Agriculture","International Livestock Research Institute","International Rice Research Institute","Lilongwe University of Agriculture & Natural Resources","Michigan State Univeristy","One Acre Fund","South Africa Agricultural Research Council","Selian Agricultural Research Institute","Sokoine University of Agriculture","Tanzania Agricultural Research Institute","Total Land Care","University of California, Davis","University of Nebraska-Lincoln","Univeristy of Maryland","United States Department of Agriculture, Agricultural Research Service","University of Zimbabwe","Wageningen University & Research","Zambian Agriculture Research Institute"],"URL":["alliancebioversityciat.org","africarice.org","arc.agric.za","arari.gov.et","alliancebioversityciat.org","cimmyt.org","cipotato.org","cirad.fr","crs.org","eiar.gov.et","ethz.ch","grassrootstrust.co.nz","mofa.gov.gh","uni-goettingen.de","icarda.org","cifor-icraf.org","icrisat.org","isric.org","ifpri.org","iita.org","ilri.org","irri.org","luanar.ac.mw","msu.edu","oneacrefund.org","arc.agric.za","tari.go.tz/centres/tari-selian","sua.ac.tz","tari.go.tz","totallandcare.net","ucdavis.edu","unl.edu","umd.edu","ars.usda.gov","www.uz.ac.zw","wur.nl","zari.gov.zm"],"dataURL":["","dataverse.harvard.edu/dataverse/AfricaRice","","","dataverse.harvard.edu/dataverse/CIAT","data.cimmyt.org","data.cipotato.org","dataverse.cirad.fr","","","","","","data.goettingen-research-online.de","data.mel.cgiar.org","data.worldagroforestry.org","data.worldagroforestry.org","","dataverse.harvard.edu/dataverse/IFPRI","data.iita.org","data.ilri.org","dataverse.harvard.edu/dataverse/IRRI","","","","","","","","","","","","","","research.wur.nl/en/datasets/",""]}
 
@@ -117,7 +84,6 @@ Done
 
 					// Populate the select dropdown
 					var select = $('#providerFilter');
-					//const uniqueProviders = getUniqueValues(data, 'data_institute');
 					const uniqueProviders = institutes.name
 					// uniqueProviders.sort();
 					for (var i = 0; i < uniqueProviders.length; i++) {
@@ -138,7 +104,6 @@ Done
 				}
 			});
 
-
 			$(document).on('change', '#providerFilter', function() {
 				var val = $.fn.dataTable.util.escapeRegex($(this).val());
 				table.column(0).search(val).draw();
@@ -150,9 +115,6 @@ Done
 				}
 			});	
 		});
-
-
-       // document.getElementByID('txtOutput').innerText = "Variable from previous page: " + pInst;   
 
 	</script>
 	  
