@@ -40,7 +40,7 @@ After you make changes you need to `add` and/or `commit` your work and then `pus
 pull-request
 ------------
 
-If you have made changes to your fork of the *Carob* repo that you would like to contribute to the project, you can open a "pull request" (often abbreviated to "PR"). Before you do that, make sure that your fork is in sync with `the master repo reagro/carob <https://github.com/carob-data/carob>`__. This is important because the master will likely also have changed in the meantime. 
+If you have made changes to your fork of the *Carob* repo that you would like to contribute to the project, you can open a "pull request" (often abbreviated to "PR"). Before you do that, make sure that your fork is in sync with `the master repo carob-data/carob <https://github.com/carob-data/carob>`__. This is important because the master will likely also have changed in the meantime. 
 
 It is imperative to assure that any  differences between your fork and the master are only the changes (e.g. a new file) that you want to make. To do so, you should  sync regularly to avoid "conflicts" in which you made changes to a file that was also changed by someone else. The chances of conflicts happening are small, and conflicts can be resolved, but it is best to avoid them.
 

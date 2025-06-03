@@ -20,7 +20,7 @@ Where you need to replace `<MyAcount>` with your github account name. You only n
 pull
 ----
 
-Before you make any changes you want to keep, you should check that your *remote repo* (your forked version on github) is not *behind* main repo (`reagro/carob <https://github.com/carob-data/carob>`__) if so, you should *sychronize* your github hosted clone with the main repo. Now you can "pull" the latest version to your local repo.  
+Before you make any changes you want to keep, you should check that your *remote repo* (your forked version on github) is not *behind* main repo (`carob-data/carob <https://github.com/carob-data/carob>`__) if so, you should *sychronize* your github hosted clone with the main repo. Now you can "pull" the latest version to your local repo.  
 
 .. code
 

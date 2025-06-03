@@ -9,12 +9,12 @@ To contribute you can follow these steps
 
 
 1. **Install** the current version of `R <https://cran.r-project.org/>`__ and `git <https://git-scm.com/downloads>`__. You can also install `R-Studio <https://posit.co/download/rstudio-desktop/>`__.
-2. In *R*, **install** the "carobiner" package with ``remotes::install_github("reagro/carobiner")`` (you may need to first run ``install.packages("remotes")``).
+2. In *R*, **install** the "carobiner" package with ``remotes::install_github("carob-data/carobiner")`` (you may need to first run ``install.packages("remotes")``).
 3. **fork** the *Carob* `repo <https://github.com/carob-data/carob/>`_ to your github account. 
 4. **clone** the forked repo to your computer.
 5. create a new `R` **script**, or make the changes to an existing script. See this `example <./example.html>`__ and the `guidelines  <./guidelines.html>`_.
 6. **check** your work by running ``carobiner::run_carob()`` for the new or changed `R` script.
-7. **sync** the forked repo with main repo in reagro/carob such that your fork is not behind.
+7. **sync** the forked repo with main repo in carob-data/carob such that your fork is not behind.
 8. **add** and/or **commit** these changes to the forked repo on your github account.
 9. **push** your changes to the forked repo on your github account.
 10. create a **pull request** to integrate your changes into the main repo. Keep pull requests simple. They should normally consist of only one file at a time. 

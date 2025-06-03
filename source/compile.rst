@@ -21,7 +21,7 @@ You can **compile** *Carob* data yourself if you have basic familiarity with the
 	 # first install package "remotes" if need be
 	 install.packages("remotes")
 	 # install carobiner
-	 remotes::install_github("reagro/carobiner")
+	 remotes::install_github("carob-data/carobiner")
 	 
 
 4. Compile
@@ -40,5 +40,5 @@ You can **compile** *Carob* data yourself if you have basic familiarity with the
 
   Once in a while, to **update** to the latest version, you can do ``git pull`` and then run the commands described under #3 again. It is also good to regularly install the latest version of "carobiner" with::
 
-    remotes::install_github("reagro/carobiner") 
+    remotes::install_github("carob-data/carobiner") 
 

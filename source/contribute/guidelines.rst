@@ -15,7 +15,7 @@ Before you start
 
 	<li>Consider what the data are about. With experimental data ask: “what are the treatments”, “how are they captured”, “what are the important response variables”? All treatments (factors) must be included as one or more standard variables. There is a variable called “treatment” that may have a combination of treatments (e.g., “NP”, “PK”, but they must also be specified in separate variables such as “N_fertilizer” and “P_fertilizer”. This seems obvious, but in many datasets the treatments are not explicitly provided as variables, and you may need to do some work. For example you may need to translate a treatment code into multiple variables.</li></br>
 
-	<li>To contribute to *Carob* you need to install the “carobiner” R package. You can do that with <code>remotes::install_github("reagro/carobiner")</code>. Update the package regularly. The package contains some helper functions and functions that check for compliance with the standard.</li></br>
+	<li>To contribute to *Carob* you need to install the “carobiner” R package. You can do that with <code>remotes::install_github("carob-data/carobiner")</code>. Update the package regularly. The package contains some helper functions and functions that check for compliance with the standard.</li></br>
 
 	<li>Carob scripts are normally contributed and/or improved via a github pull request (PR). Before creating a pull request, make sure that your fork is synced, and that there are no conflicts. We strongly prefer PRs for a single file at a time.</li>
 	</ul>

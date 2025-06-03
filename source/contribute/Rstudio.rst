@@ -49,7 +49,7 @@ Now you have your local copy of carob and you can start contributing.
 pull
 ----
 
-Before you do any work, you should check that your *remote repo* (your forked version on github) is not *behind* main repo (`reagro/carob <https://github.com/carob-data/carob>`__) if so, you should *sychronize* your github hosted clone with the main repo. Now you can "pull" the latest version to your local repo.  
+Before you do any work, you should check that your *remote repo* (your forked version on github) is not *behind* main repo (`carob-data/carob <https://github.com/carob-data/carob>`__) if so, you should *sychronize* your github hosted clone with the main repo. Now you can "pull" the latest version to your local repo.  
 
 add
 ---
@@ -80,7 +80,7 @@ users. Once you will be familiarize with the process, you will then choose the m
 
 
 Once the dataset is ready, and your script is working, you now need to ``push`` your contribution into the main Carob repository
-(`reagro/carob <https://github.com/carob-data/carob>`__). The section below will show you a guideline on how to contribute there.
+(`carob-data/carob <https://github.com/carob-data/carob>`__). The section below will show you a guideline on how to contribute there.
 
 
 
