@@ -46,14 +46,16 @@ x$dataset <- ifelse(i, paste0(x$dataset, ' <a href="', rep, '">Report</a>'), x$d
 #x$dataset <- paste0(x$dataset, dwnl)
 
 
-z <- x[, c("data_institute", "dataset", "crops", "countries")]
+z <- x[, c("data_organization", "dataset", "crops", "countries")]
 z$crops[is.na(z$crops)] <- ""
 js <- jsonlite::toJSON(list(data=z))
 writeLines(js, "../_static/providers.json")
 
-v <- vocal::accepted_values("institute", "carob-data/terminag")
+v <- vocal::accepted_values("organization", "carob-data/terminag")
+v <- v[!(v$name %in% c("Harvard Dataverse", "Dryad", "Zenodo")),]
+
 js <- jsonlite::toJSON(v, dataframe="columns")
-writeLines(js, "../_static/institutes.json")
+writeLines(js, "../_static/organizations.json")
 ```
 
 These are the datasets that have been standardized by the *Carob* project.

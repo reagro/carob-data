@@ -17,8 +17,7 @@ library(kableExtra)
 
 ```{r groups, echo=FALSE}
 ff <- list.files(data_path, pattern=".csv$", full=TRUE)
-ff <- ff[!grepl("_terms", ff)]
-ff <- ff[!grepl("carob_all", ff)]
+ff <- ff[!grepl("_terms|carob_all", ff)]
 f <- grep(ff, pattern="_metadata.csv$", value=TRUE)
 
 groups <- gsub("_metadata.csv$", "", basename(f))
@@ -130,9 +129,9 @@ get_authors <- function(d) {
 
 cartab <- get_tab(d, "carob_contributor")
 autab <- get_authors(d)
-intab <- get_tab(d, "data_institute")
+intab <- get_tab(d, "data_organization")
 
-inst <- vocal::accepted_values("institute", "carob-data/terminag")
+inst <- vocal::accepted_values("organization", "carob-data/terminag")
 intab <- merge(intab, inst, by="name", all.x=TRUE)
 #intab$name <- paste0('<a href="https://', intab$URL, '">', intab$name, "</a>")
 intab$name <- paste0('<a href="data/done.html?inst=', intab$name, '">', intab$name, "</a>")

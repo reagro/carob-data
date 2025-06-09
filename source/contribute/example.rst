@@ -87,13 +87,12 @@ The metadata section contains the descriptions of the dataset enriching it with 
 
 .. code:: r
 
-   meta <- data.frame(
-       carobiner::get_metadata(uri, path, group, major=1, minor=1),
+   meta <- carobiner::get_metadata(uri, path, group, major=1, minor=1,
        publication=NA,
        carob_contributor="Siyabusa Mkuhlani",
        carob_date="2022-09-12",
        data_type="experiment",
-       data_institute="ICRISAT",
+       data_organization="ICRISAT",
        project=NA,
        treatment_vars = "plant_density;P_fertilizer",
        response_vars = "yield",
