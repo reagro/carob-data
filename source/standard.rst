@@ -1,11 +1,11 @@
 Standard
 ========
 
-*Carob* uses the *terminag* **standard** that defines a controlled vocabulary of variable names, their units, and acceptable (ranges of) values. 
+A **standard** is a combination of file format, metadata, controlled vocabulary, accepted values and their units. *Carob* uses the *terminag*  controlled vocabulary for variable names, their units, and acceptable (ranges of) values. 
 
-The *terminag* standard can be used "stand-alone" for your own data, and as part of the data compilation done through the *Carob* project.
+The *terminag* vocabulary can be used "stand-alone" for your own data, and as part of the data compilation done through the *Carob* project.
 
-The standard is defined in a number of tables that are available on the `termiag <https://github.com/carob-data/terminag>`__ github site and accessible via the R package `vocal <https://github.com/carob-data/vocal>`__. 
+The vocabulary is defined in a number of tables that are available on the `terminag <https://github.com/carob-data/terminag>`__ github site. You can also access the standard, and do compliance checking, with *R* package `vocal <https://github.com/carob-data/vocal>`__. 
 
 
 What does good data look like?
@@ -22,7 +22,9 @@ In experiments, treatments are sometimes described by a single variable code or 
 A number of variables should *always* be included for most agricultural data to be meaningfully incorporated into a larger database. These include variables that define space and time, the amounts of fertilizer used (if any), and the basic agronomic practises.
 
 - country
-- location 
+- adm1 (first level administrative subdivision name)
+- adm2 (second level administrative subdivision name)
+- location  
 - longitude
 - latitude
 - planting_date

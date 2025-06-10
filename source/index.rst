@@ -17,7 +17,7 @@ Carob
   :alt: CAROB logo
   :align: left
 
-*Carob* produces large standardized data sets to facilitate agricultural research. It is an open-source, collaborative, and community based project supported by `CGIAR <https://www.cgiar.org/initiative/excellence-in-agronomy/>`_. All data transformations are done with *R* scripts, making it easy to enhance the standardization process as needs arise, and to correct mistakes. Please consider `contributing <contribute.html>`_! 
+*Carob* produces large standardized data sets to facilitate agricultural research. It is an open-source, collaborative, and community based project supported by `CGIAR <https://www.cgiar.org/initiative/excellence-in-agronomy/>`_. All data transformations are done with *R* scripts, making it easy to enhance the standardization process as needs arise, and to correct mistakes. Please consider `contributing <contribute/index.html>`_! 
 
 
 Contact: carob.data@gmail.com
