@@ -1,19 +1,17 @@
 Standard
 ========
 
-A **standard** is a combination of file format, metadata, controlled vocabulary, accepted values and their units. *Carob* uses the *terminag*  controlled vocabulary for variable names, their units, and acceptable (ranges of) values. 
+Adhering to a **data standard** can greatly facilitate data quality and efficiency of data use. A data standard consists of a number of rules about how the data is organized. These can include rules about (1) the file format(s); (2) the data format(s); (3) the accepted variables; (4) the accepted values for character variables; (5) accepted value ranges for numerical variables; (6) the units of numerical variables; and (7) required variables for the data and metadata. 
 
-The *terminag* vocabulary can be used "stand-alone" for your own data, and as part of the data compilation done through the *Carob* project.
-
-The vocabulary is defined in a number of tables that are available on the `terminag <https://github.com/carob-data/terminag>`__ github site. You can also access the standard, and do compliance checking, with *R* package `vocal <https://github.com/carob-data/vocal>`__. 
+*Carob* uses the *terminag* controlled vocabulary variable names, their units, and acceptable (ranges of) values. The *terminag* vocabulary can be used "stand-alone" for your own data, and as part of the data compilation done through the *Carob* project. It is defined in a number of tables that are available on the `terminag <https://github.com/carob-data/terminag>`__ github site. You can also access the standard, and do compliance checking, with *R* package `vocal <https://github.com/carob-data/vocal>`__. 
 
 
 What does good data look like?
 ------------------------------
 
-*Carob* is about fixing existing data so that it can be used. This is can be a very difficult process, and sometimes it simply cannot be done. We hope that over time, this problem will go away as raw data will become more standardized. Here are some guidelines for creating usable datasets.
+*Carob* is about fixing existing data so that it can be used. This is can be a very difficult process, and sometimes it simply cannot be done. We hope that over time, this problem will go away as raw data will become more standardized. Here are some (brief, preliminary) guidelines for creating usable datasets.
 
-Use either multiple `.csv` files or a single `excel` file. Avoid other file formats that are specific to particular software (e.g. Stata or R). Each table (csv file or excel sheet) should be a simple rectangle where each column is a single variable, and each row an observation (case), and each cell a single measurement or treatment (see Wickham's description of `"tidy data" <https://vita.had.co.nz/papers/tidy-data.pdf>`__ .  
+Use either multiple `.csv` files or a single `excel` file. Avoid other file formats that are specific to particular software (e.g. Stata or *R*). Each table (csv file or excel sheet) should be a simple rectangle where each column is a single variable, and each row an observation (case), and each cell a single measurement or treatment (see Wickham's description of `"tidy data" <https://vita.had.co.nz/papers/tidy-data.pdf>`__ .  
 
 Each variable should have a short name, and there should be a file/sheet with a longer description of what these variables represent. The unit of all variables should also be provided. It is acceptable to have the (short) variable name, description and unit as three header rows above the data. But never merge cells in excel.
 

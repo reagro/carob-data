@@ -51,7 +51,8 @@ z$crops[is.na(z$crops)] <- ""
 js <- jsonlite::toJSON(list(data=z))
 writeLines(js, "../_static/providers.json")
 
-v <- vocal::accepted_values("organization", "carob-data/terminag")
+vocal::set_vocabulary("carob-data/terminag")
+v <- vocal::accepted_values("organization")
 v <- v[!(v$name %in% c("Harvard Dataverse", "Dryad", "Zenodo")),]
 
 js <- jsonlite::toJSON(v, dataframe="columns")
