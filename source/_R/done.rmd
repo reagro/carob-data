@@ -33,9 +33,7 @@ i <- x$dataset_id %in% gsub(".html", "", frep)
 cit <- do.call(rbind, strsplit(x$data_citation, "doi:|hdl:"))
 cit <- data.frame(cit, url, x$uri)
 x$citation <- apply(cit, 1, \(i) paste0(i[1], '<a href="', i[3], '">', i[4], '</a>'))
-
 #x$dataset <- paste0(x$citation, " [", x$group, "] ", script)
-
 x$dataset <- paste0(x$citation, " [", x$group, "] ")
 x$dataset <- ifelse(i, paste0(x$dataset, ' <a href="', rep, '">Report</a>'), x$dataset)
 
@@ -56,7 +54,10 @@ v <- vocal::accepted_values("organization")
 v <- v[!(v$name %in% c("Harvard Dataverse", "Dryad", "Zenodo")),]
 
 js <- jsonlite::toJSON(v, dataframe="columns")
-writeLines(js, "../_static/organizations.json")
+rmd <- readLines("../data/done.rst")
+rmd <- gsub("__org_json__" , js, rmd)
+writeLines(rmd, "../data/done.rst")
+
 ```
 
 These are the datasets that have been standardized by the *Carob* project.

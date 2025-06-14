@@ -1,9 +1,9 @@
 Standard
 ========
 
-Adhering to a **data standard** can greatly facilitate data quality and efficiency of data use. A data standard consists of a number of rules about how the data is organized. These can include rules about (1) the file format(s); (2) the data format(s); (3) the accepted variables; (4) the accepted values for character variables; (5) accepted value ranges for numerical variables; (6) the units of numerical variables; and (7) required variables for the data and metadata. 
+Adhering to a **data standard** can greatly facilitate data quality and the efficiency of data use. A data standard consists of a number of rules describing how data should be organized. These can include rules about the (1) file format; (2) data format; (3) accepted variables; (4) accepted values for character variables; (5) accepted value ranges for numerical variables; (6) units of numerical variables; and (7) required variables for the data and metadata. 
 
-*Carob* uses the *terminag* controlled vocabulary variable names, their units, and acceptable (ranges of) values. The *terminag* vocabulary can be used "stand-alone" for your own data, and as part of the data compilation done through the *Carob* project. It is defined in a number of tables that are available on the `terminag <https://github.com/carob-data/terminag>`__ github site. You can also access the standard, and do compliance checking, with *R* package `vocal <https://github.com/carob-data/vocal>`__. 
+*Carob* uses the *terminag* controlled vocabulary variable names, their units, and acceptable (ranges of) values. It is defined in a number of tables that are available on the *terminag* `github site <https://github.com/carob-data/terminag>`__. You can also access the standard, and do compliance checking, with *R* package `vocal <https://github.com/carob-data/vocal>`__. 
 
 
 What does good data look like?

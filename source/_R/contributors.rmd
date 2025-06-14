@@ -131,11 +131,11 @@ cartab <- get_tab(d, "carob_contributor")
 autab <- get_authors(d)
 intab <- get_tab(d, "data_organization")
 
-vocal::set_vocabulary("carob-data/terminag")
+vocal::set_vocabulary("github:carob-data/terminag")
 inst <- vocal::accepted_values("organization")
 intab <- merge(intab, inst, by="name", all.x=TRUE)
 #intab$name <- paste0('<a href="https://', intab$URL, '">', intab$name, "</a>")
-intab$name <- paste0('<a href="data/done.html?inst=', intab$name, '">', intab$name, "</a>")
+intab$name <- paste0('<a href="data/done.html?org=', intab$name, '">', intab$name, "</a>")
 
 ```
 
