@@ -2,7 +2,7 @@ Example script
 ==============
 
 
-In *Carob*, we standardize datasets that can be automatically downloaded. Each original dataset gets its own *R* script. In this page we discuss an example script that standardizes the dataset `doi:10.21421/D2/STACVA <https://dataverse.icrisat.org/dataset.xhtml?persistentId=doi:10.21421/D2/STACVA>`__  by Hakeem Ayinde Ajeigbe and colleagues. This particular dataset is published on the `ICRISAT dataverse <https://dataverse.icrisat.org/>`__, which is based on the `Harvard Dataverse <https://dataverse.harvard.edu/>`__. This is the most common platform used for sharing open agricultural research data.  
+In *Carob*, we standardize datasets that can be automatically downloaded. Each original dataset gets its own *R* script. In this page we discuss an example script that standardizes the dataset `doi:10.21421/D2/STACVA <https://dataverse.icrisat.org/dataset.xhtml?persistentId=doi:10.21421/D2/STACVA>`__  by Hakeem Ayinde Ajeigbe and colleagues. This particular dataset is published on the `ICRISAT dataverse <https://dataverse.icrisat.org/>`__, which is on the `Harvard Dataverse <https://dataverse.harvard.edu/>`__. This is the most common platform used for sharing open agricultural research data.  
 
 In this tutorial we use this dataset because its processing is not very complex. The full script is `available here  <https://raw.githubusercontent.com/carob-data/carob/refs/heads/master/scripts/agronomy/doi_10.21421_D2_STACVA.R>`__, please have a look at it now, before we explain it in detail.
 
@@ -88,17 +88,17 @@ The metadata section contains the descriptions of the dataset enriching it with 
 .. code:: r
 
    meta <- carobiner::get_metadata(uri, path, group, major=1, minor=1,
-       publication=NA,
-       carob_contributor="Siyabusa Mkuhlani",
-       carob_date="2022-09-12",
-       data_type="experiment",
-       data_organization="ICRISAT",
-       project=NA,
-       treatment_vars = "plant_density;P_fertilizer",
-       response_vars = "yield",
-	   notes = NA,
-	   design = NA,
-	   completeness=100
+		publication=NA,
+		carob_contributor="Siyabusa Mkuhlani",
+		carob_date="2022-09-12",
+		data_type="experiment",
+		data_organization="ICRISAT",
+		project=NA,
+		treatment_vars = "plant_density;P_fertilizer",
+		response_vars = "yield",
+		notes = NA,
+		design = NA,
+		completion=100
    )
 
 In this particular example, there is no publication linked to the dataset (`publication="NA"`), but it it is important to check if there is one. An associated publication often provides additional data that can be extracted. The metadata variable `completeness=100` indicates that all the relevant variables in the original dataset have been processed.

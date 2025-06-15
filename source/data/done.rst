@@ -1,7 +1,7 @@
 :orphan:
 
-Done
-====
+Explore and filter
+==================
 
 .. raw:: html
 
