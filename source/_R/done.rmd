@@ -55,7 +55,8 @@ v <- v[!(v$name %in% c("Harvard Dataverse", "Dryad", "Zenodo")),]
 
 js <- jsonlite::toJSON(v, dataframe="columns")
 rmd <- readLines("../data/done.rst")
-rmd <- gsub("__org_json__" , js, rmd)
+i <- grep("\t\tvar organizations = ", rmd)
+rmd[i] <- paste0("\t\tvar organizations = ", js)
 writeLines(rmd, "../data/done.rst")
 
 ```
