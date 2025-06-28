@@ -59,7 +59,9 @@ get_authors <- function(d) {
 	p$p <- gsub(",  ", ", ", p$p)
 	p$p[grep("applicable", p$p, TRUE)] <- ""
 	p$p <- gsub("Andrew J. McDonald", "McDonald, Andrew", p$p) 
-	p$p <- gsub("Sherpa R. Sonam", "Sherpa, Sonam", p$p) 
+	p$p <- gsub("Sherpa R. Sonam", "Sherpa, Sonam R.", p$p) 
+	p$p <- gsub("Sherpa, Sonam Rinchen", "Sherpa, Sonam R.", p$p) 
+	p$p <- gsub("Sherpa, Sonam$", "Sherpa, Sonam R.", p$p) 
 	p$p <- gsub("Abubakar H.Inuwa", "Abubakar H. Inuwa", p$p) 
 	p$p[grepl("Wortmann", p$p)] <- "Wortmann, Charles S."
 	p$p <- gsub("Wiredu Alexanda Nimo", "Wiredu, Alexanda Nimo", p$p) 
@@ -67,7 +69,7 @@ get_authors <- function(d) {
 	p$p <- gsub("Dorado, Hugo A.", "Dorado Betancourt, Hugo A.", p$p) 
 	p$p <- gsub("Eyzaguire, Raul", "Eyzaguirre, Raul", p$p) 
 	p$p <- gsub("Dicko, M. K.|Dicko, Mohamed", "Dicko, Mohammed K.", p$p) 
-	p$p <- gsub("Joon, Rajeev", "Joon, K Rajeev", p$p) 
+	p$p <- gsub("Joon, Rajeev", "Joon, K. Rajeev", p$p) 
 	p$p <- gsub("Lilongwe University of Agriculture & Natural Resources (LUANAR)", "Lilongwe University of Agriculture & Natural Resources", p$p) 
 	p$p <- gsub("Nabahungu, L$|Nabahungu, Leon N.", "Nabahungu, Léon N.", p$p) 
 	p$p <- gsub("Nkonde, D.$", "Nkonde, Davy", p$p) 
@@ -116,7 +118,7 @@ get_authors <- function(d) {
 	p$p <- gsub("S.Manohar, Surendra", "Surendra, S. Manohar", p$p) 
 	p$p <- gsub("V, Murali T", "Murali, T.V.", p$p) 
 	p$p <- gsub("V, Reddy S", "Reddy, S.V.", p$p) 
-
+	p$p <- gsub("Tijanni, K.", "Tijjani Aliyu, Kamal", p$p) 
 
 	p$p <- gsub("Pundir, Ajay$", "Pundir, Ajay Kumar", p$p) 
 	

@@ -36,6 +36,7 @@ A number of variables should *always* be included for most agricultural data to 
 - irrigated
 - yield_fresh
 - yield_dry
+- soil properties (including %sand, %silt, %load, SOC, pH, plant available N, P, K)
 
 
 Most of these variables may be consant in an experiment, but they still need to be provided as part of the main data table, or as a separate table.

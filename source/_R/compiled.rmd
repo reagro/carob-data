@@ -63,8 +63,6 @@ geo <- na.omit(geo)
 
 ```
 
-**NOTE: The data download will not work between June 16 and June 20. Sorry for the inconvenience.**
-
 From this page you can download the compiled data with a Creative Commons [license](licenses.html). You can create the full datasets yourself by following these [instructions](../compile.html). 
 
 Please note that the data available here are new. They represent our first attempt to standardize widely variable data with lots of data quality issues. The data still contains errors from the original data that remain, and likely also errors that we have introduced. 
@@ -89,7 +87,7 @@ halo(-12000000, -6500000, paste("Carob locations\n  ", cdate), xpd=TRUE, cex=.6)
 
 <br>
 
-For ease of organziation we divide the data into thematic groups. These are not mutually exclusive. For example, the first place to look for crop response to fertilizer data would be in the "agronomy" group. However, the "survey", and "*_varieties" groups may also contain fertilizer application data. Likewise, the "varieties*" data are about comparing crop varieties, but variety names are also reported in the "agronomy" group. This means that you may want to consider using data from multiple groups. 
+For ease of organziation we divide the data into thematic groups. These are not mutually exclusive. For example, the first place to look for crop response to fertilizer data would be in the "agronomy" group. However, the "survey", and "varieties" groups may also contain fertilizer application data. Likewise, the "varieties" group has data for comparing crop varieties, but variety names are also reported in the "agronomy" group. This means that you may want to consider using data from multiple groups. 
 
 The table below shows the current groups and the number of original datasets and records in each group. We also show these numbers for the datasets that have a Creative Commons (CC) [license](licenses.html). 
 
