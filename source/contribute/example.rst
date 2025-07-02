@@ -10,7 +10,7 @@ When you write your own script, you can start from the script `template <https:/
 that is included in the ``scripts`` folder of the Carob repo.
 
 If these are not your own data, it is of fundamental importance to first familiarize yourself with the goals of the research that created the dataset. Carefully read the "Description" section, and the metadata (Dataverse repositories include a convenient `Metadata
-tab <https://dataverse.icrisat.org/dataset.xhtml?persistentId=doi:10.21421/D2/STACVA#datasetForm:tabView:metadataMapTab>`__ Also check the number of files and file types so that you know what to expect.
+tab <https://dataverse.icrisat.org/dataset.xhtml?persistentId=doi:10.21421/D2/STACVA#datasetForm:tabView:metadataMapTab>`__). Also check the number of files and file types so that you know what to expect.
 
 Each script should start with these two (commented with `#`) lines. The first one to clearly identify the purpose of the script and to specify the license saying that others can use and adapt the script for their own purposes as long as they share their work under the same license. 
 

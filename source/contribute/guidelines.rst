@@ -9,15 +9,15 @@ Before you start
 	<!--- <style>	li { margin-bottom: 1rem; } </style> --->
 
 	<ul>
-	<li>Anyone is welcome to contribute to *Carob*. It is not easy to standardize research data. Please try your best to follow the guidelines provided here. But we won’t get angry if you make mistakes — as long as you are willing to learn from them.</li></br>
+	<li>Anyone is welcome to contribute to <em>Carob</em>. It is not easy to standardize research data. Please try your best to follow the guidelines provided here. But we won’t get angry if you make mistakes — as long as you are willing to learn from them.</li></br>
 
 	<li>When looking at a dataset you want to process, first carefully read the description provided. If there is a related publication, read the abstract and scan the Methods and Results section. The Methods section often provides data for (constant) management variables that are not treatments. For example, if all treatments received the same amount of fertilizer, these numbers are frequently omitted from the dataset.</li></br>
 
 	<li>Consider what the data are about. With experimental data ask: “what are the treatments”, “how are they captured”, “what are the important response variables”? All treatments (factors) must be included as one or more standard variables. There is a variable called “treatment” that may have a combination of treatments (e.g., “NP”, “PK”, but they must also be specified in separate variables such as “N_fertilizer” and “P_fertilizer”. This seems obvious, but in many datasets the treatments are not explicitly provided as variables, and you may need to do some work. For example you may need to translate a treatment code into multiple variables.</li></br>
 
-	<li>To contribute to *Carob* you need to install the “carobiner” R package. You can do that with <code>remotes::install_github("carob-data/carobiner")</code>. Update the package regularly. The package contains some helper functions and functions that check for compliance with the standard.</li></br>
+	<li>To contribute to *Carob* you need to install the “carobiner” R package. You can do that with <code>remotes::install_github("carob-data/carobiner")</code>. Update the package regularly. The package contains helper functions for data processing, and functions that check for compliance with the standard.</li></br>
 
-	<li>Carob scripts are normally contributed and/or improved via a github pull request (PR). Before creating a pull request, make sure that your fork is synced, and that there are no conflicts. We strongly prefer PRs for a single file at a time.</li>
+	<li><em>Carob</em> scripts are normally contributed and/or improved via a github pull request (PR). Before creating a pull request, make sure that your fork is synced, and that there are no conflicts. We strongly prefer PRs for a single file at a time.</li>
 	</ul>
 
 
@@ -51,7 +51,7 @@ Standardization
 	</li></br>
 	<li>The aim is to standardize all relevant variables in the original data. We generally omit variables that are measured in the field to compute a variable of interest, but are not of much interest themselves. For example, we include yield (kg/ha), but not the mass of a sample that was taken to estimate it.</li></br>
 
-	<li>We use the `terminag <https://github.com/carob-data/terminag>`__ standard. If you think that there are terms (concepts) that are missing in this standard, just add the new terms that you propose to your script and ignore the warning messages. An editor will look at your pull-request (PR) and decide whether the standard needs to be expanded or changed.</li></br>
+	<li>We use the `terminag <https://github.com/carob-data/terminag>`__ standard. If you think that there are terms (concepts) or accepted values that are missing in this standard, just add/keep these in your script and ignore the warning messages. An editor will look at your pull-request (PR) and decide whether the standard needs to be expanded or changed.</li></br>
 
 	<li>It is expected that there is variation between data sets; they do not all have the same variables. But all records should have common variables such as country, crop, yield, longitude and latitude (even if some of their values are missing (<code>NA</code>))</li></br>
 
@@ -78,11 +78,11 @@ R coding style
 
 	<ul>
 	</li></br>
-	<li>We rely as much as we can on base R to keep code simple and dependencies low.</li></br>
+	<li>We rely as much as we can on base <em>R</em> to keep code simple and dependencies low.</li></br>
 
-	<li>While we may use some functions from e.g. <code>dplyr</code> and <code>stringr</code>, we otherwise avoid the tidyverse dialect.</li></br>
+	<li>While we may use some functions from <em>R</em> packages <code>dplyr</code> and <code>stringr</code>, we otherwise avoid the "tidyverse" dialect.</li></br>
 
-	<li>To make it easy to read and debug code, avoid or sparingly use <code>|></code>. Never use more than 2 in one statement.</li></br>
+	<li>To make it easy to read and debug a script, avoid or sparingly use <code>|></code>. Never use more than 2 in one statement.</li></br>
 
 	<li>Avoid nesting function calls. Do not nest more than 2 function calls. For example, instead of nested <code>ifelse</code> calls, use <code>%in%</code>, <code>match</code> or <code>merge</code>.</li></br>
 
