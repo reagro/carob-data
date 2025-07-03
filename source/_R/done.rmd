@@ -51,7 +51,8 @@ writeLines(js, "../_static/providers.json")
 
 vocal::set_vocabulary("github:carob-data/terminag")
 v <- vocal::accepted_values("organization")
-v <- v[!(v$name %in% c("Harvard Dataverse", "Dryad", "Zenodo")),]
+un <- unique(trimws(unlist(strsplit(unique(x$data_organization), ";"))))
+v <- v[v$name %in% un, ]
 
 js <- jsonlite::toJSON(v, dataframe="columns")
 rmd <- readLines("../data/done.rst")

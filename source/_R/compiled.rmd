@@ -63,10 +63,6 @@ geo <- na.omit(geo)
 
 ```
 
-From this page you can download the compiled data with a Creative Commons [license](licenses.html). You can create the full datasets yourself by following these [instructions](../compile.html). 
-
-Please note that the data available here are new. They represent our first attempt to standardize widely variable data with lots of data quality issues. The data still contains errors from the original data that remain, and likely also errors that we have introduced. 
-
 As of `r  cdate`, we have processed `r sum(x$Datasets)` original [data sets](done.html) containing a total of `r format(sum(x$Records), big.mark=",")` records. The map below shows all locations for which we have at least one observation.
 
 ```{r map, echo=FALSE, fig.height=3.5}
@@ -99,5 +95,11 @@ kable(x, "html", escape = FALSE) |> kable_classic(full_width = FALSE) |>
   kable_styling(bootstrap_options = c("striped", "hover")) 
 ```
 </br>
-Below, you can download the compiled standardized data by group. If you want all data, select "everything". If you want data for a single data set, you can find these [here](done.html). Please note that for most survey data, we have currently only partially processed the data, and the original data sources may contains many more variables.
+
+Below, you can download the compiled standardized data that come with a Creative Commons [license](licenses.html). You can create the full datasets yourself by following these [instructions](../compile.html). 
+
+You can download data by group, or, if you want all available data, select "everything". If you want data for a single data set, you can find these [here](done.html). You can use *R* package [caramba](https://github.com/carob-data/caramba) to integrate the data download into an *R* workflow. 
+
+Please note that for most survey data, we have currently only partially processed the data, and the original data sources may contains many more variables. The data available here are our first attempt to standardize widely variable data with lots of data quality issues. The data still contain errors from the original data that remain, and likely also errors that we have introduced. 
+
 </br>
