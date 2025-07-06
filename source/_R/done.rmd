@@ -54,6 +54,7 @@ v <- vocal::accepted_values("organization")
 un <- unique(trimws(unlist(strsplit(unique(x$data_organization), ";"))))
 v <- v[v$name %in% un, ]
 
+
 js <- jsonlite::toJSON(v, dataframe="columns")
 rmd <- readLines("../data/done.rst")
 i <- grep("\t\tvar organizations = ", rmd)
