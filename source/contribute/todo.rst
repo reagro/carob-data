@@ -6,7 +6,7 @@ To-do list
    </div>
    <div style="visibility: visible;">
 
-Below is our to-do list. You can discover other data sets with the `Gardian <https://gardian.bigdata.cgiar.org>`_ search engine; but do look at
+Below is our to-do list. You can discover other data sets with the `Gardian <https://gardian.cgiar.org>`_ search engine; but do look at
 You can check our `done list <../data/done.html>`_ to make sure you do not work on a dataset that has already been processed. Since there can be a delay in updating what is shown here, before you start working on a dataset, you should check with ``carobiner::on_github`` if it has already been done (and has been added to the github repo). 
 
 .. raw:: html
