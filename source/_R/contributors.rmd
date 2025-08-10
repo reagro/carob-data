@@ -127,8 +127,11 @@ get_authors <- function(d) {
 	p$p <- gsub("Sudini, H$", "Sudini, H.", p$p) 
 	p$p <- gsub("Dobermann, A. R.", "Dobermann, Achim", p$p) 
 	p$p <- gsub("Dorado Betancourt, Hugo A.|Dorado, Hugo Andres", "Dorado Betancourt, Hugo A.", p$p) 
-
+	p$p <- gsub("Dorado Betancourt, Hugo A.|Dorado, Hugo Andres", "Dorado Betancourt, Hugo A.", p$p) 
+	p$p <- gsub("Shapiro, C. A.|Shapiro, Charles", "Shapiro, Charles A.", p$p)
+	p$p <- gsub("Kaizzi, Kayuki$", "Kaizzi, Kayuki C.", p$p)
  
+	
 	tab <- as.data.frame(table(p$p))
 	colnames(tab) <- c("name", "datasets")
 	tab$alpha <- toupper(substr(tab$name, 1, 1))
@@ -150,6 +153,8 @@ intab$name <- paste0('<a href="data/done.html?org=', intab$name, '">', intab$nam
 
 ### Script authors
 
+The *Carob* scripts were written by the following `r nrow(cartab)` persons:
+
 ```{r catable, echo=FALSE}
 cartab[,2][cartab[,2] > 250] <- "250+"
 out = paste0(paste0(cartab[,1], " (", cartab[,2], ")"), collapse="; ")
@@ -158,7 +163,9 @@ out = paste0(paste0(cartab[,1], " (", cartab[,2], ")"), collapse="; ")
 ```
 `r out`
 
-### Institutes of dataset authors
+### Data organizations
+
+`r nrow(intab)` organizations contributed to the *Carob* data:
 
 ```{r instable, echo=FALSE}
 out = paste0(paste0(intab[,1], " (", intab[,2], ")"), collapse="; ")
@@ -168,6 +175,9 @@ out = paste0(paste0(intab[,1], " (", intab[,2], ")"), collapse="; ")
 `r out`
 
 ### Dataset authors
+
+`r nrow(autab)` persons contributed to the *Carob* data:
+
 
 ```{r autable, echo=FALSE}
 out <- NULL
