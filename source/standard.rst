@@ -9,7 +9,7 @@ Adhering to a **data standard** can greatly facilitate data quality and the effi
 What does good data look like?
 ------------------------------
 
-*Carob* is about fixing existing data so that it can be used. This is can be a very difficult process, and sometimes it simply cannot be done. We hope that over time, this problem will go away as raw data will become more standardized. Here are some (brief, preliminary) guidelines for creating usable datasets.
+*Carob* is about fixing existing data so that it can be used. This can be very difficult, and sometimes it simply cannot be done. We hope that over time, this problem will go away as raw data will become more standardized. Here are some (brief, preliminary) guidelines for creating usable datasets.
 
 Use either multiple `.csv` files or a single `excel` file. Avoid other file formats that are specific to particular software (e.g. Stata or *R*). Each table (csv file or excel sheet) should be a simple rectangle where each column is a single variable, and each row an observation (case), and each cell a single measurement or treatment (see Wickham's description of `"tidy data" <https://vita.had.co.nz/papers/tidy-data.pdf>`__ .  
 
