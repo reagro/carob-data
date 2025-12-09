@@ -5,6 +5,7 @@ editor_options:
   chunk_output_type: console
 ---
 
+
 ```{r setup, include=FALSE}
 carob_path = "../../../carob/"
 
@@ -44,12 +45,13 @@ x$dataset <- ifelse(i, paste0(x$dataset, ' <a href="', rep, '">Report</a>'), x$d
 #x$dataset <- paste0(x$dataset, dwnl)
 
 
-z <- x[, c("data_organization", "dataset", "crops", "countries")]
+z <- x[, c("data_organization", "dataset", "crops", "countries", "project")]
 z$crops[is.na(z$crops)] <- ""
+z$project[is.na(z$project)] <- ""
 js <- jsonlite::toJSON(list(data=z))
 writeLines(js, "../_static/providers.json")
 
-vocal::set_vocabulary("github:carob-data/terminag")
+vocal::set_vocabulary("github:controvoc/terminag")
 v <- vocal::accepted_values("organization")
 un <- unique(trimws(unlist(strsplit(unique(x$data_organization), ";"))))
 v <- v[v$name %in% un, ]
