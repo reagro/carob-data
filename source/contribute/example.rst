@@ -4,9 +4,10 @@ Example script
 
 In *Carob*, we standardize datasets that can be automatically downloaded. Each original dataset gets its own *R* script. In this page we discuss an example script that standardizes the dataset `doi:10.21421/D2/STACVA <https://dataverse.icrisat.org/dataset.xhtml?persistentId=doi:10.21421/D2/STACVA>`__  by Hakeem Ayinde Ajeigbe and colleagues. This particular dataset is published on the `ICRISAT dataverse <https://dataverse.icrisat.org/>`__, which is on the `Harvard Dataverse <https://dataverse.harvard.edu/>`__. This is the most common platform used for sharing open agricultural research data.  
 
-In this tutorial we use this dataset because its processing is not very complex. The full script is `available here  <https://raw.githubusercontent.com/carob-data/carob/refs/heads/master/scripts/agronomy/doi_10.21421_D2_STACVA.R>`__, please have a look at it now, before we explain it in detail.
+In this tutorial we use this dataset because its processing is not very complex. The full script is `available here  <https://github.com/carob-data/carob/blob/main/scripts/agronomy/doi_10.21421_D2_STACVA.R>`__, please have a look at it now, before we explain it in detail.
 
-When you write your own script, you can start from the script `template <https://github.com/carob-data/carob/blob/master/scripts/_template.R>`__
+
+When you write your own script, you can start from the script `template <https://github.com/carob-data/carob/blob/main/scripts/_template.R>`__
 that is included in the ``scripts`` folder of the Carob repo.
 
 If these are not your own data, it is of fundamental importance to first familiarize yourself with the goals of the research that created the dataset. Carefully read the "Description" section, and the metadata (Dataverse repositories include a convenient `Metadata
