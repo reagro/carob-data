@@ -5,10 +5,10 @@ editor_options:
   chunk_output_type: inline
 ---
 
+
 ```{r setup, include=FALSE}
 carob_path = "../../../carob/"
 ```
-
 
 </br>
 
