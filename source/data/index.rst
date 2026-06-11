@@ -82,7 +82,7 @@ Data
 				id.setAttribute("hidden", "hidden");
 				//if (document.getElementById('cclicense').checked) {
 				//}
-				name = name.concat("-CC");
+				name = name.concat("_latest-CC");
 				var linktxt = 'Download: <a href="https://geodata.ucdavis.edu/carob/carob_';
 				if (document.getElementById("format_csv").checked) {
 					linktxt = linktxt.concat(name.toLowerCase()).concat('.zip">');

@@ -86,13 +86,23 @@ get_authors <- function(d) {
 	p$p <- gsub("Tor Gunnar", "Tor-Gunnar", p$p) 
 	p$p <- gsub("Winowiecki, Leigh$", "Winowiecki, Leigh Ann", p$p) 
 	p$p <- gsub("Balemi, T$", "Balemi, Tesfaye", p$p)
- 		
+	p$p <- gsub("ATEKU", "Ateku", p$p)
+	p$p <- gsub("BAUDRON|BAUDRO", "Baudron", p$p)
+	p$p <- gsub("CHAMBERLIN", "Chamberlin", p$p)
+	p$p <- gsub("GAMEDA", "Gameda", p$p)
+	p$p <- gsub("GEBREKIDAN", "Gebrekidan", p$p)
+	p$p <- gsub("WEULLOW", "Weullow", p$p)
+	p$p <- gsub("SILVA", "Silva", p$p)
+	p$p <- gsub("SIDA", "Sida", p$p)
+	p$p <- gsub("DESALEGN", "Desalegn", p$p)
+	
+		
 	p$p <- gsub("Cyamweshi, A. R.", "Cyamweshi, Athanase R.", p$p)
 	p$p <- gsub("))", ")", p$p)
 	p$p[p$p == "World Agroforestry (ICRAF)"] <- "World Agroforestry Center (ICRAF)"
 	p$p <- gsub("Zambian Agriculture Research Institute", "Zambia Agricultural Research Institute", p$p)
 		
-	p <- p[!grepl("ABC|CIAT|ILRI|IFPRI|IRRI|IWMI|CIMMYT|ICRISAT|IITA|ICRAF|ISRIC|LUANAR|TARI|University of California|MSU|Ministry of Food and Agriculture (MOFA), Republic of Ghana|SARI|ZARI|CRS|TLC", p$p), ]
+	p <- p[!grepl("ABC|International Center|Alliance of Bioversity|CIAT|Institut|ILRI|IFPRI|IRRI|IWMI|CIMMYT|ICRISAT|IITA|ICRAF|ISRIC|LUANAR|TARI|University of California|MSU|Ministry of Food and Agriculture (MOFA), Republic of Ghana|SARI|Sokoine University|ZARI|CRS|TLC|Wageningen", p$p), ]
 	p$p <- gsub("  ", " ", p$p)
 	p$p <- trimws(p$p)
 	p <- p[p$p !="", ]
@@ -130,11 +140,15 @@ get_authors <- function(d) {
 	p$p <- gsub("Dorado Betancourt, Hugo A.|Dorado, Hugo Andres", "Dorado Betancourt, Hugo A.", p$p) 
 	p$p <- gsub("Shapiro, C. A.|Shapiro, Charles", "Shapiro, Charles A.", p$p)
 	p$p <- gsub("Kaizzi, Kayuki$", "Kaizzi, Kayuki C.", p$p)
- 
-	
+	p$p <- gsub("Valentine KARARI", "Karari, Valentine", p$p)
+	p$p <- gsub("Vagen, Tor-Gunnar", "Vågen, Tor-Gunnar", p$p)
+	p$p <- gsub("Joao Vasco", "João Vasco", p$p)
+	p$p <- gsub("Jo˜ao Vasco", "João Vasco", p$p) # odd case but needed
+
 	tab <- as.data.frame(table(p$p))
 	colnames(tab) <- c("name", "datasets")
 	tab$alpha <- toupper(substr(tab$name, 1, 1))
+	tab$alpha[tab$alpha=="Ö"] <- "O"
 	tab
 }
 
