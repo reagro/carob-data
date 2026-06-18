@@ -11,11 +11,14 @@ Before you start
 	<ul>
 	<li>Anyone is welcome to contribute to <em>Carob</em>. It is not easy to standardize research data. Please try your best to follow the guidelines provided here. But we won’t get angry if you make mistakes — as long as you are willing to learn from them.</li></br>
 
-	<li>When looking at a dataset you want to process, first carefully read the description provided. If there is a related publication, read the abstract and scan the Methods and Results section. The Methods section often provides data for (constant) management variables that are not treatments. For example, if all treatments received the same amount of fertilizer, these numbers are frequently omitted from the dataset.</li></br>
+	<li>When looking at a dataset you want to process, first carefully read the description provided. If there is a related publication, read the abstract and scan the Methods section. The Methods section often provides data for (constant) management variables that are not treatments. For example, if all treatments received the same amount of fertilizer, these numbers are frequently omitted from the dataset.</li></br>
 
 	<li>Consider what the data are about. With experimental data ask: “what are the treatments”, “how are they captured”, “what are the important response variables”? All treatments (factors) must be included as one or more standard variables. There is a variable called “treatment” that may have a combination of treatments (e.g., “NP”, “PK”, but they must also be specified in separate variables such as “N_fertilizer” and “P_fertilizer”. This seems obvious, but in many datasets the treatments are not explicitly provided as variables, and you may need to do some work. For example you may need to translate a treatment code into multiple variables.</li></br>
 
-	<li>To contribute to *Carob* you need to install the “carobiner” R package. You can do that with <code>remotes::install_github("carob-data/carobiner")</code>. Update the package regularly. The package contains helper functions for data processing, and functions that check for compliance with the standard.</li></br>
+	<li>To contribute to *Carob* you need to clone the carob git repo and install the “carobiner” R package. You can do that with <code>remotes::install_github("carob-data/carobiner")</code>. The package contains helper functions for data processing, and functions that check for compliance with the standard.</li></br>. It depends on two other packages, <em>yuri</em> and <em>vocal</em> that will be automatically installed as well (or else you will be prompted to do so). 
+
+	<li>When writing a new script, start by running the carobiner::draft` function for your dataset of interest. 
+	</ul>
 
 	<li><em>Carob</em> scripts are normally contributed and/or improved via a github pull request (PR). Before creating a pull request, make sure that your fork is synced, and that there are no conflicts. We strongly prefer PRs for a single file at a time.</li>
 	</ul>
@@ -28,13 +31,13 @@ Scripts
 
 	<ul>
 	</li></br>
-	<li>Carob scripts download and re-organize the data, to make them compliant with the standard, and save the standardized data and relevant metadata on disk. See <a href="https://github.com/carob-data/carob/blob/main/scripts/_template.R">template.R</a> in the *scripts* folder for the general structure of such a script.</li></br>
+	<li>Carob scripts download and re-organize data to make them standard compliant, and they save the standardized data and relevant metadata on disk. See <a href="https://github.com/carob-data/carob/blob/main/scripts/_template.R">template.R</a> in the *scripts* folder for the general structure of such a script.</li></br>
 
-	<li>All original data should be downloaded from a URI (uniform resource identifier) such as a DOI or HDL. For example <code>"doi:10.7910/DVN/UNLRGC"</code> is a valid URI. It is important to use this specific notation, do *not* use a http address such as </code>https://doi.org/10.7910/DVN/UNLRGC</code>. Data that does not have a URI but does have a URL (Internet address) can also be used. Data that can not be downloaded from the Internet should be hosted somewhere. We can host it on the `carob dataverse <https://dataverse.harvard.edu/dataverse/carob/>`__. We can make exceptions for especially valuable datasets that cannot be (easily) downloaded directly.</li></br>
+	<li>All original data should be downloaded from a URI (uniform resource identifier) such as a DOI or HDL. For example <code>"doi:10.7910/DVN/UNLRGC"</code> is a valid URI. It is important to use this specific notation, do *not* use a http address such as </code>https://doi.org/10.7910/DVN/UNLRGC</code>. Data that does not have a URI but does have a URL (Internet address) can also be used. Data that can not be downloaded from the Internet should be hosted somewhere. We can host it on the <a href="https://dataverse.harvard.edu/dataverse/carob/">carob dataverse</a>. We can make exceptions for especially valuable datasets that cannot be (easily) downloaded directly.</li></br>
 
 	<li>Each original dataset gets its own script. The script file should be <code><nuri>.R</code> where <</code>nuri</code>> is a normalized URI. That is, a URI without a colon or slashes. You can create these with <code>carobiner::simple_uri</code>. For example, <code>carobiner::simple_uri("doi:10.7910/DVN/UNLRGC")</code> returns <code>"doi_10.7910_DVN_UNLRGC"</code> and filename for the script should be <code>"doi_10.7910_DVN_UNLRGC.R"</code></li></br>
 
-	<li>Scripts and data are grouped by domain. These groups include “fertilizer”, “crop_cuts”, “maize_trials”, “rice_trials” and “wheat_trials”, “survey” and “conservation_agriculture”. There are additional requirements/checks for different groups. For example, the records in the “fertilizer” groups must have the variables that specify fertilizer application rates. Group membership can be somewhat arbitrary as they are partly overlapping. That is not a problem as the aggregated data may include records from multiple groups.</li></br>
+	<li>Scripts and data are grouped by domain. These groups are “agronomy”, “survey”, “soil_samples“ and “varieties_*”. Take the one that seems most appropriate. Group membership can be somewhat arbitrary as they are partly overlapping. That is not a problem as the aggregated data may include records from multiple groups.</li></br>
 
 	<li>Test your script. The last line in a script should always be <code>carobiner::write_files</code>. This function checks whether you are using the controlled vocabulary, among other things. Fix any errors or warnings to the extent possible (without guessing things you do not know or suppressing warnings). It is OK to leave some warnings if you believe they cannot be fixed by you (perhaps because the controlled vocabulary needs to be expanded). You can also use <code>carobiner::check_terms</code> to evaluate compliance with the standard.</li></br>
 
@@ -51,13 +54,13 @@ Standardization
 	</li></br>
 	<li>The aim is to standardize all relevant variables in the original data. We generally omit variables that are measured in the field to compute a variable of interest, but are not of much interest themselves. For example, we include yield (kg/ha), but not the mass of a sample that was taken to estimate it.</li></br>
 
-	<li>We use the `terminag <https://controvoc.github.io/terminag/>`__ vocabulary. If you think that there are terms (concepts) or accepted values that are missing in this standard, just add/keep these in your script and ignore the warning messages. An editor will look at your pull-request (PR) and decide whether the standard needs to be expanded or changed.</li></br>
+	<li>We use the <a href="https://controvoc.github.io/terminag/">terminag</a> vocabulary. If you think that there are terms (concepts) or accepted values that are missing in this standard, just add/keep these in your script and ignore the warning messages. An editor will look at your pull-request (PR) and decide whether the standard needs to be expanded or changed.</li></br>
 
 	<li>It is expected that there is variation between data sets; they do not all have the same variables. But all records should have common variables such as country, crop, yield, longitude and latitude (even if some of their values are missing (<code>NA</code>))</li></br>
 
 	<li>Some variables such as <code>country</code>, <code>crop</code>, and <code>fertilizer_type</code> have controlled vocabularies that you need to use (or suggest adding additional terms). If there are multiple values (for example, two crops or fertilizer types), separate these with a semi-colon (<code>;</code>).</li></br>
 
-	<li>Apart from the standard variable names you also need to express all data in standard units. See the `terminag variables <https://controvoc.github.io/terminag/>`__.</li></br>
+	<li>Apart from the standard variable names you also need to express all data in standard units. See the  <a href="https://controvoc.github.io/terminag/">terminag variables</a>.</li></br>
 
 	<li>Check character variables for spelling variations (use <code>unique</code> and <code>table</code>) and standardize. You can use <code>carobiner::fix_name</code> in some cases.</li></br>
 

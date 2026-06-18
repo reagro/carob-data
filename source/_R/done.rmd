@@ -9,7 +9,7 @@ editor_options:
 ```{r setup, include=FALSE}
 carob_path = "../../../carob/"
 
-fdone <- list.files(file.path(carob_path, "data", "compiled"), pattern="_metadata.csv$", full=TRUE)
+fdone <- list.files(file.path(carob_path, "data", "compiled"), pattern="latest_metadata.csv$", full=TRUE)
 fdone <- grep("carob_all", fdone, value=TRUE, invert=TRUE)
 x <- do.call(carobiner::bindr, lapply(fdone, read.csv))
 x <- x[-grep("_nodata$", x$dataset_id), ]
