@@ -144,6 +144,9 @@ get_authors <- function(d) {
 	p$p <- gsub("Vagen, Tor-Gunnar", "Vågen, Tor-Gunnar", p$p)
 	p$p <- gsub("Joao Vasco", "João Vasco", p$p)
 	p$p <- gsub("Jo˜ao Vasco", "João Vasco", p$p) # odd case but needed
+	p$p <- gsub("Kamara, Alpha Y.", "Kamara, Alpha", p$p)
+	p$p <- gsub("KUBOJA, Nicholaus", "Kuboja, Nicholaus", p$p)
+	p$p <- gsub("PITTAKI, Zampela", "Pittaki, Zampela", p$p)
 
 	tab <- as.data.frame(table(p$p))
 	colnames(tab) <- c("name", "datasets")

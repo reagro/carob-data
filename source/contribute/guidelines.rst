@@ -71,6 +71,10 @@ Standardization
 	<li>Store dates as text after first creating dates (<code>as.character(as.Date(x))</code>) so that they are in a standard format. You can also store years (e.g., “2023” or year-months such as “2023-06” if that is all the available information.</li></br>
 
 	<li>All experimental treatment variables need to be included. These variables should also be specified at the dataset level under “treatment_vars”</li>
+	
+	<li>It is very important that locations are correctly georeferenced. You can use Google Maps and other on-line tools for that. Location names are often common, so make sure that you consider all the information you have (location names, admin subdivision) and check geographic outliers. In R, you can inspect the longitude/latitude locations with 
+	<code>terra::plet(terra::vect(d))</code></li>.
+
 	</ul>
 
 
