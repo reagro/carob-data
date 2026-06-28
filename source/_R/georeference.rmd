@@ -5,5 +5,33 @@ editor_options:
   chunk_output_type: inline
 ---
 
-Georeferencing guidelines
+When coordinates are absent or incorrect for a record, we georeference the location based on the most detailed information available. That is, we use the "site" or "location" variables if these are available. Location names are often not unique in a country. For example there are more than 100 places called "San Juan" in Mexico or "Rampur" in India. When georeferencing locations, it is therfore very important to consider the administrative subdivsion that they are reported to be in. It is also important to consider the context of the other locations in a data set; locations are typically clustered in a single region; although it is *possible*, it is *unlikely* to have a cluster of sites in one part of the country and another site at the other end of the country.  
+
+For a background on georeferencing approaches in the biological sciences see this [best practises document](https://docs.gbif.org/georeferencing-best-practices/1.0/en/).
+
+In Carob, we use the ["point-radius" georeferencing method](https://doi.org/10.1080/13658810412331280211). We determine the geographic center of the area described, and express our uncertainty as radius. The radius must be large enough so that a circle centered on the geographic center encompasses all places where the observation may have been made. In most cases, this will also  circumscribe areas that do not match the locality description. 
+
+The detailed recommended protocols for georeferencing using the point-radius method are given in the [Georeferencing Quick Reference Guide](https://docs.gbif.org/georeferencing-quick-reference-guide/1.0/en/).
+
+If we only have administrative area data that describe the location, you can use the method below. In this example we are georeferencing "Kiteto" and "Kongwa", two districts (adm2) in Tanzania. 
+
+```{r adm}
+## get the coordinates and uncertainty for adm2 boundaries for Tanzania
+xy <- carobiner::adm_pointRadius("Tanzania", 2)
+head(xy)
+
+## subset to the names of interest. In practise, the names may not perfectly match, so this may take some more effort
+s <- xy[xy$adm2 %in% c("Kiteto", "Kongwa"), ]
+s
+
+## use carobiner::dfput (here leaving out the country name)
+carobiner::dfput(s, name="geo", drop="country")
+```
+
+Check the georeferences with `terra::plet` (especially important when combining existing and new georeferences).
+
+```{r plet}
+v <- terra::vect(s, crs="lonlat")
+terra::plet(v, cex=4, col="red")
+```
 

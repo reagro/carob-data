@@ -34,5 +34,6 @@ You can discover new data sets with the `Gardian <https://gardian.cgiar.org>`_ s
 	git
 	example
 	guidelines
+	georeference
 	todo
 	issues
