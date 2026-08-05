@@ -26,7 +26,7 @@ ff <- ff[order(sff)]
 f <- grep(ff, pattern="_metadata.csv$", value=TRUE)
 
 groups <- gsub("_metadata.csv$", "", basename(f))
-groups <- gsub("^carob_", "", groups)
+groups <- gsub("^carob_|_latest$", "", groups)
 readcsv <- \(fn) {
 	csv <- data.table::fread(fn, sep=",", showProgress=FALSE)
 	csv[!grepl("_nodata$", csv$dataset_id), ]
@@ -46,7 +46,7 @@ nr1 <- sapply(dd, nrow)
 ddcc <- lapply(fcc, readcsv)
 nr2 <- sapply(ddcc, nrow)
 grp2 <- gsub("-cc.csv$", "", basename(fcc))
-grp2 <- gsub("^carob_", "", grp2)
+grp2 <- gsub("^carob_|_latest$", "", grp2)
 
 d <- data.frame(Group=grp2, `CC-Records`=nr2, check.names=FALSE)
 
@@ -91,7 +91,10 @@ The table below shows the current groups and the number of original datasets and
 #kableExtra::kbl(x, "html") |> kable_classic(full_width = FALSE) |>
 #   kable_styling(bootstrap_options = c("striped", "hover"))
 
-kable(x, "html", escape = FALSE) |> kable_classic(full_width = FALSE) |>
+x$Records <- format(x$Records, big.mark = " ")
+x$`CC-Records` <- format(x$`CC-Records`, big.mark = " ")
+
+kable(x, "html", escape=FALSE, align = "lrrrr") |> kable_classic(full_width = FALSE) |>
   kable_styling(bootstrap_options = c("striped", "hover")) 
 ```
 </br>

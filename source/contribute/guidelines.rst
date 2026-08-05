@@ -15,12 +15,13 @@ Before you start
 
 	<li>Consider what the data are about. With experimental data ask: “what are the treatments”, “how are they captured”, “what are the important response variables”? All treatments (factors) must be included as one or more standard variables. There is a variable called “treatment” that may have a combination of treatments (e.g., “NP”, “PK”, but they must also be specified in separate variables such as “N_fertilizer” and “P_fertilizer”. This seems obvious, but in many datasets the treatments are not explicitly provided as variables, and you may need to do some work. For example you may need to translate a treatment code into multiple variables.</li></br>
 
-	<li>To contribute to *Carob* you need to clone the carob git repo and install the “carobiner” R package. You can do that with <code>remotes::install_github("carob-data/carobiner")</code>. The package contains helper functions for data processing, and functions that check for compliance with the standard.</li></br>. It depends on two other packages, <em>yuri</em> and <em>vocal</em> that will be automatically installed as well (or else you will be prompted to do so). 
+	<li>To contribute to *Carob* you need to clone the carob git repo and install the “carobiner” R package. You can do that with <code>remotes::install_github("carob-data/carobiner")</code>. The package contains helper functions for data processing, and functions that check for compliance with the standard. It depends on two other packages, <em>yuri</em> and <em>vocal</em> that will be automatically installed as well (or else you will be prompted to do so).</li></br>
 
-	<li>When writing a new script, start by running the carobiner::draft` function for your dataset of interest. 
-	</ul>
+	<li>When writing a new script, start by running the carobiner::draft` function for your dataset of interest.</li></br> 
+	
+	<li>If you are using AI, tell the agent to read [AGENTS.md](https://github.com/carob-data/carob/blob/main/AGENTS.md) (in the root of the repo). AI can be very helpful, but it cuts corners and requires supervision. You need to critically evaluate their work and push them to do better (or fix things yourself)</li></br> 
 
-	<li><em>Carob</em> scripts are normally contributed and/or improved via a github pull request (PR). Before creating a pull request, make sure that your fork is synced, and that there are no conflicts. We strongly prefer PRs for a single file at a time.</li>
+	<li><em>Carob</em> scripts are normally contributed and/or improved via a github pull request (PR). Before creating a pull request, make sure that your fork is synced, and that there are no conflicts. We strongly prefer PRs for a single file at a time.</li></br>
 	</ul>
 
 
