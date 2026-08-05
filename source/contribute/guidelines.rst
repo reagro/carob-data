@@ -88,7 +88,7 @@ R coding style
 	</li></br>
 	<li>We rely as much as we can on base <em>R</em> to keep code simple and dependencies low.</li></br>
 
-	<li>While we may use some functions from <em>R</em> packages <code>dplyr</code> and <code>stringr</code>, we otherwise avoid the "tidyverse" dialect.</li></br>
+	<li>We do *not* use the "tidyverse" dialect.</li></br>
 
 	<li>To make it easy to read and debug a script, avoid or sparingly use <code>|></code>. Never use more than 2 in one statement.</li></br>
 
