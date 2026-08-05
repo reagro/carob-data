@@ -16,8 +16,9 @@ library(kableExtra)
 ```
 
 ```{r groups, echo=FALSE}
-ff <- list.files(data_path, pattern=".csv$", full=TRUE)
-ff <- ff[!grepl("_terms|carob_all", ff)]
+ff <- list.files(data_path, pattern=".*latest.*.csv$", full=TRUE)
+ff <- ff[!grepl("_all|_terms|_long|_warnings", ff)]
+
 f <- grep(ff, pattern="_metadata.csv$", value=TRUE)
 
 groups <- gsub("_metadata.csv$", "", basename(f))
@@ -26,7 +27,6 @@ groups <- gsub("^carob_", "", groups)
 d <- lapply(f, read.csv)
 d <- do.call(carobiner::bindr, d)
 d <- d[-grep("_nodata$", d$dataset_id), ]
-
 
 get_tab <- function(d, var) {
 	n <- d[[var]]

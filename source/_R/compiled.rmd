@@ -64,10 +64,7 @@ carob_path = "../../../carob/"
 data_path = file.path(carob_path, "data/compiled")
 data_path2 = file.path(carob_path, "data")
   
-library(kableExtra)
-library(terra)
-library(geodata)
-library(leaflet)
+#library(kableExtra)
 
 ff <- list.files(data_path, pattern=".*latest.*.csv$", full=TRUE)
 ff <- ff[!grepl("_all|_terms|_long|_warnings", ff)]
@@ -125,19 +122,19 @@ knitr::include_graphics(gif)
 
 
 ```{r map, echo=FALSE, fig.height=3.5, eval=FALSE}
-w <- world(path=".")
-v <- vect(geo, c("longitude", "latitude"), crs="+proj=longlat")
+w <- geodata::world(path=".")
+v <- terra::vect(geo, c("longitude", "latitude"), crs="+proj=longlat")
 
-w <- project(w, "+proj=hatano")
-g <- graticule(60, 30, "+proj=hatano")
-v <- project(v, "+proj=hatano")
+w <- terra::project(w, "+proj=hatano")
+g <- terra::graticule(60, 30, "+proj=hatano")
+v <- terra::project(v, "+proj=hatano")
 
-plot(g, col=gray(.95), background="azure", lwd=1.5, mar=c(.4, .2, 0, 0), lab.cex=.4)
-plot(w, add=TRUE, col="light gray", border="white", lwd=1.5)
-points(v, col="pink", cex=.5)
-points(v, col="red", cex=.25)
-lines(w, col="dark gray", lwd=1)
-halo(-12000000, -6500000, paste("Carob locations\n  ", cdate), xpd=TRUE, cex=.6)
+terra::plot(g, col=gray(.95), background="azure", lwd=1.5, mar=c(.4, .2, 0, 0), lab.cex=.4)
+terra::plot(w, add=TRUE, col="light gray", border="white", lwd=1.5)
+terra::points(v, col="pink", cex=.5)
+terra::points(v, col="red", cex=.25)
+terra::lines(w, col="dark gray", lwd=1)
+terra::halo(-12000000, -6500000, paste("Carob locations\n  ", cdate), xpd=TRUE, cex=.6)
 ``` 
 
 <br>
@@ -153,8 +150,9 @@ The table below shows the current groups and the number of original datasets and
 x$Records <- format(x$Records, big.mark = " ")
 x$`CC-Records` <- format(x$`CC-Records`, big.mark = " ")
 
-kable(x, "html", escape=FALSE, align = "lrrrr") |> kable_classic(full_width = FALSE) |>
-  kable_styling(bootstrap_options = c("striped", "hover")) 
+knitr::kable(x, "html", escape=FALSE, align = "lrrrr") |>
+  kableExtra::kable_classic(full_width = FALSE) |>
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover")) 
 ```
 </br>
 
@@ -162,6 +160,6 @@ Below, you can download the compiled standardized data that come with a Creative
 
 You can download data by group, or, if you want all available data, select "everything". If you want data for a single data set, you can find these [here](done.html). You can use *R* package [caramba](https://github.com/carob-data/caramba) to integrate the data download into an *R* workflow. 
 
-Please note that for most survey data, we have currently only partially processed the data, and the original data sources may contains many more variables. The data available here are our first attempt to standardize widely variable data with lots of data quality issues. The data still contain errors from the original data that remain, and likely also errors that we have introduced. 
+Please note that we have currently only partially processed much of the survey data, and the original data sources may contains many more variables. The data available here are our first attempt to standardize widely variable data with lots of data quality issues. The data still contain errors from the original data that remain, and likely also errors that we have introduced. 
 
 </br>
